@@ -24,7 +24,7 @@ class Card extends React.Component {
         <View
           style={{
             flex: 3
-            }}
+          }}
         >
           <Image
             source={require('../../assets/images/defaultBg.png')}
@@ -50,7 +50,7 @@ class Card extends React.Component {
         <View
           style={{
             flex: 4
-            }}
+          }}
         >
 
           {/* USER INFOS */}
@@ -71,6 +71,29 @@ class Card extends React.Component {
             <Tag competence={'React'} />
             <Tag competence={'React-Native'} />
             <Tag competence={'Node JS'} />
+          </View>
+
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-around'
+            }}
+          >
+            <TouchableOpacity>
+              <Icon
+                style={Global.icons}
+                name={'ios-add-circle-outline'}
+                color={'#9B9B9B'}
+              />
+            </TouchableOpacity>
+
+            <TouchableOpacity>
+              <Icon
+                style={Global.icons}
+                name={'ios-hand-outline'}
+                color={'#9B9B9B'}
+              />
+            </TouchableOpacity>
           </View>
         </View>
 

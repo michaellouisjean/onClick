@@ -13,8 +13,6 @@ const Global = {
   cardContainer: {
     flex: 1,
     flexDirection: 'row',
-    //borderBottomWidth: 0.5,
-    //borderBottomColor: '#999',
     padding: 16,
     marginBottom: 10,
     width: '100%',
@@ -37,6 +35,9 @@ const Global = {
     borderRadius: 4,
     marginLeft: 3,
     marginRight: 3,
+  },
+  icons: {
+    fontSize: 24,
   },
 };
 
