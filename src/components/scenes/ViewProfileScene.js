@@ -5,6 +5,7 @@ import {
   Text,
   ScrollView,
   StyleSheet,
+  InteractionManager,
 } from 'react-native';
 import Map from '../containers/MapContainer';
 //import { BlurView, VibrancyView } from 'react-native-blur';
@@ -66,6 +67,29 @@ const styles = StyleSheet.create({
 
 // create component & render
 class ViewProfileScene extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoaded: false,
+    };
+  }
+
+  componentDidMount() {
+    InteractionManager.runAfterInteractions(() => {
+      this.setState({
+        isLoaded: true,
+      });
+    });
+  }
+
+  renderMap() {
+    if (this.state.isLoaded === false) {
+      return null;
+    }
+    return <Map />;
+  }
+
   render() {
     return (
       <View style={Global.container}>
@@ -121,7 +145,7 @@ class ViewProfileScene extends React.Component {
           {/* MAP */}
           <View style={[styles.section, styles.backgroundEven]}>
             <Text style={styles.titleSection} >We've meet here :</Text>
-            <Map />
+            {this.renderMap()}
           </View>
 
         </ScrollView>

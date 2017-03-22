@@ -8,7 +8,7 @@ import {
 } from 'react-native-router-flux';
 
 // import components
-//import LoginScene from './components/scenes/LoginScene';
+import LoginScene from './components/scenes/LoginScene';
 import HomeScene from './components/scenes/HomeScene';
 import ViewProfileScene from './components/scenes/ViewProfileScene';
 import TchatScene from './components/scenes/TchatScene';
@@ -18,15 +18,16 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-      {/*<Scene
+      <Scene
         key={'login'}
-        title={'Login'}
+        hideNavBar
         component={LoginScene}
-      />*/}
+      />
 
         <Scene
           key={'home'}
           title={'onClick'}
+          hideNavBar={false}
           navigationBarStyle={{
             backgroundColor: 'transparent',
           }}
@@ -35,6 +36,7 @@ class App extends React.Component {
 
         <Scene
           key={'profile'}
+          hideNavBar={false}
           navigationBarStyle={{
             backgroundColor: 'transparent',
           }}
@@ -43,7 +45,8 @@ class App extends React.Component {
 
         <Scene
           key={'tchat'}
-          title={'Tchat with your contact'}
+          title={'Message'}
+          hideNavBar={false}
           direction={'vertical'}
           navigationBarStyle={{
             backgroundColor: '#ffffff'
