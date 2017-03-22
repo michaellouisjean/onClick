@@ -6,13 +6,10 @@ import {
   Text,
   TextInput,
   Image,
-  Button,
   Dimensions,
   TouchableOpacity,
 } from 'react-native';
-import {
-  Actions,
-} from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 
 const PADDING = 20;
 const containerWidth = Dimensions.get('window').width - (PADDING * 2);
@@ -68,8 +65,8 @@ class LoginScene extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     };
 
     this.onChangeEmail = this.onChangeEmail.bind(this);
@@ -99,74 +96,72 @@ class LoginScene extends React.Component {
     return (
       <Image
         source={require('../../assets/images/bg-01.png')}
-        style={styles.background}>
-        <View
-          style={styles.container}>
-          <Text
-            style={styles.h1}>
+        style={styles.background}
+      >
+        <View style={styles.container} >
+          <Text style={styles.h1} >
             Donner un autre sens au travail !
           </Text>
-          <View
-            style={styles.inputsContainer}>
-            <View
-              style={styles.inputContainer}>
-              <TextInput style={styles.input}
+          <View style={styles.inputsContainer} >
+            <View style={styles.inputContainer} >
+              <TextInput
+                style={styles.input}
                 type="email"
                 placeholder="Email"
                 onChangeText={this.onChangeEmail}
-                />
+              />
             </View>
-            <View
-              style={styles.inputContainer}>
-              <TextInput style={styles.input}
+            <View style={styles.inputContainer} >
+              <TextInput
+                style={styles.input}
                 type="password"
                 placeholder="Password"
                 onChangeText={this.onChangePassword}
-                />
+              />
             </View>
           </View>
 
-           <TouchableOpacity
-               onPress={() => console.log('ok')}>
-             <View>
-               <Text style={{
-                  fontSize:20,
-                  color:'#4D6DC3',
+          <TouchableOpacity onPress={() => console.log('ok')} >
+            <View>
+              <Text
+                style={{
+                  fontSize: 20,
+                  color: '#4D6DC3',
                   marginTop: 70,
                   fontWeight: 'bold'
-                }}>
+                }}
+              >
                 LogIn</Text>
-             </View>
-           </TouchableOpacity>
+            </View>
+          </TouchableOpacity>
 
-           <Text
-             style={styles.h2}>
-             Or
+          <Text style={styles.h2} >
+            Or
            </Text>
 
-           <View
-            style={{
-              flex: 1,
-            }}>
+          <View style={{ flex: 1 }} >
             <TouchableOpacity
-                onPress={() => console.log('Hello')}
-                style={{
-                  shadowOpacity: .1,
-                  shadowOffset: {
+              onPress={() => console.log('Hello')}
+              style={{
+                shadowOpacity: 0.1,
+                shadowOffset: {
                   width: 1,
                   height: 3,
-                  },
-                  borderRadius: 20,
-                  marginTop: 25,
-                  justifyContent: 'center',
-                  padding: 10,
-                }}>
-                <Text style={{
-                    fontSize: 20,
-                    color: '#E12773',
-                    fontWeight: 'bold',
-                  }}>
-                  Create an account</Text>
+                },
+                borderRadius: 20,
+                marginTop: 25,
+                justifyContent: 'center',
+                padding: 10,
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 20,
+                  color: '#E12773',
+                  fontWeight: 'bold',
+                }}
+              >
+                Create an account</Text>
             </TouchableOpacity>
           </View>
         </View>
