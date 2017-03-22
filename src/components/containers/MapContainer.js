@@ -1,30 +1,42 @@
 // import library & packages
 import React from 'react';
 import Map from 'react-native-maps';
+import {
+  View
+} from 'react-native';
 
 // create component
 class MapContainer extends React.Component {
   render() {
     return (
-      <Map
-      style={{
-        width: 400,
-        height: 300,
-      }}
-        initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.0120,
-          longitudeDelta: 0.0120,
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+          borderRadius: 4,
         }}
       >
-        <Map.Marker
-          coordinate={{
-            latitude: 37.78825,
-            longitude: -122.4324,
+        <Map
+        style={{
+          width: 329,
+          height: 300,
+        }}
+          initialRegion={{
+            latitude: 48.8564449,
+            longitude: 2.4002913,
+            latitudeDelta: 0.0120,
+            longitudeDelta: 0.0120,
           }}
-        />
-      </Map>
+        >
+          <Map.Marker
+            coordinate={{
+              latitude: 48.8564449,
+              longitude: 2.4002913,
+            }}
+          />
+        </Map>
+      </View>
     );
   }
 }
