@@ -19,16 +19,15 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-      {/*<Scene
+      <Scene
         key={'offer'}
         title={'onClick'}
-        component={OffersScenes} />*/}
-      <Scene
+        component={OffersScenes} />
+      {/*<Scene
         key={'login'}
         hideNavBar
         component={LoginScene}
       />
-
         <Scene
           key={'home'}
           title={'onClick'}
@@ -51,7 +50,7 @@ class App extends React.Component {
           direction={'vertical'}
           navigationBarStyle={{ backgroundColor: '#ffffff' }}
           component={TchatScene}
-        />
+        />*/}
       </Router>
     );
   }
