@@ -1,8 +1,6 @@
 // import library & package
 import React from 'react';
 import {
-  View,
-  Text,
 } from 'react-native';
 import {
   Router,
@@ -10,7 +8,7 @@ import {
 } from 'react-native-router-flux';
 
 // import components
-import LoginScene from './components/scenes/LoginScene';
+//import LoginScene from './components/scenes/LoginScene';
 import HomeScene from './components/scenes/HomeScene';
 import ViewProfileScene from './components/scenes/ViewProfileScene';
 

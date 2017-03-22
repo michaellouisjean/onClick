@@ -5,8 +5,6 @@ import {
   View
 } from 'react-native';
 
-
-
 // create component
 class MapContainer extends React.Component {
   render() {

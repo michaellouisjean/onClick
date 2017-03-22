@@ -4,9 +4,11 @@ import {
   View,
   Text,
   Image,
-  Dimensions,
+  //Dimensions,
   StyleSheet,
+  TouchableOpacity,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 // import components
 import Global from '../core/Global';
@@ -60,6 +62,9 @@ const styles = StyleSheet.create({
     borderWidth: 4,
     borderColor: '#ffffff',
   },
+  largeIcon: {
+    fontSize: 32,
+  }
 });
 
 //const FULLWIDTH = Dimensions.get('window').width;
@@ -95,7 +100,36 @@ class ProfileHeader extends React.Component {
                 source={require('../../assets/images/profile.jpeg')}
                 style={styles.image}
               />
-              <Text style={[{ textAlign: 'center' }, styles.textName]}>John Doe</Text>
+  
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                }}
+              >
+
+                <TouchableOpacity
+                  onPress={() => console.log('#ProfileHeader => star')}
+                >
+                  <Icon
+                    style={[styles.largeIcon, { marginRight: 60 }]}
+                    name={'ios-star-outline'}
+                    color={Global.colors.primary}
+                  />
+                </TouchableOpacity>
+
+                <Text style={[{ textAlign: 'center' }, styles.textName]}>John Doe</Text>
+
+                <TouchableOpacity
+                  onPress={() => console.log('#ProfileHeader => tchat')}
+                >
+                  <Icon
+                    style={[styles.largeIcon, { marginLeft: 60 }]}
+                    name={'ios-chatbubbles'}
+                    color={Global.colors.primary}
+                  />
+                </TouchableOpacity>
+              </View>
               <Text
                 style={{
                   textAlign: 'center',

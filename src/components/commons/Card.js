@@ -23,7 +23,12 @@ class Card extends React.Component {
         onPress={() => Actions.profile()}
       >
         {/* LEFT Section*/}
-        <View style={{ flex: 3 }} >
+        <View
+          style={{
+            flex: 1,
+            alignItems: 'center',
+            }}
+        >
           <Image
             source={require('../../assets/images/profile.jpeg')}
             style={Global.cardImage}
@@ -35,11 +40,7 @@ class Card extends React.Component {
         </View>
 
         {/* RIGHT Section*/}
-        <View
-          style={{
-            flex: 4
-          }}
-        >
+        <View style={{ flex: 2 }} >
 
           {/* user infos */}
           <View style={{ marginBottom: 30 }} >
