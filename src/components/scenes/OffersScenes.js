@@ -14,6 +14,10 @@ import {
   Actions,
 } from 'react-native-router-flux';
 
+import Icon from 'react-native-vector-icons/Ionicons';
+import Global from '../core/Global';
+import SkillInput from '../commons/SkillInput';
+
 const PADDING = 20;
 const containerWidth = Dimensions.get('window').width - (PADDING * 2);
 const inputWidth = Dimensions.get('window').width - (PADDING * 2) - (PADDING * 2);
@@ -143,23 +147,8 @@ class OffersScenes extends React.Component {
                 onChangeText={this.onChangeDescription}
                 />
             </View>
-            <View
-              style={{
-                  borderBottomWidth: 1,
-                  borderBottomColor: '#4D6DC3',
-                  marginTop: 10,
-                  flexDirection: 'row',
-                }}>
-              <TextInput style={{
-                  height: 40,
-                  width: inputWidth,
-                  backgroundColor: 'white',
-                }}
-                type="skills"
-                placeholder="Skills"
-                onChangeText={this.onChangeSkills}
-                />
-            </View>
+            <SkillInput>
+            </SkillInput>
             <View
               style={styles.inputContainer}>
               <TextInput style={styles.input}
