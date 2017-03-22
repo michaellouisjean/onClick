@@ -26,7 +26,7 @@ class ViewProfileScene extends React.Component {
           {/* END -- profile header content */}
 
           {/* section */}
-          <View style={[Global.profileSection, Global.profileBackgroundColorBlue]}>
+          <View style={[Global.profileSection, Global.profileBackgroundColorWhite]}>
             <Text style={Global.profileTitleSection} >My best experience</Text>
             <Text style={Global.profileTextSubtitle} >Ubisoft Paris</Text>
             <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui quod optio,
@@ -34,7 +34,7 @@ class ViewProfileScene extends React.Component {
           </View>
 
           {/* section */}
-          <View style={[Global.profileSection, Global.profileBackgroundColorWhite]}>
+          <View style={[Global.profileSection, Global.profileBackgroundColorBlue]}>
             <Text style={Global.profileTitleSection} >My dergrees</Text>
 
             <View style={Global.profileSubSection}>
@@ -50,7 +50,7 @@ class ViewProfileScene extends React.Component {
           </View>
 
           {/* section */}
-          <View style={[Global.profileSection, Global.profileBackgroundColorBlue]}>
+          <View style={[Global.profileSection, Global.profileBackgroundColorWhite]}>
             <Text style={Global.profileTitleSection} >My 3 greatest qualities</Text>
 
             <View style={Global.profileSubSection}>

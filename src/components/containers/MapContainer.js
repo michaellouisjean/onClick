@@ -8,7 +8,7 @@ class MapContainer extends React.Component {
     return (
       <Map
       style={{
-        width: '100%',
+        width: 400,
         height: 300,
       }}
         initialRegion={{
@@ -18,12 +18,12 @@ class MapContainer extends React.Component {
           longitudeDelta: 0.0120,
         }}
       >
-        {/*<Map.Marker
+        <Map.Marker
           coordinate={{
             latitude: 37.78825,
             longitude: -122.4324,
           }}
-        />*/}
+        />
       </Map>
     );
   }
