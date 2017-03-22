@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { Actions } from 'react-native-router-flux';
 
 // import components
 import Global from '../core/Global';
@@ -121,7 +122,7 @@ class ProfileHeader extends React.Component {
                 <Text style={[{ textAlign: 'center' }, styles.textName]}>John Doe</Text>
 
                 <TouchableOpacity
-                  onPress={() => console.log('#ProfileHeader => tchat')}
+                  onPress={() => Actions.tchat()}
                 >
                   <Icon
                     style={[styles.largeIcon, { marginLeft: 60 }]}

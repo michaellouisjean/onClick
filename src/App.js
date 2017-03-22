@@ -11,6 +11,7 @@ import {
 //import LoginScene from './components/scenes/LoginScene';
 import HomeScene from './components/scenes/HomeScene';
 import ViewProfileScene from './components/scenes/ViewProfileScene';
+import TchatScene from './components/scenes/TchatScene';
 
 // create component & render
 class App extends React.Component {
@@ -38,6 +39,16 @@ class App extends React.Component {
             backgroundColor: 'transparent',
           }}
           component={ViewProfileScene}
+        />
+
+        <Scene
+          key={'tchat'}
+          title={'Tchat with your contact'}
+          direction={'vertical'}
+          navigationBarStyle={{
+            backgroundColor: '#ffffff'
+          }}
+          component={TchatScene}
         />
       </Router>
     );
