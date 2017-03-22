@@ -21,7 +21,7 @@ class ViewProfileScene extends React.Component {
         <ScrollView>
 
           {/* profile header */}
-          <View style={{ height: 150, width: '100%' }}>
+          <View style={{ height: 200, width: '100%' }}>
             <Image source={require('../../assets/images/profile.jpeg')} />
           </View>
 
