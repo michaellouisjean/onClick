@@ -1,15 +1,23 @@
+const container = {
+  flex: 1,
+  justifyContent: 'center',
+  // alignItems: 'center',
+  backgroundColor: '#F7F7F7',
+};
+
 const Global = {
   // -------------------------------------------- common
   colors: {
     primary: '#4D6DC3',
     secondary: '#27CCC0',
     accent: '#E12773',
+    backgroundEven: '#ffffff',
+    backgroundOdd: '#f5f8fa',
   },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F7F7F7',
+  container,
+  containerNav: {
+    ...container,
+    paddingTop: 70,
   },
   // -------------------------------------------- cards
   cardContainer: {
@@ -45,50 +53,7 @@ const Global = {
     marginRight: 3,
   },
   // -------------------------------------------- Profile
-  profileSection: {
-    width: '100%',
-    paddingTop: 40,
-    paddingBottom: 40,
-    paddingLeft: 30,
-    paddingRight: 30,
-    borderBottomWidth: 0.5,
-    borderBottomColor: '#999999',
-  },
-  profileBackgroundWhite: {
-    backgroundColor: '#ffffff',
-  },
-  profileBackgroundColorBlue: {
-    backgroundColor: '#fafafa',
-  },
-  profileTextTitle: {
-
-  },
-  profileTextSubtitle: {
-    fontSize: 16,
-    color: '#4D6DC3',
-    marginBottom: 10,
-  },
-  profileTextName: {
-    fontSize: 25,
-    fontWeight: '200',
-    color: '#4D6DC3',
-  },
-  profileTitleSection: {
-    fontSize: 17,
-    fontWeight: 'bold',
-    color: '#4D6DC3',
-    marginBottom: 30,
-  },
-  profileSubSection: {
-    marginBottom: 20,
-  },
-  profileImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    borderWidth: 4,
-    borderColor: '#ffffff',
-  },
+  
 
   // -------------------------------------------- icons
   icons: {

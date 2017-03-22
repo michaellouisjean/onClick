@@ -3,8 +3,8 @@ import React from 'react';
 import {
   View,
   Text,
-  Image,
   ScrollView,
+  StyleSheet,
 } from 'react-native';
 import Map from '../containers/MapContainer';
 //import { BlurView, VibrancyView } from 'react-native-blur';
@@ -13,6 +13,56 @@ import Map from '../containers/MapContainer';
 import Global from '../core/Global';
 import ProfileHeader from '../commons/ProfileHeader';
 
+// styles
+const styles = StyleSheet.create({
+  section: {
+    // width: '100%',
+    // paddingVertical: 40,
+    // paddingHorizontal: 30,
+    paddingHorizontal: 30,
+    paddingVertical: 40,
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#999999',
+  },
+  sectionPadding: {
+    
+  },
+  backgroundEven: {
+    backgroundColor: Global.colors.backgroundEven,
+  },
+  backgroundOdd: {
+    backgroundColor: Global.colors.backgroundOdd,
+  },
+  textTitle: {
+
+  },
+  textSubtitle: {
+    fontSize: 16,
+    color: '#4D6DC3',
+    marginBottom: 10,
+  },
+  textName: {
+    fontSize: 25,
+    fontWeight: '200',
+    color: '#4D6DC3',
+  },
+  titleSection: {
+    fontSize: 17,
+    fontWeight: 'bold',
+    color: '#4D6DC3',
+    marginBottom: 30,
+  },
+  subSection: {
+    marginBottom: 20,
+  },
+  image: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    borderWidth: 4,
+    borderColor: '#ffffff',
+  },
+});
 
 // create component & render
 class ViewProfileScene extends React.Component {
@@ -26,52 +76,51 @@ class ViewProfileScene extends React.Component {
           {/* END -- profile header content */}
 
           {/* section */}
-          <View style={[Global.profileSection, Global.profileBackgroundColorWhite]}>
-            <Text style={Global.profileTitleSection} >My best experience</Text>
-            <Text style={Global.profileTextSubtitle} >Ubisoft Paris</Text>
+          <View style={[styles.section, styles.backgroundEven]}>
+            <Text style={styles.titleSection} >My best experience</Text>
+            <Text style={styles.textSubtitle} >Ubisoft Paris</Text>
             <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui quod optio,
               molestiae, quibusdam quae vel sit architecto maiores officia nostrum laborum?</Text>
           </View>
 
           {/* section */}
-          <View style={[Global.profileSection, Global.profileBackgroundColorBlue]}>
-            <Text style={Global.profileTitleSection} >My dergrees</Text>
+          <View style={[styles.section, styles.backgroundOdd]}>
+            <Text style={styles.titleSection} >My degrees</Text>
 
-            <View style={Global.profileSubSection}>
-              <Text style={Global.profileTextSubtitle} >Motion Designer - 2016</Text>
+            <View style={styles.subSection}>
+              <Text style={styles.textSubtitle} >Motion Designer - 2016</Text>
               <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Text>
             </View>
 
-            <View style={Global.profileSubSection}>
-              <Text style={Global.profileTextSubtitle} >Motion Designer - 2016</Text>
+            <View style={styles.subSection}>
+              <Text style={styles.textSubtitle} >Motion Designer - 2016</Text>
               <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Text>
             </View>
-
           </View>
 
           {/* section */}
-          <View style={[Global.profileSection, Global.profileBackgroundColorWhite]}>
-            <Text style={Global.profileTitleSection} >My 3 greatest qualities</Text>
+          <View style={[styles.section, styles.backgroundEven]}>
+            <Text style={styles.titleSection} >My 3 greatest qualities</Text>
 
-            <View style={Global.profileSubSection}>
-              <Text style={Global.profileTextSubtitle} >Quality 1</Text>
+            <View style={styles.subSection}>
+              <Text style={styles.textSubtitle} >Quality 1</Text>
               <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Text>
             </View>
 
-            <View style={Global.profileSubSection}>
-              <Text style={Global.profileTextSubtitle} >Quality 2</Text>
+            <View style={styles.subSection}>
+              <Text style={styles.textSubtitle} >Quality 2</Text>
               <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Text>
             </View>
 
-            <View style={Global.profileSubSection}>
-              <Text style={Global.profileTextSubtitle} >Quality 3</Text>
+            <View style={styles.subSection}>
+              <Text style={styles.textSubtitle} >Quality 3</Text>
               <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Text>
             </View>
           </View>
 
           {/* MAP */}
-          <View style={[Global.profileSection, Global.profileBackgroundColorWhite]}>
-            <Text style={Global.profileTitleSection} >We've meet here :</Text>
+          <View style={[styles.section, styles.backgroundEven]}>
+            <Text style={styles.titleSection} >We've meet here :</Text>
             <Map />
           </View>
 

@@ -4,10 +4,65 @@ import {
   View,
   Text,
   Image,
+  Dimensions,
+  StyleSheet,
 } from 'react-native';
 
 // import components
 import Global from '../core/Global';
+
+// styles
+const styles = StyleSheet.create({
+  section: {
+    // width: '100%',
+    // paddingVertical: 40,
+    // paddingHorizontal: 30,
+    paddingHorizontal: 30,
+    paddingVertical: 40,
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#999999',
+  },
+  sectionPadding: {
+    
+  },
+  backgroundEven: {
+    backgroundColor: Global.colors.backgroundEven,
+  },
+  backgroundOdd: {
+    backgroundColor: Global.colors.backgroundOdd,
+  },
+  textTitle: {
+
+  },
+  textSubtitle: {
+    fontSize: 16,
+    color: '#4D6DC3',
+    marginBottom: 10,
+  },
+  textName: {
+    fontSize: 25,
+    fontWeight: '200',
+    color: '#4D6DC3',
+  },
+  titleSection: {
+    fontSize: 17,
+    fontWeight: 'bold',
+    color: '#4D6DC3',
+    marginBottom: 30,
+  },
+  subSection: {
+    marginBottom: 20,
+  },
+  image: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    borderWidth: 4,
+    borderColor: '#ffffff',
+  },
+});
+
+//const FULLWIDTH = Dimensions.get('window').width;
 
 // create component & render
 class ProfileHeader extends React.Component {
@@ -15,29 +70,32 @@ class ProfileHeader extends React.Component {
     return (
       <View>
         {/* profile header */}
-        <View style={{ height: 200, width: '100%' }}>
+        {/*<View style={{ height: 200, width: FULLWIDTH }}>*/}
           <Image
             source={require('../../assets/images/profile.jpeg')}
+            style={{
+              height: 200,
+            }}
             blurRadius={20}
           />
-        </View>
+        {/*</View>*/}
 
         {/* profile header content */}
-        <View style={[Global.profileSection, Global.profileBackgroundWhite]}>
+        <View style={styles.backgroundEven}>
           <View>
             <View
               style={{
                 flex: 1,
                 alignItems: 'center',
                 position: 'relative',
-                top: -100,
+                marginTop: -50,
               }}
             >
               <Image
                 source={require('../../assets/images/profile.jpeg')}
-                style={Global.profileImage}
+                style={styles.image}
               />
-              <Text style={[{ textAlign: 'center' }, Global.profileTextName]}>John Doe</Text>
+              <Text style={[{ textAlign: 'center' }, styles.textName]}>John Doe</Text>
               <Text
                 style={{
                   textAlign: 'center',
@@ -49,8 +107,8 @@ class ProfileHeader extends React.Component {
           </View>
         </View>
 
-        <View style={[Global.profileSection, Global.profileBackgroundWhite]}>
-          <Text style={Global.profileTitleSection} >Fullstack JS Developper</Text>
+        <View style={[styles.section, styles.backgroundEven]}>
+          <Text style={styles.titleSection} >Fullstack JS Developper</Text>
 
           <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui quod optio,
                 molestiae, quibusdam quae vel sit architecto maiores officia nostrum laborum?
