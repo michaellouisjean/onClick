@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { Actions } from 'react-native-router-flux';
 
 // import component
 import Global from '../core/Global';
@@ -18,49 +19,36 @@ class Card extends React.Component {
     return (
       <TouchableOpacity
         style={Global.cardContainer}
-        onPress={() => console.log('#Card.js => go to profile')}
+        //onPress={() => console.log('#Card.js => go to profile')}
+        onPress={() => Actions.profile()}
       >
-        {/* LEFT */}
-        <View
-          style={{
-            flex: 3
-          }}
-        >
+        {/* LEFT Section*/}
+        <View style={{ flex: 3 }} >
           <Image
-            source={require('../../assets/images/defaultBg.png')}
-            style={{
-              width: 50,
-              height: 50,
-              borderRadius: 25,
-              marginBottom: 30,
-            }}
+            source={require('../../assets/images/profile.jpeg')}
+            style={Global.cardImage}
           />
 
-          <Text
-            style={[
-              { color: Global.colors.secondary },
-              Global.cardPercent
-            ]}
-          >
+          <Text style={[{ color: Global.colors.secondary }, Global.cardPercent]} >
             85 %
           </Text>
         </View>
 
-        {/* RIGHT */}
+        {/* RIGHT Section*/}
         <View
           style={{
             flex: 4
           }}
         >
 
-          {/* USER INFOS */}
+          {/* user infos */}
           <View style={{ marginBottom: 30 }} >
             <Text style={[{ color: Global.colors.primary }, Global.cardTitle]}>John Doe </Text>
             <Text style={{ color: Global.colors.primary, marginBottom: 30 }}>Developper Fullstack JS </Text>
-            <Text style={{ color: Global.colors.primary }}>(Offer title)</Text>
+            <Text style={{ color: Global.colors.primary }}>Offer title</Text>
           </View>
 
-          {/* TAGS SECTION */}
+          {/* tags section */}
           <View
             style={{
               flexDirection: 'row',
@@ -73,13 +61,14 @@ class Card extends React.Component {
             <Tag competence={'Node JS'} />
           </View>
 
+          {/* icons section */}
           <View
             style={{
               flexDirection: 'row',
               justifyContent: 'space-around'
             }}
           >
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => console.log('#Card.js => favorites button')} >
               <Icon
                 style={Global.icons}
                 name={'ios-add-circle-outline'}
@@ -87,7 +76,7 @@ class Card extends React.Component {
               />
             </TouchableOpacity>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => console.log('#Card.js => invite button')} >
               <Icon
                 style={Global.icons}
                 name={'ios-hand-outline'}
@@ -96,9 +85,6 @@ class Card extends React.Component {
             </TouchableOpacity>
           </View>
         </View>
-
-
-
       </TouchableOpacity>
     );
   }
