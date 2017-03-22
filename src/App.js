@@ -18,28 +18,24 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-      <Scene
-        key={'login'}
-        hideNavBar
-        component={LoginScene}
-      />
+        <Scene
+          key={'login'}
+          hideNavBar
+          component={LoginScene}
+        />
 
         <Scene
           key={'home'}
           title={'onClick'}
           hideNavBar={false}
-          navigationBarStyle={{
-            backgroundColor: 'transparent',
-          }}
+          navigationBarStyle={{ backgroundColor: 'transparent' }}
           component={HomeScene}
         />
 
         <Scene
           key={'profile'}
           hideNavBar={false}
-          navigationBarStyle={{
-            backgroundColor: 'transparent',
-          }}
+          navigationBarStyle={{ backgroundColor: 'transparent' }}
           component={ViewProfileScene}
         />
 
@@ -48,9 +44,7 @@ class App extends React.Component {
           title={'Message'}
           hideNavBar={false}
           direction={'vertical'}
-          navigationBarStyle={{
-            backgroundColor: '#ffffff'
-          }}
+          navigationBarStyle={{ backgroundColor: '#ffffff' }}
           component={TchatScene}
         />
       </Router>
