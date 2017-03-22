@@ -12,17 +12,22 @@ import LoginScene from './components/scenes/LoginScene';
 import HomeScene from './components/scenes/HomeScene';
 import ViewProfileScene from './components/scenes/ViewProfileScene';
 import TchatScene from './components/scenes/TchatScene';
+import OffersScenes from './components/scenes/OffersScenes';
 
 // create component & render
 class App extends React.Component {
   render() {
     return (
       <Router>
-        <Scene
-          key={'login'}
-          hideNavBar
-          component={LoginScene}
-        />
+      {/*<Scene
+        key={'offer'}
+        title={'onClick'}
+        component={OffersScenes} />*/}
+      <Scene
+        key={'login'}
+        hideNavBar
+        component={LoginScene}
+      />
 
         <Scene
           key={'home'}
