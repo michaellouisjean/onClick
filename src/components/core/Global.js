@@ -82,6 +82,13 @@ const Global = {
   profileSubSection: {
     marginBottom: 20,
   },
+  profileImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    borderWidth: 4,
+    borderColor: '#ffffff',
+  },
 
   // -------------------------------------------- icons
   icons: {
