@@ -71,26 +71,24 @@ class LoginScene extends React.Component {
 
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
-    // this.onPress = onPress.bind(this);
   }
 
-  onChangeEmail(email) {
+  onChangeEmail(text) {
+    const email = text;
     this.setState({
       email,
     });
+    console.log(this.state.email);
   }
 
 
-  onChangePassword(passsword) {
+  onChangePassword(text) {
+    const password = text;
     this.setState({
-      passsword,
+      password,
     });
+    console.log(this.state.password);
   }
-
-  // onPress() {
-  //   Actions.tab();
-  // }
-  //Function onPress chemin à changer ici
 
   render() {
     return (
@@ -121,7 +119,7 @@ class LoginScene extends React.Component {
             </View>
           </View>
 
-          <TouchableOpacity onPress={() => console.log('ok')} >
+          <TouchableOpacity onPress={() => Actions.home()} >
             <View>
               <Text
                 style={{
