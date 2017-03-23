@@ -9,7 +9,11 @@ import {
   Dimensions,
   TouchableOpacity,
 } from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import {
+  Actions
+} from 'react-native-router-flux';
+
+import Api from '../core/Api';
 
 const PADDING = 20;
 const containerWidth = Dimensions.get('window').width - (PADDING * 2);
@@ -65,8 +69,8 @@ class LoginScene extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: '',
+      email: 'annaelle@onclick.io',
+      password: 'password01',
     };
 
     this.onChangeEmail = this.onChangeEmail.bind(this);
@@ -90,6 +94,14 @@ class LoginScene extends React.Component {
     console.log(this.state.password);
   }
 
+  onLoginSubmit() {
+    Api.logIn({
+      email: this.state.email,
+      password: this.state.password,
+    }, () => 
+    Actions.home());
+  }
+
   render() {
     return (
       <Image
@@ -106,6 +118,7 @@ class LoginScene extends React.Component {
                 style={styles.input}
                 type="email"
                 placeholder="Email"
+                value={this.state.email}
                 onChangeText={this.onChangeEmail}
               />
             </View>
@@ -114,12 +127,13 @@ class LoginScene extends React.Component {
                 style={styles.input}
                 type="password"
                 placeholder="Password"
+                value={this.state.password}
                 onChangeText={this.onChangePassword}
               />
             </View>
           </View>
 
-          <TouchableOpacity onPress={() => Actions.home()} >
+          <TouchableOpacity onPress={() => this.onLoginSubmit()}>
             <View>
               <Text
                 style={{
