@@ -37,20 +37,22 @@ class SkillInput extends React.Component {
       <View
         style={{
             flexDirection: 'row',
-          }}>
+        }}
+      >
         <View
           style={{
             borderBottomWidth: 1,
             borderBottomColor: '#4D6DC3',
             marginTop: 10,
             flex: 1,
-          }}>
+          }}
+        >
         <TextInput
           style={styles.input}
           type="skills"
           placeholder="Skills"
           onChangeText={this.onChangeSkills}
-          />
+        />
         </View>
         <TouchableOpacity
           onPress={() => console.log('#OffersScenes.js => favorites button')}
@@ -58,7 +60,8 @@ class SkillInput extends React.Component {
             flex: 1,
             justifyContent: 'center',
             alignItems: 'center',
-          }}>
+          }}
+        >
           <Icon
             style={Global.icons}
             name={'ios-add-circle-outline'}

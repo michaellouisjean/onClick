@@ -11,6 +11,9 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
+// import component
+import SendButton from '../commons/SendButton';
+
 const PADDING = 20;
 const containerWidth = Dimensions.get('window').width - (PADDING * 2);
 const inputWidth = Dimensions.get('window').width - (PADDING * 2) - (PADDING * 2);
@@ -71,6 +74,7 @@ class LoginScene extends React.Component {
 
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
+    this.sendInfo = this.sendInfo.bind(this);
   }
 
   onChangeEmail(text) {
@@ -81,13 +85,16 @@ class LoginScene extends React.Component {
     console.log(this.state.email);
   }
 
-
   onChangePassword(text) {
     const password = text;
     this.setState({
       password,
     });
     console.log(this.state.password);
+  }
+
+  sendInfo() {
+    console.log({ email: this.state.email, password: this.state.password });
   }
 
   render() {
@@ -105,6 +112,7 @@ class LoginScene extends React.Component {
               <TextInput
                 style={styles.input}
                 type="email"
+                autoCapitalize='none'
                 placeholder="Email"
                 onChangeText={this.onChangeEmail}
               />
@@ -113,13 +121,16 @@ class LoginScene extends React.Component {
               <TextInput
                 style={styles.input}
                 type="password"
+                autoCapitalize='none'
                 placeholder="Password"
                 onChangeText={this.onChangePassword}
               />
             </View>
           </View>
 
-          <TouchableOpacity onPress={() => Actions.home()} >
+          <TouchableOpacity
+            onPress={() => Actions.home()}
+          >
             <View>
               <Text
                 style={{
@@ -138,29 +149,10 @@ class LoginScene extends React.Component {
            </Text>
 
           <View style={{ flex: 1 }} >
-            <TouchableOpacity
-              onPress={() => console.log('Hello')}
-              style={{
-                shadowOpacity: 0.1,
-                shadowOffset: {
-                  width: 1,
-                  height: 3,
-                },
-                borderRadius: 20,
-                marginTop: 25,
-                justifyContent: 'center',
-                padding: 10,
-              }}
-            >
-              <Text
-                style={{
-                  fontSize: 20,
-                  color: '#E12773',
-                  fontWeight: 'bold',
-                }}
-              >
-                Create an account</Text>
-            </TouchableOpacity>
+            <SendButton
+              name={'Create account'}
+              say={this.sendInfo}
+            />
           </View>
         </View>
       </Image>

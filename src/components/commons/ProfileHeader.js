@@ -17,16 +17,10 @@ import Global from '../core/Global';
 // styles
 const styles = StyleSheet.create({
   section: {
-    // width: '100%',
-    // paddingVertical: 40,
-    // paddingHorizontal: 30,
     paddingHorizontal: 30,
     paddingVertical: 40,
     borderBottomWidth: 0.5,
     borderBottomColor: '#999999',
-  },
-  sectionPadding: {
-    
   },
   backgroundEven: {
     backgroundColor: Global.colors.backgroundEven,
@@ -72,6 +66,29 @@ const styles = StyleSheet.create({
 
 // create component & render
 class ProfileHeader extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isFavorite: false,
+      favorite: 'ios-star-outline',
+    };
+    this.onClickFavorite = this.onClickFavorite.bind(this);
+    this.checkFavorite = this.checkFavorite.bind(this);
+  }
+
+  onClickFavorite() {
+    this.state.isFavorite = !this.state.isFavorite;
+    console.log(this.state.isFavorite);
+    this.setState({
+      favorite: this.checkFavorite(),
+    });
+  }
+
+  checkFavorite() {
+    return this.state.isFavorite ? 'ios-star' : 'ios-star-outline';
+  }
+
   render() {
     return (
       <View>
@@ -110,11 +127,11 @@ class ProfileHeader extends React.Component {
               >
 
                 <TouchableOpacity
-                  onPress={() => console.log('#ProfileHeader => star')}
+                  onPress={() => this.onClickFavorite()}
                 >
                   <Icon
                     style={[styles.largeIcon, { marginRight: 60 }]}
-                    name={'ios-star-outline'}
+                    name={this.state.favorite}
                     color={Global.colors.primary}
                   />
                 </TouchableOpacity>
