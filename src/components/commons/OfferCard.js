@@ -5,22 +5,52 @@ import {
   Text,
   Image,
   TouchableOpacity,
+  StyleSheet,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+//import Icon from 'react-native-vector-icons/Ionicons';
 import { Actions } from 'react-native-router-flux';
 
 // import component
 import Global from '../core/Global';
 import Tag from '../commons/Tag';
 
+// styles
+const styles = StyleSheet.create({
+  contractText: {
+    fontWeight: '200',
+    marginBottom: 10,
+  }
+});
+
 // create component & render
 class OfferCard extends React.Component {
   render() {
+    const {
+      photo,
+      announces,
+      society,
+      city,
+      description,
+      firstname,
+      lastname,
+      loc,
+    } = this.props;
+    console.log('#OfferCard => ', this.props.photo);
+    
     return (
       <TouchableOpacity
         style={Global.cardContainer}
         //onPress={() => console.log('#Card.js => go to profile')}
-        onPress={() => Actions.viewOffer()}
+        onPress={() => Actions.viewOffer({
+          photo,
+          announces,
+          society,
+          city,
+          description,
+          firstname,
+          lastname,
+          loc,
+        })}
       >
         {/* LEFT Section*/}
         <View
@@ -30,7 +60,8 @@ class OfferCard extends React.Component {
             }}
         >
           <Image
-            source={require('../../assets/images/defaultBg.png')}
+            //source={require('../../assets/images/defaultBg.png')}
+            source={{ uri: photo }}
             style={Global.cardImage}
           />
 
@@ -39,16 +70,22 @@ class OfferCard extends React.Component {
         {/* RIGHT Section*/}
         <View style={{ flex: 2 }} >
 
-          {/* user infos */}
           <View style={{ marginBottom: 30 }} >
-            <Text style={[{ color: Global.colors.primary }, Global.cardTitle]}>Offer title </Text>
-            <Text style={{ color: Global.colors.primary, marginBottom: 30 }}>Company </Text>
+            <Text style={[{ color: Global.colors.primary }, Global.cardTitle]}>
+              Looking for {this.props.announces[0].title}
+            </Text>
+            <Text style={{ color: Global.colors.primary, marginBottom: 30 }}>{society} </Text>
             <Text
               style={{ color: Global.colors.primary }}
               numberOfLines={2}
-            >Description : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui quod optio,
-                molestiae, quibusdam quae vel sit architecto maiores officia nostrum laborum?</Text>
+            >
+              {announces[0].description}
+            </Text>
           </View>
+
+          <Text style={styles.contractText}>
+            {announces[0].salary} € / mo - Fulltime job
+          </Text>
 
           {/* tags section */}
           <View
@@ -62,8 +99,6 @@ class OfferCard extends React.Component {
             <Tag competence={'React-Native'} />
             <Tag competence={'Node JS'} />
           </View>
-
-          {/* icons section */}
           
         </View>
       </TouchableOpacity>

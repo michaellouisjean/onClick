@@ -11,21 +11,15 @@ import Map from '../containers/MapContainer';
 
 // import component
 import Global from '../core/Global';
-import ProfileHeader from '../commons/ProfileHeader';
+import OfferHeader from '../commons/OfferHeader';
 
 // styles
 const styles = StyleSheet.create({
   section: {
-    // width: '100%',
-    // paddingVertical: 40,
-    // paddingHorizontal: 30,
     paddingHorizontal: 30,
     paddingVertical: 40,
     borderBottomWidth: 0.5,
     borderBottomColor: '#999999',
-  },
-  sectionPadding: {
-    
   },
   backgroundEven: {
     backgroundColor: Global.colors.backgroundEven,
@@ -86,38 +80,40 @@ class ViewProfileScene extends React.Component {
     if (this.state.isLoaded === false) {
       return null;
     }
-    return <Map />;
+    return <Map location={this.props.loc} />;
   }
 
   render() {
+    console.log('#ViewOfferScene => ', this.props);
     return (
       <View style={Global.container}>
         <ScrollView>
 
-          {/* profile header content */}
-          <ProfileHeader />
-          {/* END -- profile header content */}
+          <OfferHeader
+            imageSize={100}
+            city={this.props.city}
+            photo={this.props.photo}
+            title={this.props.announces[0].title}
+            society={this.props.society}
+            description={this.props.announces[0].description}
+            salary={this.props.announces[0].salary}
+          />
 
-          {/* section */}
           <View style={[styles.section, styles.backgroundEven]}>
-            <Text style={styles.titleSection} >My best experience</Text>
-            <Text style={styles.textSubtitle} >Ubisoft Paris</Text>
-            <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui quod optio,
-              molestiae, quibusdam quae vel sit architecto maiores officia nostrum laborum?</Text>
-          </View>
-
-
-          {/* section */}
-          <View style={[styles.section, styles.backgroundEven]}>
-            <Text style={styles.titleSection} >My 3 greatest qualities</Text>
+            <Text style={styles.titleSection} >Required skills :</Text>
 
             <View style={styles.subSection}>
-              <Text style={styles.textSubtitle} >Quality 1</Text>
+              <Text style={styles.textSubtitle} >Skill 1</Text>
               <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Text>
             </View>
 
             <View style={styles.subSection}>
-              <Text style={styles.textSubtitle} >Quality 2</Text>
+              <Text style={styles.textSubtitle} >Skill 2</Text>
+              <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Text>
+            </View>
+
+            <View style={styles.subSection}>
+              <Text style={styles.textSubtitle} >Skill 3</Text>
               <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Text>
             </View>
 

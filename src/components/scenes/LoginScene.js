@@ -131,6 +131,7 @@ class LoginScene extends React.Component {
                 placeholder="Email"
                 value={this.state.email}
                 onChangeText={this.onChangeEmail}
+                value={this.state.email}
               />
             </View>
             <View style={styles.inputContainer} >
@@ -141,6 +142,7 @@ class LoginScene extends React.Component {
                 placeholder="Password"
                 value={this.state.password}
                 onChangeText={this.onChangePassword}
+                value={this.state.password}
               />
             </View>
           </View>

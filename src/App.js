@@ -21,18 +21,12 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-      <Scene
-        key={'login'}
-        hideNavBar
-        component={LoginScene}
-      />
-
-        <Scene
-          key={'tchatList'}
-          title={'Conversations'}
-          component={TchatListScene}
-        />
-        
+        {/*<Scene
+          key={'login'}
+          title={'Login'}
+          component={LoginScene}
+          
+        />*/}
         <Scene
           key={'home'}
           title={'onClick'}
@@ -41,6 +35,12 @@ class App extends React.Component {
           component={HomeScene}
         />
 
+        <Scene
+          key={'tchatList'}
+          title={'Conversations'}
+          component={TchatListScene}
+        />
+        
         <Scene
           key={'viewOffer'}
           title={'View offer'}
@@ -55,12 +55,7 @@ class App extends React.Component {
           navigationBarStyle={{ backgroundColor: 'transparent' }}
           component={ViewProfileScene}
         />
-        <Scene
-          key={'offer'}
-          title={'onClick'}
-          component={OffersScenes} 
-        />
-
+        
         <Scene
           key={'tchat'}
           title={'Message'}

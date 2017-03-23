@@ -6,6 +6,7 @@ import {
   Text,
   StyleSheet,
 } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 // import component
 import ProfilePicture from './ProfilePicture';
@@ -37,7 +38,7 @@ class Conversation extends React.Component {
     return (
       <TouchableOpacity
         style={styles.container}
-        onPress={() => console.log('#Conversation => pressed tab')}
+        onPress={() => Actions.tchat()}
       >
         <View style={{ flex: 1 }}>
           <ProfilePicture size={40} />

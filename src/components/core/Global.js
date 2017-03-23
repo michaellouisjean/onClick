@@ -23,7 +23,7 @@ const Global = {
   cardContainer: {
     flex: 1,
     flexDirection: 'row',
-    paddingVertical: 16,
+    paddingTop: 16,
     paddingRight: 16,
     marginBottom: 10,
     width: '100%',

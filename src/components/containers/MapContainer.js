@@ -8,6 +8,11 @@ import {
 // create component
 class MapContainer extends React.Component {
   render() {
+    const {
+      lng,
+      lat,
+    } = this.props.location;
+    console.log('#MapContainer => ', this.props.location);
     return (
       <View
         style={{
@@ -23,16 +28,16 @@ class MapContainer extends React.Component {
           height: 300,
         }}
           initialRegion={{
-            latitude: 48.8564449,
-            longitude: 2.4002913,
+            latitude: lng,
+            longitude: lat,
             latitudeDelta: 0.0120,
             longitudeDelta: 0.0120,
           }}
         >
           <Map.Marker
             coordinate={{
-              latitude: 48.8564449,
-              longitude: 2.4002913,
+              latitude: lng,
+              longitude: lat,
             }}
           />
         </Map>
