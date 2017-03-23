@@ -16,7 +16,7 @@ import {
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import Global from '../core/Global';
-import SkillInput from '../commons/SkillInput';
+import SendButton from '../commons/SendButton';
 
 const PADDING = 20;
 const containerWidth = Dimensions.get('window').width - (PADDING * 2);
@@ -72,11 +72,11 @@ class OffersScenes extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
-      desciption: "",
-      skills: "",
-      salary: "",
-      contact: "",
+      title: '',
+      description: '',
+      skills: '',
+      salary: '',
+      contact: '',
     };
 
     this.onChangeTitle = this.onChangeTitle.bind(this);
@@ -84,6 +84,7 @@ class OffersScenes extends React.Component {
     this.onChangeSkills = this.onChangeSkills.bind(this);
     this.onChangeSalary = this.onChangeSalary.bind(this);
     this.onChangeContact = this.onChangeContact.bind(this);
+    this.sendInfo = this.sendInfo.bind(this);
     // this.onPress = onPress.bind(this);
   }
 
@@ -92,7 +93,6 @@ class OffersScenes extends React.Component {
       title,
     });
   }
-
 
   onChangeDescription(description) {
     this.setState({
@@ -118,79 +118,90 @@ class OffersScenes extends React.Component {
     });
   }
 
+  sendInfo() {
+    console.log(this.state);
+  }
+
   render() {
     return (
       <Image
         source={require('../../assets/images/bg02.png')}
-        style={styles.background}>
+        style={styles.background}
+      >
         <View
-          style={styles.container}>
+          style={styles.container}
+        >
           <Text
-            style={styles.h1}>
+            style={styles.h1}
+          >
             Create new job offer
           </Text>
           <View
-            style={styles.inputsContainer}>
+            style={styles.inputsContainer}
+          >
             <View
-              style={styles.inputContainer}>
-              <TextInput style={styles.input}
+              style={styles.inputContainer}
+            >
+              <TextInput
+                style={styles.input}
                 type="title"
+                autoCapitalize='none'
                 placeholder="Title"
                 onChangeText={this.onChangeTitle}
-                />
+              />
             </View>
             <View
-              style={styles.inputContainer}>
-              <TextInput style={styles.input}
+              style={styles.inputContainer}
+            >
+              <TextInput
+                style={styles.input}
                 type="description"
+                autoCapitalize='none'
                 placeholder="Description"
                 onChangeText={this.onChangeDescription}
-                />
+              />
             </View>
-            <SkillInput>
-            </SkillInput>
             <View
-              style={styles.inputContainer}>
-              <TextInput style={styles.input}
+              style={styles.inputContainer}
+            >
+              <TextInput
+                style={styles.input}
+                type="skills"
+                autoCapitalize='none'
+                placeholder="Skills"
+                onChangeText={this.onChangeSkills}
+              />
+            </View>
+            
+            <View
+              style={styles.inputContainer}
+            >
+              <TextInput
+                style={styles.input}
                 type="salary"
+                autoCapitalize='none'
                 placeholder="Salary"
                 onChangeText={this.onChangeSalary}
-                />
+              />
             </View>
             <View
-              style={styles.inputContainer}>
-              <TextInput style={styles.input}
+              style={styles.inputContainer}
+            >
+              <TextInput
+                style={styles.input}
                 type="contact"
+                autoCapitalize='none'
                 placeholder="Contact"
                 onChangeText={this.onChangeContact}
-                />
+              />
             </View>
           </View>
-            <View style={{
-                flex: 1,
-                }}>
-              <TouchableOpacity
-                  onPress={() => console.log('Hello')}>
-                <View style={{
-                      shadowOpacity: .1,
-                      shadowOffset: {
-                      width: 1,
-                      height: 3,
-                      },
-                      borderRadius: 20,
-                      marginTop: 35,
-                      justifyContent: 'center',
-                      paddingVertical: 10,
-                      paddingHorizontal: 60,
-                    }}>
-                  <Text style={{
-                      fontSize: 20,
-                      color: '#E12773',
-                    }}>
-                    Publish</Text>
-                </View>
-              </TouchableOpacity>
-            </View>
+          <View style={{ flex: 1 }}>
+            <SendButton
+              name={'Publish'}
+              say={this.sendInfo}
+            />
+          </View>
         </View>
       </Image>
     );
