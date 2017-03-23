@@ -21,13 +21,11 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-<<<<<<< HEAD
       <Scene
         key={'login'}
         hideNavBar
         component={LoginScene}
       />
-=======
 
         <Scene
           key={'login'}
@@ -47,7 +45,6 @@ class App extends React.Component {
           component={OffersScenes}
         />
 
->>>>>>> db5e2f7f91d12cbb5a673f32144471c0f897583b
         <Scene
           key={'home'}
           title={'onClick'}
@@ -84,10 +81,7 @@ class App extends React.Component {
           navigationBarStyle={{ backgroundColor: '#ffffff' }}
           component={TchatScene}
         />
-<<<<<<< HEAD
-=======
 
->>>>>>> db5e2f7f91d12cbb5a673f32144471c0f897583b
       </Router>
     );
   }

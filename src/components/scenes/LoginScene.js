@@ -105,6 +105,7 @@ class LoginScene extends React.Component {
       password: this.state.password,
     }, () => 
     Actions.home());
+  }
 
   sendInfo() {
     console.log({ email: this.state.email, password: this.state.password });
