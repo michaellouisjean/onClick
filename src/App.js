@@ -15,6 +15,7 @@ import ViewOfferScene from './components/scenes/ViewOfferScene';
 import TchatScene from './components/scenes/TchatScene';
 import OffersScenes from './components/scenes/OffersScenes';
 import TchatListScene from './components/scenes/TchatListScene';
+import TrackUsers from './components/scenes/TrackUsers';
 
 // create component & render
 class App extends React.Component {
@@ -22,11 +23,20 @@ class App extends React.Component {
     return (
       <Router>
         {/*<Scene
+          key={'track'}
+          title={'onClick'}
+          hideNavBar={false}
+          navigationBarStyle={{ backgroundColor: 'transparent' }}
+          component={TrackUsers}
+        />*/}
+
+      {/*<Scene
           key={'login'}
           title={'Login'}
           component={LoginScene}
-          
+
         />*/}
+
         <Scene
           key={'home'}
           title={'onClick'}
@@ -40,7 +50,7 @@ class App extends React.Component {
           title={'Conversations'}
           component={TchatListScene}
         />
-        
+
         <Scene
           key={'viewOffer'}
           title={'View offer'}
@@ -55,7 +65,7 @@ class App extends React.Component {
           navigationBarStyle={{ backgroundColor: 'transparent' }}
           component={ViewProfileScene}
         />
-        
+
         <Scene
           key={'tchat'}
           title={'Message'}
