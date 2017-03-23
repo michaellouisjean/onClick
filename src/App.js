@@ -28,23 +28,11 @@ class App extends React.Component {
       />
 
         <Scene
-          key={'login'}
-          hideNavBar
-          component={LoginScene}
-        />
-
-        <Scene
           key={'tchatList'}
           title={'Conversations'}
           component={TchatListScene}
         />
-
-        <Scene
-          key={'offer'}
-          title={'onClick'}
-          component={OffersScenes}
-        />
-
+        
         <Scene
           key={'home'}
           title={'onClick'}

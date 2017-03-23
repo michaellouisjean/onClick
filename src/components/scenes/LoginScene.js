@@ -100,10 +100,11 @@ class LoginScene extends React.Component {
 
 
   onLoginSubmit() {
+    console.log('LoginScene#onLoginSubmit');
     Api.logIn({
       email: this.state.email,
       password: this.state.password,
-    }, () => 
+    }, () =>
     Actions.home());
   }
 

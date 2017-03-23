@@ -62,6 +62,7 @@ class Api {
   }
 
   logIn(user = {}, callback) {
+    console.log('Api#logIn');
     this.fetchFn('user/log_in', {
       method: 'POST',
       headers: {
@@ -70,6 +71,7 @@ class Api {
       body: JSON.stringify(user)
     }) // this.fetchFn
     .then(json => {
+      console.log('Api#logIn json', json);
       if (!json.error) {
         this.authenticate(json); // authentification l'utilisateur
         callback();
