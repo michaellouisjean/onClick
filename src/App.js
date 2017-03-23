@@ -13,28 +13,35 @@ import HomeScene from './components/scenes/HomeScene';
 import ViewProfileScene from './components/scenes/ViewProfileScene';
 import TchatScene from './components/scenes/TchatScene';
 import OffersScenes from './components/scenes/OffersScenes';
+import TchatListScene from './components/scenes/TchatListScene';
 
 // create component & render
 class App extends React.Component {
   render() {
     return (
       <Router>
-      <Scene
+        <Scene
+          key={'tchatList'}
+          title={'Conversations'}
+          component={TchatListScene}
+        />
+        {/*<Scene
         key={'offer'}
         title={'onClick'}
-        component={OffersScenes} />
-      {/*<Scene
-        key={'login'}
-        hideNavBar
-        component={LoginScene}
-      />
+        component={OffersScenes} />*/}
+
+        {/*<Scene
+          key={'login'}
+          hideNavBar
+          component={LoginScene}
+        />
         <Scene
           key={'home'}
           title={'onClick'}
           hideNavBar={false}
           navigationBarStyle={{ backgroundColor: 'transparent' }}
           component={HomeScene}
-        />
+        />*/}
 
         <Scene
           key={'profile'}
@@ -50,7 +57,7 @@ class App extends React.Component {
           direction={'vertical'}
           navigationBarStyle={{ backgroundColor: '#ffffff' }}
           component={TchatScene}
-        />*/}
+        />
       </Router>
     );
   }
