@@ -59,6 +59,13 @@ class App extends React.Component {
           navigationBarStyle={{ backgroundColor: 'transparent' }}
           component={ViewProfileScene}
         />
+        <Scene
+          key={'viewOffer'}
+          title={'View offer'}
+          hideNavBar={false}
+          navigationBarStyle={{ backgroundColor: 'transparent' }}
+          component={ViewOfferScene}
+        />
       </Scene>
     );
   }
@@ -102,13 +109,6 @@ class App extends React.Component {
           key={'offersListScene'}
           title={'Offers'}
           component={OffersListScene}
-        />
-        <Scene
-          key={'viewOffer'}
-          title={'View offer'}
-          hideNavBar={false}
-          navigationBarStyle={{ backgroundColor: 'transparent' }}
-          component={ViewOfferScene}
         />
       </Scene>
     );
