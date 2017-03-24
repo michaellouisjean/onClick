@@ -10,7 +10,6 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-
 import Api from '../core/Api';
 
 // import component
