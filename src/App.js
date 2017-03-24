@@ -15,21 +15,12 @@ import ViewOfferScene from './components/scenes/ViewOfferScene';
 import TchatScene from './components/scenes/TchatScene';
 import OffersScenes from './components/scenes/OffersScenes';
 import TchatListScene from './components/scenes/TchatListScene';
-import TrackUsers from './components/scenes/TrackUsers';
 
 // create component & render
 class App extends React.Component {
   render() {
     return (
       <Router>
-        {/*<Scene
-          key={'track'}
-          title={'onClick'}
-          hideNavBar={false}
-          navigationBarStyle={{ backgroundColor: 'transparent' }}
-          component={TrackUsers}
-        />*/}
-
       {/*<Scene
           key={'login'}
           title={'Login'}
