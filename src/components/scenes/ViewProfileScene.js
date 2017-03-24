@@ -87,7 +87,7 @@ class ViewProfileScene extends React.Component {
     if (this.state.isLoaded === false) {
       return null;
     }
-    return <Map location={this.props.loc} />;
+    return <Map loc={this.props.loc} />;
   }
 
   render() {

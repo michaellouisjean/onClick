@@ -8,10 +8,10 @@ import {
 // create component
 class MapContainer extends React.Component {
   render() {
-    const {
-      lng,
-      lat,
-    } = this.props.location;
+    // const {
+    //   lng,
+    //   lat,
+    // } = this.props.location;
     console.log('#MapContainer => ', this.props.location);
     return (
       <View
@@ -20,24 +20,25 @@ class MapContainer extends React.Component {
           justifyContent: 'center',
           alignItems: 'center',
           borderRadius: 4,
+          paddingBottom: 40,
         }}
       >
         <Map
-        style={{
-          width: 329,
-          height: 300,
-        }}
+          style={{
+            width: 329,
+            height: 300,
+          }}
           initialRegion={{
-            latitude: lat,
-            longitude: lng,
+            latitude: this.props.loc[1],
+            longitude: this.props.loc[0],
             latitudeDelta: 0.0120,
             longitudeDelta: 0.0120,
           }}
         >
           <Map.Marker
             coordinate={{
-              latitude: lat,
-              longitude: lng,
+              latitude: this.props.loc[1],
+              longitude: this.props.loc[0],
             }}
           />
         </Map>
