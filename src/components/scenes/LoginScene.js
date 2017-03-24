@@ -9,9 +9,7 @@ import {
   Dimensions,
   TouchableOpacity,
 } from 'react-native';
-import {
-  Actions
-} from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 
 import Api from '../core/Api';
 
@@ -105,7 +103,7 @@ class LoginScene extends React.Component {
       email: this.state.email,
       password: this.state.password,
     }, () =>
-    Actions.home());
+    Actions.tab());
   }
 
   sendInfo() {
@@ -120,7 +118,8 @@ class LoginScene extends React.Component {
       >
         <View style={styles.container} >
           <Text style={styles.h1} >
-            Donner un autre sens au travail !
+            {/*Donner un autre sens au travail !*/}
+            Your futur starts today !
           </Text>
           <View style={styles.inputsContainer} >
             <View style={styles.inputContainer} >

@@ -7,12 +7,13 @@ import {
 import Api from '../core/Api';
 
 // import component
-//import Card from '../commons/Card';
+import Card from '../commons/Card';
 import OfferCard from '../commons/OfferCard';
 import Global from '../core/Global';
 //import Config from '../core/Config';
 
 const RECRUITERS = 'user/recruiters';
+const CANDIDATES = 'user/candidates';
 
 // create component & render
 class HomeScene extends React.Component {
@@ -26,7 +27,7 @@ class HomeScene extends React.Component {
   }
 
   componentDidMount() {
-   Api.fetchFn(RECRUITERS)
+   Api.fetchFn(CANDIDATES)
      .then(results => {
        console.log(results);
        this.setState({
@@ -40,7 +41,8 @@ class HomeScene extends React.Component {
       <View style={[Global.container, { paddingTop: 62 }]} >
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={(rowData) => <OfferCard {...rowData} />}
+          //renderRow={(rowData) => <OfferCard {...rowData} />}
+          renderRow={(rowData) => <Card {...rowData} />}
         />
       </View>
     );

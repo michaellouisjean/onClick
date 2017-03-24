@@ -95,7 +95,7 @@ class ProfileHeader extends React.Component {
         {/* profile header */}
         {/*<View style={{ height: 200, width: FULLWIDTH }}>*/}
           <Image
-            source={require('../../assets/images/profile.jpeg')}
+            source={{ uri: this.props.photo }}
             style={{
               height: 200,
             }}
@@ -115,7 +115,7 @@ class ProfileHeader extends React.Component {
               }}
             >
               <Image
-                source={require('../../assets/images/profile.jpeg')}
+                source={{ uri: this.props.photo }}
                 style={styles.image}
               />
   
@@ -136,7 +136,7 @@ class ProfileHeader extends React.Component {
                   />
                 </TouchableOpacity>
 
-                <Text style={[{ textAlign: 'center' }, styles.textName]}>John Doe</Text>
+                <Text style={[{ textAlign: 'center' }, styles.textName]}>{this.props.firstname}</Text>
 
                 <TouchableOpacity
                   onPress={() => Actions.tchat()}
@@ -154,17 +154,15 @@ class ProfileHeader extends React.Component {
                   fontWeight: '200',
                   color: '#4D6DC3',
                 }}
-              >Paris</Text>
+              >{this.props.city}</Text>
             </View>
           </View>
         </View>
 
         <View style={[styles.section, styles.backgroundEven]}>
-          <Text style={styles.titleSection} >Fullstack JS Developper</Text>
+          <Text style={styles.titleSection} >{this.props.cv.title}</Text>
 
-          <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui quod optio,
-                molestiae, quibusdam quae vel sit architecto maiores officia nostrum laborum?
-                Tempore possimus ipsam quia voluptatem eius, nihil ullam voluptate!</Text>
+          <Text>{this.props.description}</Text>
         </View>
 
       </View>

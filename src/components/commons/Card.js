@@ -16,21 +16,41 @@ import Tag from '../commons/Tag';
 // create component & render
 class Card extends React.Component {
   render() {
+    const {
+      firstname,
+      lastname,
+      city,
+      photo,
+      cv,
+      description,
+      loc,
+      lastConnection,
+    } = this.props;
     return (
       <TouchableOpacity
         style={Global.cardContainer}
         //onPress={() => console.log('#Card.js => go to profile')}
-        onPress={() => Actions.profile()}
+        onPress={() => Actions.profile({
+          firstname,
+          lastname,
+          city,
+          photo,
+          cv,
+          description,
+          loc,
+          lastConnection,
+        })}
       >
         {/* LEFT Section*/}
         <View
           style={{
             flex: 1,
             alignItems: 'center',
-            }}
+          }}
         >
           <Image
-            source={require('../../assets/images/profile.jpeg')}
+            //source={require('../../assets/images/profile.jpeg')}
+            source={{ uri: photo }}
             style={Global.cardImage}
           />
 
@@ -44,8 +64,8 @@ class Card extends React.Component {
 
           {/* user infos */}
           <View style={{ marginBottom: 30 }} >
-            <Text style={[{ color: Global.colors.primary }, Global.cardTitle]}>John Doe </Text>
-            <Text style={{ color: Global.colors.primary, marginBottom: 30 }}>Developper Fullstack JS </Text>
+            <Text style={[{ color: Global.colors.primary }, Global.cardTitle]}>{firstname}</Text>
+            <Text style={{ color: Global.colors.primary, marginBottom: 30 }}>{cv.title}</Text>
             <Text style={{ color: Global.colors.primary }}>Offer title</Text>
           </View>
 
@@ -57,9 +77,9 @@ class Card extends React.Component {
               marginBottom: 20,
             }}
           >
-            <Tag competence={'React'} />
-            <Tag competence={'React-Native'} />
-            <Tag competence={'Node JS'} />
+            <Tag competence={cv.qualities[0]} />
+            <Tag competence={cv.qualities[1]} />
+            <Tag competence={cv.qualities[2]} />
           </View>
 
           {/* icons section */}
