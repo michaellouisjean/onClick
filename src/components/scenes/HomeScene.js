@@ -28,7 +28,7 @@ class HomeScene extends React.Component {
   }
 
   componentDidMount() {
-   Api.fetchFn(`user/recruiters?lng=${this.state.user.loc[0]}&lat=${this.state.user.loc[1]}`)
+   Api.fetchFn(`user/candidates?lng=${this.state.user.loc[0]}&lat=${this.state.user.loc[1]}`)
      .then(results => {
        console.log(results);
        this.setState({
@@ -45,8 +45,8 @@ class HomeScene extends React.Component {
       <View style={[Global.container, { paddingTop: 62 }]} >
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={(rowData) => <OfferCard {...rowData} />}
-          //renderRow={(rowData) => <Card {...rowData} />}
+          
+          renderRow={(rowData) => <Card {...rowData} />}
         />
       </View>
     );
