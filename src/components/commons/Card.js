@@ -4,6 +4,8 @@ import {
   View,
   Text,
   Image,
+  //Dimensions,
+  StyleSheet,
   TouchableOpacity,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -13,8 +15,38 @@ import { Actions } from 'react-native-router-flux';
 import Global from '../core/Global';
 import Tag from '../commons/Tag';
 
+// styles
+const styles = StyleSheet.create({
+  largeIcon: {
+    fontSize: 25,
+  }
+});
+
 // create component & render
 class Card extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isFavorite: false,
+      favorite: 'ios-star-outline',
+    };
+    this.onClickFavorite = this.onClickFavorite.bind(this);
+    this.checkFavorite = this.checkFavorite.bind(this);
+  }
+
+  onClickFavorite() {
+    this.state.isFavorite = !this.state.isFavorite;
+    console.log(this.state.isFavorite);
+    this.setState({
+      favorite: this.checkFavorite(),
+    });
+  }
+
+  checkFavorite() {
+    return this.state.isFavorite ? 'ios-star' : 'ios-star-outline';
+  }
+
   render() {
     const {
       firstname,
@@ -74,7 +106,7 @@ class Card extends React.Component {
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
-              marginBottom: 20,
+              marginBottom: 10,
             }}
           >
             <Tag competence={cv.qualities[0]} />
@@ -89,19 +121,24 @@ class Card extends React.Component {
               justifyContent: 'space-around'
             }}
           >
-            <TouchableOpacity onPress={() => console.log('#Card.js => favorites button')} >
+
+            <TouchableOpacity
+              onPress={() => this.onClickFavorite()}
+            >
               <Icon
-                style={Global.icons}
-                name={'ios-add-circle-outline'}
-                color={'#9B9B9B'}
+                style={[styles.largeIcon, { marginRight: 60, marginBottom: 5 }]}
+                name={this.state.favorite}
+                color={Global.colors.primary}
               />
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => console.log('#Card.js => invite button')} >
+            <TouchableOpacity
+              onPress={() => Actions.tchat()}
+            >
               <Icon
-                style={Global.icons}
-                name={'ios-hand-outline'}
-                color={'#9B9B9B'}
+                style={[styles.largeIcon, { marginLeft: 60 }]}
+                name={'ios-chatbubbles'}
+                color={Global.colors.primary}
               />
             </TouchableOpacity>
           </View>
