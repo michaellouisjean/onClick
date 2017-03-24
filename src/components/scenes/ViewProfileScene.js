@@ -87,16 +87,25 @@ class ViewProfileScene extends React.Component {
     if (this.state.isLoaded === false) {
       return null;
     }
-    return <Map />;
+    return <Map location={this.props.loc} />;
   }
 
   render() {
+    console.log('#ViewProfileScene => ', this.props);
     return (
       <View style={Global.container}>
         <ScrollView>
 
           {/* profile header content */}
-          <ProfileHeader />
+          <ProfileHeader
+            imageSize={100}
+            city={this.props.city}
+            photo={this.props.photo}
+            firstname={this.props.firstname}
+            lastname={this.props.lastname}
+            description={this.props.description}
+            cv={this.props.cv}
+          />
           {/* END -- profile header content */}
 
           {/* section */}

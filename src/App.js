@@ -25,7 +25,7 @@ import ViewOfferScene from './components/scenes/ViewOfferScene';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.renderDiscoveryFlow = this.renderDiscoveryFlow.bind(this);
+    this.renderHomeFlow = this.renderHomeFlow.bind(this);
     this.renderTchatFlow = this.renderTchatFlow.bind(this);
     this.renderOffersFlow = this.renderOffersFlow.bind(this);
     this.renderTchatScene = this.renderTchatScene.bind(this);
@@ -33,10 +33,10 @@ class App extends React.Component {
   }
 
   // créations de fonctions pour suivre le Flow
-  renderDiscoveryFlow() {
+  renderHomeFlow() {
     return (
       <Scene
-        key={'discoverFlow'}
+        key={'homeFlow'}
         icon={(props) =>
           <Icon
             name={'ios-home'}
@@ -47,7 +47,7 @@ class App extends React.Component {
       >
         <Scene
           titleStyle={{ color: '#4D6DC3', fontWeight: 'bold' }}
-          key={'home'}
+          key={'HomeScene'}
           title={'Home'}
           component={HomeScene}
         />
@@ -73,7 +73,8 @@ class App extends React.Component {
             color={props.selected ? Global.colors.accent : '#AAA'}
             style={{ fontSize: 25 }}
           />
-        }>
+        }
+      >
         <Scene
           titleStyle={{ color: '#4D6DC3', fontWeight: 'bold' }}
           key={'tchatListScene'}
@@ -94,7 +95,8 @@ class App extends React.Component {
             color={props.selected ? Global.colors.accent : '#AAA'}
             style={{ fontSize: 25 }}
           />
-        }>
+        }
+      >
         <Scene
           titleStyle={{ color: '#4D6DC3', fontWeight: 'bold' }}
           key={'offersListScene'}
@@ -166,7 +168,7 @@ class App extends React.Component {
           type={'replace'}
           style={{ backgroundColor: 'white', borderWidth: 1, borderColor: '#C4C4C4' }}
         >
-          {this.renderDiscoveryFlow()}
+          {this.renderHomeFlow()}
           {this.renderTchatFlow()}
           {this.renderOffersFlow()}
           {this.renderProfileScene()}

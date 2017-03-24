@@ -28,16 +28,16 @@ class MapContainer extends React.Component {
           height: 300,
         }}
           initialRegion={{
-            latitude: lng,
-            longitude: lat,
+            latitude: lat,
+            longitude: lng,
             latitudeDelta: 0.0120,
             longitudeDelta: 0.0120,
           }}
         >
           <Map.Marker
             coordinate={{
-              latitude: lng,
-              longitude: lat,
+              latitude: lat,
+              longitude: lng,
             }}
           />
         </Map>

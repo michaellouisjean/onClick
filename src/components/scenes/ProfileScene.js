@@ -10,7 +10,13 @@ import {
 class ProfileScene extends React.Component {
   render() {
     return (
-      <View>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}
+      >
         <Text>
           this is the ProfileScene !
         </Text>
