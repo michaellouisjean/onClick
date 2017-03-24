@@ -9,9 +9,7 @@ import {
   Dimensions,
   TouchableOpacity,
 } from 'react-native';
-import {
-  Actions
-} from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 
 import Api from '../core/Api';
 
