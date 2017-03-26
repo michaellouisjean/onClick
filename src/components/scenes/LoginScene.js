@@ -101,8 +101,7 @@ class LoginScene extends React.Component {
     Api.logIn({
       email: this.state.email,
       password: this.state.password,
-    }, () =>
-    Actions.tab());
+    }, () => Actions.tab());
   }
 
   sendInfo() {
@@ -165,7 +164,7 @@ class LoginScene extends React.Component {
           <View style={{ flex: 1 }} >
             <SendButton
               name={'Create account'}
-              say={this.sendInfo}
+              action={this.sendInfo}
             />
           </View>
         </View>

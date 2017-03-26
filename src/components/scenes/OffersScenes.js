@@ -6,9 +6,7 @@ import {
   Text,
   TextInput,
   Image,
-  Button,
   Dimensions,
-  TouchableOpacity,
 } from 'react-native';
 import {
   Actions,
@@ -199,7 +197,7 @@ class OffersScenes extends React.Component {
           <View style={{ flex: 1 }}>
             <SendButton
               name={'Publish'}
-              say={this.sendInfo}
+              action={this.sendInfo}
             />
           </View>
         </View>

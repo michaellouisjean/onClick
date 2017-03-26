@@ -49,21 +49,26 @@ class App extends React.Component {
           titleStyle={{ color: '#4D6DC3', fontWeight: 'bold' }}
           key={'HomeScene'}
           title={'Home'}
+          navigationBarStyle={{
+            backgroundColor: 'white',
+            shadowColor: '#444444',
+            shadowOffset: { width: 0, height: 2 },
+            shadowOpacity: 0.1,
+            shadowRadius: 2,
+          }}
           component={HomeScene}
         />
         <Scene
           titleStyle={{ color: '#4D6DC3', fontWeight: 'bold' }}
           key={'profile'}
-          title={'Profile'}
           hideNavBar={false}
-          navigationBarStyle={{ backgroundColor: 'transparent' }}
+          navigationBarStyle={{ backgroundColor: 'transparent', borderBottomWidth: 0 }}
           component={ViewProfileScene}
         />
         <Scene
           key={'viewOffer'}
-          title={'View offer'}
           hideNavBar={false}
-          navigationBarStyle={{ backgroundColor: 'transparent' }}
+          navigationBarStyle={{ backgroundColor: 'transparent', borderBottomWidth: 0 }}
           component={ViewOfferScene}
         />
       </Scene>
@@ -86,6 +91,13 @@ class App extends React.Component {
           titleStyle={{ color: '#4D6DC3', fontWeight: 'bold' }}
           key={'tchatListScene'}
           title={'Conversations'}
+          navigationBarStyle={{
+            backgroundColor: 'white',
+            shadowColor: '#444444',
+            shadowOffset: { width: 0, height: 2 },
+            shadowOpacity: 0.1,
+            shadowRadius: 2,
+          }}
           component={TchatListScene}
         />
       </Scene>
@@ -107,7 +119,14 @@ class App extends React.Component {
         <Scene
           titleStyle={{ color: '#4D6DC3', fontWeight: 'bold' }}
           key={'offersListScene'}
-          title={'Offers'}
+          title={'Favorites'}
+          navigationBarStyle={{
+            backgroundColor: 'white',
+            shadowColor: '#444444',
+            shadowOffset: { width: 0, height: 2 },
+            shadowOpacity: 0.1,
+            shadowRadius: 2,
+          }}
           component={OffersListScene}
         />
       </Scene>
@@ -133,8 +152,11 @@ class App extends React.Component {
       <Scene
         titleStyle={{ color: '#4D6DC3', fontWeight: 'bold' }}
         key={'ProfileScene'}
-        title={'Profile'}
         component={ProfileScene}
+        navigationBarStyle={{
+          backgroundColor: 'transparent',
+          borderBottomWidth: 0
+        }}
         icon={(props) =>
           <Icon
             name={'ios-contact'}
