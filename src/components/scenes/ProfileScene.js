@@ -3,7 +3,6 @@ import React from 'react';
 import {
   View,
   Text,
-  Modal,
   Image,
   Dimensions,
   StyleSheet,
@@ -19,16 +18,16 @@ import Api from '../core/Api';
 import Global from '../core/Global';
 import ProfilePicture from '../commons/ProfilePicture';
 
+// rules for background image
 const PADDING = 20;
 const containerWidth = Dimensions.get('window').width - (PADDING * 2);
 const inputWidth = Dimensions.get('window').width - (PADDING * 2) - (PADDING * 2);
 
+// styles
 const styles = StyleSheet.create({
   background: {
     width: '100%',
     height: '100%',
-    //justifyContent: 'center',
-    //alignItems: 'center',
     paddingTop: 70,
   },
   container: {
@@ -50,9 +49,6 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     backgroundColor: 'transparent',
   },
-  // part: {
-  //   paddingTop: 20,
-  // },
   section: {
     backgroundColor: 'transparent',
     marginBottom: 30,
@@ -75,7 +71,6 @@ const styles = StyleSheet.create({
   },
 });
 
-
 // create component & render
 class ProfileScene extends React.Component {
   constructor(props) {
@@ -92,7 +87,6 @@ class ProfileScene extends React.Component {
     Actions.login();
   }
 
-
   render() {
     const user = Api.getUser();
     console.log('ProfileScene =>', user);
@@ -100,13 +94,17 @@ class ProfileScene extends React.Component {
     const {
       visibleOnMap,
     } = this.state;
+
     return (
       <View>
+
         <Image
           source={require('../../assets/images/bg04.png')}
           style={styles.background}
         >
           <View style={{ flex: 1, paddingHorizontal: 20 }} >
+
+            {/* --------------------------------------------- LOGOUT BUTTON */}
             <TouchableOpacity
               onPress={() => this.onLogout()}
               style={{
@@ -131,12 +129,11 @@ class ProfileScene extends React.Component {
               />
             </TouchableOpacity>
 
-            {/* --------------------------------------------- USER HEADER */}
+            {/* --------------------------------------------- HEADER */}
             <View
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
-                //paddingTop: 15,
                 marginBottom: 70,
               }}
             >
@@ -147,30 +144,26 @@ class ProfileScene extends React.Component {
                 style={{ flex: 1 }}
               />
 
-              <Text
-                style={[
-                  styles.username,
-                  {
-                    flex: 3,
-                    paddingLeft: 20
-                    //textAlign: 'center'
-                  }
-                ]}
-              >{user.firstname} {user.lastname}</Text>
+              <Text style={[styles.username, { flex: 3, paddingLeft: 20 }]} >
+                {user.firstname} {user.lastname}
+              </Text>
             </View>
 
-            {/* --------------------------------------------- ABOUT */}
+            {/* --------------------------------------------- INFOS */}
             <View style={styles.part}>
+              {/* EMAIL */}
               <View style={styles.section}>
                 <Text style={styles.sectionTitle}>Email:</Text>
                 <Text style={styles.sectionText}>{user.email}</Text>
               </View>
 
+              {/* CITY */}
               <View style={styles.section}>
                 <Text style={styles.sectionTitle}>City:</Text>
                 <Text style={styles.sectionText}>{user.city}</Text>
               </View>
 
+              {/* TITLE OR SOCIETY */}
               <View style={styles.section}>
                 <Text style={styles.sectionTitle}>
                   {user.status === 'candidate' ? 'Title:' : 'Company:'}
@@ -180,6 +173,7 @@ class ProfileScene extends React.Component {
                 </Text>
               </View>
 
+              {/* SWITCH BUTTON */}
               <View>
                 <Text style={styles.sectionTitle}>Visible on map</Text>
                 <Switch
@@ -191,7 +185,7 @@ class ProfileScene extends React.Component {
               </View>
             </View>
 
-            {/* --------------------------------------------- SETTINGS */}
+            {/* --------------------------------------------- SETTINGS BUTTON */}
             <View style={{ flex: 1, alignItems: 'center' }}>
               <TouchableOpacity onPress={() => Alert.alert('Account Settings')} >
                 <Text style={styles.settings} >Account settings</Text>
@@ -200,6 +194,7 @@ class ProfileScene extends React.Component {
             
           </View>
         </Image>
+
       </View>
     );
   }
