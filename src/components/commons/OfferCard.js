@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-//import Icon from 'react-native-vector-icons/Ionicons';
 import { Actions } from 'react-native-router-flux';
 
 // import component
@@ -35,12 +34,12 @@ class OfferCard extends React.Component {
       lastname,
       loc,
     } = this.props;
-    console.log('#OfferCard => ', this.props.photo);
+    
+    console.log('#OfferCard => ', this.props);
     
     return (
       <TouchableOpacity
         style={Global.cardContainer}
-        //onPress={() => console.log('#Card.js => go to profile')}
         onPress={() => Actions.viewOffer({
           photo,
           announces,
@@ -60,11 +59,9 @@ class OfferCard extends React.Component {
             }}
         >
           <Image
-            //source={require('../../assets/images/defaultBg.png')}
             source={{ uri: photo }}
             style={Global.cardImage}
           />
-
         </View>
 
         {/* RIGHT Section*/}
@@ -95,9 +92,7 @@ class OfferCard extends React.Component {
               marginBottom: 20,
             }}
           >
-            <Tag competence={'React'} />
-            <Tag competence={'React-Native'} />
-            <Tag competence={'Node JS'} />
+            <Tag announces={announces} />
           </View>
           
         </View>

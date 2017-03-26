@@ -60,7 +60,7 @@ class HomeScene extends React.Component {
 
   render() {
     return (
-      <View style={[Global.container, { paddingTop: 62 }]} >
+      <View style={[Global.container, { paddingTop: 62, paddingBottom: 50 }]} >
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this.renderCard}
