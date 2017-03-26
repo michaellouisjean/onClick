@@ -1,6 +1,5 @@
 import { Alert } from 'react-native';
 import Store from 'react-native-simple-store';
-import { Actions } from 'react-native-router-flux';
 import Config from './Config';
 
 class Api {

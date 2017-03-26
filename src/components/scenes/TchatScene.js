@@ -3,8 +3,9 @@ import React from 'react';
 import {
   View,
   Text,
+  StyleSheet,
 } from 'react-native';
-import { Actions } from 'react-native-router-flux';
+// import { Actions } from 'react-native-router-flux';
 
 // create component & render
 class TchatScene extends React.Component {

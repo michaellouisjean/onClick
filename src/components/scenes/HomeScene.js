@@ -47,7 +47,6 @@ class HomeScene extends React.Component {
           dataSource: this.state.dataSource.cloneWithRows(results),
         });
       });
-
   }
 
 
