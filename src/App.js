@@ -15,7 +15,7 @@ import LoginScene from './components/scenes/LoginScene';
 import TchatListScene from './components/scenes/TchatListScene';
 import OffersScenes from './components/scenes/OffersScenes';
 import HomeScene from './components/scenes/HomeScene';
-import OffersListScene from './components/scenes/OffersListScene';
+import Favorites from './components/scenes/Favorites';
 import TchatScene from './components/scenes/TchatScene';
 import ProfileScene from './components/scenes/ProfileScene';
 import ViewProfileScene from './components/scenes/ViewProfileScene';
@@ -27,7 +27,7 @@ class App extends React.Component {
     super(props);
     //this.renderHomeFlow = this.renderHomeFlow.bind(this);
     //this.renderTchatFlow = this.renderTchatFlow.bind(this);
-    //this.renderOffersFlow = this.renderOffersFlow.bind(this);
+    //this.renderFavoritesFlow = this.renderFavoritesFlow.bind(this);
     //this.renderTchatScene = this.renderTchatScene.bind(this);
     //this.renderProfileScene = this.renderProfileScene.bind(this);
   }
@@ -104,7 +104,7 @@ class App extends React.Component {
     );
   }
 
-  renderOffersFlow() {
+  renderFavoritesFlow() {
     return (
       <Scene
         key={'offerFlow'}
@@ -118,7 +118,7 @@ class App extends React.Component {
       >
         <Scene
           titleStyle={{ color: '#4D6DC3', fontWeight: 'bold' }}
-          key={'offersListScene'}
+          key={'favorites'}
           title={'Favorites'}
           navigationBarStyle={{
             backgroundColor: 'white',
@@ -127,7 +127,7 @@ class App extends React.Component {
             shadowOpacity: 0.1,
             shadowRadius: 2,
           }}
-          component={OffersListScene}
+          component={Favorites}
         />
       </Scene>
     );
@@ -192,7 +192,7 @@ class App extends React.Component {
         >
           {this.renderHomeFlow()}
           {this.renderTchatFlow()}
-          {this.renderOffersFlow()}
+          {this.renderFavoritesFlow()}
           {this.renderProfileScene()}
         </Scene>
         {this.renderTchatScene()}
