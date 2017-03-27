@@ -5,10 +5,13 @@ import {
   Text,
 } from 'react-native';
 //import { Actions } from 'react-native-router-flux';
+import Api from '../core/Api';
 
 // create component & render
 class OffersListScene extends React.Component {
   render() {
+    const USER = Api.getUser();
+    console.log(USER);
     return (
       <View
         style={{

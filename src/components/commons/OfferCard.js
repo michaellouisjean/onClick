@@ -33,6 +33,7 @@ class OfferCard extends React.Component {
       firstname,
       lastname,
       loc,
+      _id,
     } = this.props;
     
     console.log('#OfferCard => ', this.props);
@@ -49,6 +50,7 @@ class OfferCard extends React.Component {
           firstname,
           lastname,
           loc,
+          _id,
         })}
       >
         {/* LEFT Section*/}

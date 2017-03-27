@@ -58,6 +58,7 @@ class Card extends React.Component {
       description,
       loc,
       lastConnection,
+      _id,
     } = this.props;
     return (
       <TouchableOpacity
@@ -72,6 +73,7 @@ class Card extends React.Component {
           description,
           loc,
           lastConnection,
+          _id,
         })}
       >
         {/* LEFT Section*/}
