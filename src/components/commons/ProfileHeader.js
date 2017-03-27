@@ -118,7 +118,7 @@ class ProfileHeader extends React.Component {
                 source={{ uri: this.props.photo }}
                 style={styles.image}
               />
-  
+
               <View
                 style={{
                   flexDirection: 'row',
@@ -136,10 +136,12 @@ class ProfileHeader extends React.Component {
                   />
                 </TouchableOpacity>
 
-                <Text style={[{ textAlign: 'center' }, styles.textName]}>{this.props.firstname}</Text>
+                <Text style={[{ textAlign: 'center' }, styles.textName]}>
+                  {this.props.firstname}
+                </Text>
 
                 <TouchableOpacity
-                  onPress={() => Actions.tchat()}
+                  onPress={() => Actions.tchat({speakerId: this.props._id})}
                 >
                   <Icon
                     style={[styles.largeIcon, { marginLeft: 60 }]}

@@ -36,13 +36,12 @@ export default class TchatScene extends React.Component {
       userId: Api.getUser()._id,
     });
     this._isMounted = true;
-    // this.client.on('serverSendsMessage', this.onMessageReceived);
-    // this.client.on('serverloadsMessages', this.loadMessages);
-  }
+  } // componentDidMount
 
   componentWillUnmount() {
     this._isMounted = false ;
   }
+
   getMessages() {
     console.log('getMessages USER_ID ', this.USER_ID);
     console.log('getMessages USER_STATUS ', this.USER_STATUS);
@@ -56,23 +55,23 @@ export default class TchatScene extends React.Component {
     console.log('client loads messages');
     console.log('loadMessages talk ', talk);
     if (this._isMounted){
-    if (talk) {
-      this.setState({
-        messages: talk.messages ? talk.messages.reverse() : [],
-        talk_id: talk._id
-      });
+      if (talk) {
+        this.setState({
+          messages: talk.messages ? talk.messages.reverse() : [],
+          talk_id: talk._id
+        });
+      }
     }
-  }
   } // loadMessages
 
   onMessageReceived (messages) {
     console.log('client recieves message');
     messages.reverse();
     if (this._isMounted) {
-    this.setState({
-      messages
-    });
-  }
+      this.setState({
+        messages
+      });
+    }
   } // onMessageReceived
 
   onSendMessage(message) {
@@ -103,5 +102,4 @@ export default class TchatScene extends React.Component {
       />
     );
   }
-
 }

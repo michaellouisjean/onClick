@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, TouchableOpacity } from 'react-native';
-import { Actions } from 'react-native-router-flux';
+//import { Actions } from 'react-native-router-flux';
 
 export default class profilePicture extends React.Component {
   render() {
@@ -10,9 +10,10 @@ export default class profilePicture extends React.Component {
         //onPress={() => Actions.profile()}
       >
       <Image
-        source={require('../../assets/images/profile.jpeg')}
+        //source={require('../../assets/images/profile.jpeg')}
+        source={{ uri: this.props.photo }}
         style={{
-          borderWidth: 2,
+          borderWidth: this.props.border,
           borderColor: '#ffffff',
           height: this.props.size,
           width: this.props.size,

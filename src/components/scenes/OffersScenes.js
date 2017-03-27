@@ -6,16 +6,9 @@ import {
   Text,
   TextInput,
   Image,
-  Button,
   Dimensions,
-  TouchableOpacity,
 } from 'react-native';
-import {
-  Actions,
-} from 'react-native-router-flux';
 
-import Icon from 'react-native-vector-icons/Ionicons';
-import Global from '../core/Global';
 import SendButton from '../commons/SendButton';
 
 const PADDING = 20;
@@ -199,7 +192,7 @@ class OffersScenes extends React.Component {
           <View style={{ flex: 1 }}>
             <SendButton
               name={'Publish'}
-              say={this.sendInfo}
+              action={this.sendInfo}
             />
           </View>
         </View>

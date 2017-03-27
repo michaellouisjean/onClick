@@ -112,7 +112,7 @@ class OfferHeader extends React.Component {
                 source={{ uri: this.props.photo }}
                 style={styles.image}
               />
-  
+
               <View
                 style={{
                   flexDirection: 'row',
@@ -130,7 +130,7 @@ class OfferHeader extends React.Component {
 
                 <Text style={[{ textAlign: 'center' }, styles.textName]}>{this.props.society}</Text>
 
-                <TouchableOpacity onPress={() => Actions.tchat()} >
+                <TouchableOpacity onPress={() => Actions.tchat({speakerId: this.props._id})} >
                   <Icon
                     style={[styles.largeIcon, { marginLeft: 60 }]}
                     name={'ios-chatbubbles'}

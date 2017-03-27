@@ -3,22 +3,16 @@ import React from 'react';
 import {
   StyleSheet,
   View,
-  Text,
   TextInput,
-  Image,
-  Button,
   Dimensions,
   TouchableOpacity,
 } from 'react-native';
-import {
-  Actions,
-} from 'react-native-router-flux';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import Global from '../core/Global';
 
 const PADDING = 20;
-const containerWidth = Dimensions.get('window').width - (PADDING * 2);
+//const containerWidth = Dimensions.get('window').width - (PADDING * 2);
 const inputWidth = Dimensions.get('window').width - (PADDING * 2) - (PADDING * 2);
 
 const styles = StyleSheet.create({

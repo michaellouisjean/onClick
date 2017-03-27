@@ -47,7 +47,7 @@ const Global = {
     fontSize: 13,
   },
   cardTagContainer: {
-    backgroundColor: '#4D6DC3',
+    //backgroundColor: '#4D6DC3',
     padding: 4,
     borderRadius: 4,
     marginLeft: 3,

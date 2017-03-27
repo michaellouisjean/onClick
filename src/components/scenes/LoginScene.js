@@ -10,7 +10,6 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-
 import Api from '../core/Api';
 
 // import component
@@ -85,7 +84,7 @@ class LoginScene extends React.Component {
     this.setState({
       email,
     });
-    console.log(this.state.email);
+    //console.log(this.state.email);
   }
 
   onChangePassword(text) {
@@ -93,17 +92,19 @@ class LoginScene extends React.Component {
     this.setState({
       password,
     });
-    console.log(this.state.password);
+    //console.log(this.state.password);
   }
 
 
   onLoginSubmit() {
-    console.log('LoginScene#onLoginSubmit');
+    console.log('#LoginScene : onLoginSubmit() => ', {
+      email: this.state.email,
+      password: this.state.password
+    });
     Api.logIn({
       email: this.state.email,
       password: this.state.password,
-    }, () =>
-    Actions.tab());
+    }, () => Actions.tab());
   }
 
   sendInfo() {
@@ -166,7 +167,7 @@ class LoginScene extends React.Component {
           <View style={{ flex: 1 }} >
             <SendButton
               name={'Create account'}
-              say={this.sendInfo}
+              action={this.sendInfo}
             />
           </View>
         </View>

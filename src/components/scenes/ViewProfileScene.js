@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#999999',
   },
   sectionPadding: {
-    
+
   },
   backgroundEven: {
     backgroundColor: Global.colors.backgroundEven,
@@ -98,6 +98,7 @@ class ViewProfileScene extends React.Component {
 
           {/* profile header content */}
           <ProfileHeader
+            _id={this.props._id}
             imageSize={100}
             city={this.props.city}
             photo={this.props.photo}

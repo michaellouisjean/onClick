@@ -90,6 +90,7 @@ class ViewProfileScene extends React.Component {
         <ScrollView>
 
           <OfferHeader
+            _id={this.props._id}
             imageSize={100}
             city={this.props.city}
             photo={this.props.photo}
