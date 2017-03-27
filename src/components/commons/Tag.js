@@ -31,18 +31,18 @@ class Tag extends React.Component {
 
   render() {
     const {
-      announces,
+      skills,
     } = this.props;
 
-    console.log('#Tages', announces[0].competences[0]);
+    console.log('#Tages', skills.competences[0]);
     return (
       <View
         style={[
           Global.cardTagContainer,
-          { backgroundColor: this.renderBackgroundLevel(announces[0].competences[0].level) }
+          { backgroundColor: this.renderBackgroundLevel(skills.competences[0].level) }
         ]}
       >
-        <Text style={Global.cardTags}>{announces[0].competences[0].name}</Text>
+        <Text style={Global.cardTags}>{skills.competences[0].name}</Text>
       </View>
     );
   }

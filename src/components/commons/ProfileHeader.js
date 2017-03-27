@@ -136,7 +136,9 @@ class ProfileHeader extends React.Component {
                   />
                 </TouchableOpacity>
 
-                <Text style={[{ textAlign: 'center' }, styles.textName]}>{this.props.firstname}</Text>
+                <Text style={[{ textAlign: 'center' }, styles.textName]}>
+                  {this.props.firstname}
+                </Text>
 
                 <TouchableOpacity
                   onPress={() => Actions.tchat()}

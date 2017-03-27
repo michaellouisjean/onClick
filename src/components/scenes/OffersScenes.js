@@ -8,12 +8,7 @@ import {
   Image,
   Dimensions,
 } from 'react-native';
-import {
-  Actions,
-} from 'react-native-router-flux';
 
-import Icon from 'react-native-vector-icons/Ionicons';
-import Global from '../core/Global';
 import SendButton from '../commons/SendButton';
 
 const PADDING = 20;

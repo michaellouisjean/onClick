@@ -9,7 +9,8 @@ import {
 import { Actions } from 'react-native-router-flux';
 
 // import component
-import ProfilePicture from './ProfilePicture';
+//import ProfilePicture from './ProfilePicture';
+import DefaultAvatar from './DefaultAvatar';
 import Global from '../core/Global';
 
 // styles
@@ -41,7 +42,7 @@ class Conversation extends React.Component {
         onPress={() => Actions.tchat()}
       >
         <View style={{ flex: 1 }}>
-          <ProfilePicture size={40} />
+          <DefaultAvatar size={40} />
         </View>
 
         <View style={{ flex: 5 }}>

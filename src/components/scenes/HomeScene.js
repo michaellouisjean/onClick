@@ -42,7 +42,7 @@ class HomeScene extends React.Component {
     //console.log(this.state.user.loc[0]);
     Api.fetchFn(`user/${request}?lng=${user.loc[0]}&lat=${user.loc[1]}`)
       .then(results => {
-        console.log(results);
+        console.log('#HomeScene : callbackResult =>', results);
         this.setState({
           dataSource: this.state.dataSource.cloneWithRows(results),
         });
@@ -53,8 +53,10 @@ class HomeScene extends React.Component {
   renderCard(rowData) {
     const user = Api.getUser();
     if (user.status === 'candidate') {
+      console.log('user is a candidate');
       return (<OfferCard {...rowData} />);
     }
+    console.log('user is a recruiter');
     return (<Card {...rowData} />);
   }
 

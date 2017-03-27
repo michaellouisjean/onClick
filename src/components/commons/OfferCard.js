@@ -92,7 +92,7 @@ class OfferCard extends React.Component {
               marginBottom: 20,
             }}
           >
-            <Tag announces={announces} />
+            <Tag skills={announces[0]} />
           </View>
           
         </View>

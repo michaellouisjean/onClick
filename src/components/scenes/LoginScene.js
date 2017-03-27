@@ -84,7 +84,7 @@ class LoginScene extends React.Component {
     this.setState({
       email,
     });
-    console.log(this.state.email);
+    //console.log(this.state.email);
   }
 
   onChangePassword(text) {
@@ -92,12 +92,15 @@ class LoginScene extends React.Component {
     this.setState({
       password,
     });
-    console.log(this.state.password);
+    //console.log(this.state.password);
   }
 
 
   onLoginSubmit() {
-    console.log('LoginScene#onLoginSubmit');
+    console.log('#LoginScene : onLoginSubmit() => ', {
+      email: this.state.email,
+      password: this.state.password
+    });
     Api.logIn({
       email: this.state.email,
       password: this.state.password,

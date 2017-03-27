@@ -48,6 +48,7 @@ class Card extends React.Component {
   }
 
   render() {
+    console.log('#Card : props received => ', this.props);
     const {
       firstname,
       lastname,
@@ -109,9 +110,7 @@ class Card extends React.Component {
               marginBottom: 10,
             }}
           >
-            <Tag competence={cv.qualities[0]} />
-            <Tag competence={cv.qualities[1]} />
-            <Tag competence={cv.qualities[2]} />
+            <Tag skills={cv} />
           </View>
 
           {/* icons section */}
