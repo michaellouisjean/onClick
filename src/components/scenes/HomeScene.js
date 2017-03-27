@@ -28,14 +28,25 @@ class HomeScene extends React.Component {
   }
 
   componentDidMount() {
-   Api.fetchFn(`user/candidates?lng=${this.state.user.loc[0]}&lat=${this.state.user.loc[1]}`)
-     .then(results => {
-       console.log(results);
-       this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(results),
+    if (this.state.user.status === 'candidate') {
+     Api.fetchFn(`user/recruiters?lng=${this.state.user.loc[0]}&lat=${this.state.user.loc[1]}`)
+       .then(results => {
+         console.log(results);
+         this.setState({
+          dataSource: this.state.dataSource.cloneWithRows(results),
+        });
+       });
+     } // if candidate
+   else {
+     Api.fetchFn(`user/candidates?lng=${this.state.user.loc[0]}&lat=${this.state.user.loc[1]}`)
+       .then(results => {
+         console.log(results);
+         this.setState({
+          dataSource: this.state.dataSource.cloneWithRows(results),
       });
      });
-  }
+   } // else
+ } // componentDidMount
 
   render() {
     //console.log('#HomeScene => User ', this.props.user);
@@ -45,7 +56,7 @@ class HomeScene extends React.Component {
       <View style={[Global.container, { paddingTop: 62 }]} >
         <ListView
           dataSource={this.state.dataSource}
-          
+
           renderRow={(rowData) => <Card {...rowData} />}
         />
       </View>

@@ -49,6 +49,7 @@ class Card extends React.Component {
 
   render() {
     const {
+      _id,
       firstname,
       lastname,
       city,
@@ -133,7 +134,7 @@ class Card extends React.Component {
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => Actions.tchat()}
+              onPress={() => Actions.tchat({speakerId: _id})}
             >
               <Icon
                 style={[styles.largeIcon, { marginLeft: 60 }]}
