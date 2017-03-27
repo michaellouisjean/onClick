@@ -50,6 +50,7 @@ class Card extends React.Component {
   render() {
     console.log('#Card : props received => ', this.props);
     const {
+      _id,
       firstname,
       lastname,
       city,
@@ -58,7 +59,6 @@ class Card extends React.Component {
       description,
       loc,
       lastConnection,
-      _id,
     } = this.props;
     return (
       <TouchableOpacity
@@ -134,7 +134,7 @@ class Card extends React.Component {
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => Actions.tchat()}
+              onPress={() => Actions.tchat({speakerId: _id})}
             >
               <Icon
                 style={[styles.largeIcon, { marginLeft: 60 }]}

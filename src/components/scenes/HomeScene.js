@@ -37,7 +37,7 @@ class HomeScene extends React.Component {
     } else {
       request = 'candidates';
     }
-    
+
 
     //console.log(this.state.user.loc[0]);
     Api.fetchFn(`user/${request}?lng=${user.loc[0]}&lat=${user.loc[1]}`)
