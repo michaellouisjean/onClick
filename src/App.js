@@ -25,11 +25,11 @@ import ViewOfferScene from './components/scenes/ViewOfferScene';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.renderHomeFlow = this.renderHomeFlow.bind(this);
-    this.renderTchatFlow = this.renderTchatFlow.bind(this);
-    this.renderOffersFlow = this.renderOffersFlow.bind(this);
-    this.renderTchatScene = this.renderTchatScene.bind(this);
-    this.renderProfileScene = this.renderProfileScene.bind(this);
+    //this.renderHomeFlow = this.renderHomeFlow.bind(this);
+    //this.renderTchatFlow = this.renderTchatFlow.bind(this);
+    //this.renderOffersFlow = this.renderOffersFlow.bind(this);
+    //this.renderTchatScene = this.renderTchatScene.bind(this);
+    //this.renderProfileScene = this.renderProfileScene.bind(this);
   }
 
   // créations de fonctions pour suivre le Flow
