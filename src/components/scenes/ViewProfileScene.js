@@ -8,7 +8,6 @@ import {
   InteractionManager,
 } from 'react-native';
 import Map from '../containers/MapContainer';
-//import { BlurView, VibrancyView } from 'react-native-blur';
 
 // import component
 import Global from '../core/Global';

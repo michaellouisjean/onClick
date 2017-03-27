@@ -1,200 +1,184 @@
-// import library
+// import library & packages
 import React from 'react';
 import {
   View,
   Text,
-  Image,
-  Dimensions,
+  ScrollView,
   StyleSheet,
+  InteractionManager,
   TouchableOpacity,
-  Switch,
+  Image,
   Alert,
+  Switch,
 } from 'react-native';
-import { Actions } from 'react-native-router-flux';
-import Icon from 'react-native-vector-icons/Ionicons';
 
-// import components
-import Api from '../core/Api';
+// import component
 import Global from '../core/Global';
-import ProfilePicture from '../commons/ProfilePicture';
-
-// rules for background image
-const PADDING = 20;
-const containerWidth = Dimensions.get('window').width - (PADDING * 2);
-const inputWidth = Dimensions.get('window').width - (PADDING * 2) - (PADDING * 2);
 
 // styles
 const styles = StyleSheet.create({
-  background: {
-    width: '100%',
-    height: '100%',
-    paddingTop: 70,
-  },
-  container: {
-    backgroundColor: '#FFF',
-    marginVertical: 50,
-    width: containerWidth,
-    flex: 1,
-    alignItems: 'center',
-    borderRadius: 10,
-  },
-  input: {
-    height: 40,
-    width: inputWidth,
-    backgroundColor: 'white',
-  },
-  username: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#ffffff',
-    backgroundColor: 'transparent',
-  },
   section: {
-    backgroundColor: 'transparent',
-    marginBottom: 30,
+    // width: '100%',
+    // paddingVertical: 40,
+    // paddingHorizontal: 30,
+    paddingHorizontal: 30,
+    paddingVertical: 20,
   },
-  sectionTitle: {
-    color: '#999999',
-    fontSize: 18,
+  sectionPadding: {
+
+  },
+  backgroundEven: {
+    backgroundColor: Global.colors.backgroundEven,
+  },
+  backgroundOdd: {
+    backgroundColor: Global.colors.backgroundOdd,
+  },
+  textTitle: {
+
+  },
+  textSubtitle: {
+    fontSize: 16,
+    color: '#4D6DC3',
     marginBottom: 10,
   },
-  sectionText: {
-    color: '#555',
-    fontSize: 15,
-    fontWeight: 'bold',
+  textName: {
+    fontSize: 25,
+    fontWeight: '200',
+    color: '#4D6DC3',
   },
-  settings: {
-    color: '#888',
-    fontWeight: '500',
-    fontSize: 14,
-    top: 20,
+  titleSection: {
+    fontSize: 17,
+    fontWeight: 'bold',
+    color: '#4D6DC3',
+    marginBottom: 8,
+  },
+  subSection: {
+    marginBottom: 0,
+  },
+  image: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    borderWidth: 4,
+    borderColor: '#ffffff',
   },
 });
 
 // create component & render
 class ProfileScene extends React.Component {
+
   constructor(props) {
     super(props);
-
     this.state = {
+      isLoaded: false,
       visibleOnMap: true,
     };
   }
 
-  onLogout() {
-    console.log('logout');
-    Api.logOut(() => console.log('utilisateur déconnecté'));
-    Actions.login();
+  componentDidMount() {
+    InteractionManager.runAfterInteractions(() => {
+      this.setState({
+        isLoaded: true,
+      });
+    });
   }
 
   render() {
-    const user = Api.getUser();
-    console.log('ProfileScene =>', user);
-
     const {
       visibleOnMap,
     } = this.state;
 
+    console.log('#ProfileScene => ', this.props);
     return (
-      <View>
+      <View style={{ flex: 1 }}>
+        <ScrollView>
 
-        <Image
-          source={require('../../assets/images/bg04.png')}
-          style={styles.background}
-        >
-          <View style={{ flex: 1, paddingHorizontal: 20 }} >
-
-            {/* --------------------------------------------- LOGOUT BUTTON */}
-            <TouchableOpacity
-              onPress={() => this.onLogout()}
+          {/* profile header content */}
+          <View>
+            {/* profile header */}
+            <Image
+              source={{ uri: 'https://images.pexels.com/photos/251829/pexels-photo-251829.jpeg?h=350&auto=compress&cs=tinysrgb' }}
               style={{
-                flexDirection: 'row',
-                backgroundColor: 'transparent',
-                justifyContent: 'flex-end',
+                height: 200,
               }}
-            >
-              <Text
-                style={{
-                  color: '#ffffff',
-                  fontSize: 16,
-                }}
-              >
-                Log out
-              </Text>
+              blurRadius={20}
+            />
+            {/*</View>*/}
 
-              <Icon
-                style={{ marginLeft: 20, fontSize: 20 }}
-                name={'ios-power'}
-                color={Global.colors.backgroundEven}
-              />
-            </TouchableOpacity>
-
-            {/* --------------------------------------------- HEADER */}
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginBottom: 70,
-              }}
-            >
-              <ProfilePicture
-                photo={user.photo}
-                size={90}
-                border={2}
-                style={{ flex: 1 }}
-              />
-
-              <Text style={[styles.username, { flex: 3, paddingLeft: 20 }]} >
-                {user.firstname} {user.lastname}
-              </Text>
-            </View>
-
-            {/* --------------------------------------------- INFOS */}
-            <View style={styles.part}>
-              {/* EMAIL */}
-              <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Email:</Text>
-                <Text style={styles.sectionText}>{user.email}</Text>
-              </View>
-
-              {/* CITY */}
-              <View style={styles.section}>
-                <Text style={styles.sectionTitle}>City:</Text>
-                <Text style={styles.sectionText}>{user.city}</Text>
-              </View>
-
-              {/* TITLE OR SOCIETY */}
-              <View style={styles.section}>
-                <Text style={styles.sectionTitle}>
-                  {user.status === 'candidate' ? 'Title:' : 'Company:'}
-                </Text>
-                <Text style={styles.sectionText}>
-                  {user.status === 'candidate' ? user.cv.title : user.society}
-                </Text>
-              </View>
-
-              {/* SWITCH BUTTON */}
+            {/* profile header content */}
+            <View style={styles.backgroundEven}>
               <View>
-                <Text style={styles.sectionTitle}>Visible on map</Text>
-                <Switch
-                  onValueChange={() => this.setState({
-                    visibleOnMap: !visibleOnMap
-                  })}
-                  value={visibleOnMap}
-                />
+                <View
+                  style={{
+                    flex: 1,
+                    alignItems: 'center',
+                    position: 'relative',
+                    marginTop: -50,
+                  }}
+                >
+                  <Image
+                    source={{ uri: 'https://images.pexels.com/photos/251829/pexels-photo-251829.jpeg?h=350&auto=compress&cs=tinysrgb' }}
+                    style={styles.image}
+                  />
+
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                    }}
+                  >
+                    <Text style={[{ textAlign: 'center' }, styles.textName]}>
+                      Clarck Kent
+                    </Text>
+                  </View>
+                  <Text
+                    style={{
+                      textAlign: 'center',
+                      fontWeight: '200',
+                      color: '#4D6DC3',
+                    }}
+                  >Metropolis</Text>
+                </View>
               </View>
             </View>
 
-            {/* --------------------------------------------- SETTINGS BUTTON */}
-            <View style={{ flex: 1, alignItems: 'center' }}>
-              <TouchableOpacity onPress={() => Alert.alert('Account Settings')} >
-                <Text style={styles.settings} >Account settings</Text>
+            <View style={[styles.section, styles.backgroundEven]}>
+              <Text style={styles.titleSection} >Email</Text>
+              <Text>superman@j-league.com</Text>
+            </View>
+
+            <View style={[styles.section, styles.backgroundEven]}>
+              <Text style={styles.titleSection} >This is my CV</Text>
+              <Text>This is my description</Text>
+            </View>
+
+            <View style={[styles.section, styles.backgroundEven]}>
+              <Text style={styles.titleSection} >Active map</Text>
+              <Switch
+                onValueChange={() => this.setState({
+                  visibleOnMap: !visibleOnMap
+                })}
+                value={visibleOnMap}
+              />
+            </View>
+
+            <View style={[styles.section, { alignItems: 'center' }]}>
+              <TouchableOpacity
+                onPress={() => Alert.alert('Account settings')}
+              >
+                <Text
+                  style={{
+                    fontWeight: 'bold',
+                    color: '#777',
+                    fontSize: 15,
+                  }}
+                >Account setting</Text>
               </TouchableOpacity>
             </View>
-            
-          </View>
-        </Image>
 
+          </View>
+
+        </ScrollView>
       </View>
     );
   }
