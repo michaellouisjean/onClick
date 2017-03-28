@@ -85,6 +85,10 @@ class ViewProfileScene extends React.Component {
 
   render() {
     console.log('#ViewOfferScene => ', this.props);
+    const {
+      announces,
+    } = this.props;
+
     return (
       <View style={Global.container}>
         <ScrollView>
@@ -104,17 +108,16 @@ class ViewProfileScene extends React.Component {
             <Text style={styles.titleSection} >Required skills :</Text>
 
             <View style={styles.subSection}>
-              <Text style={styles.textSubtitle} >Skill 1</Text>
+              <Text style={styles.textSubtitle} >
+                {announces[0].competences[0].name} - Level: {announces[0].competences[0].level}
+              </Text>
               <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Text>
             </View>
 
             <View style={styles.subSection}>
-              <Text style={styles.textSubtitle} >Skill 2</Text>
-              <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Text>
-            </View>
-
-            <View style={styles.subSection}>
-              <Text style={styles.textSubtitle} >Skill 3</Text>
+              <Text style={styles.textSubtitle} >
+                {announces[0].languages[0].name} - Level: {announces[0].languages[0].level}
+              </Text>
               <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Text>
             </View>
 

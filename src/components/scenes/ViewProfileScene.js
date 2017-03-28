@@ -72,6 +72,7 @@ class ViewProfileScene extends React.Component {
     this.state = {
       isLoaded: false,
     };
+    this.renderQualities = this.renderQualities.bind(this);
   }
 
   componentDidMount() {
@@ -89,31 +90,46 @@ class ViewProfileScene extends React.Component {
     return <Map loc={this.props.loc} />;
   }
 
+  renderQualities(qualities) {
+    console.log(qualities);
+    qualities.map((quality) => (<View style={styles.subSection}>
+      <Text style={styles.textSubtitle} >{quality}</Text>
+    </View>));
+  }
+
   render() {
     console.log('#ViewProfileScene => ', this.props);
+    const {
+      _id,
+      city,
+      photo,
+      firstname,
+      lastname,
+      description,
+      cv
+    } = this.props;
+
     return (
       <View style={Global.container}>
         <ScrollView>
 
           {/* profile header content */}
           <ProfileHeader
-            _id={this.props._id}
+            _id={_id}
             imageSize={100}
-            city={this.props.city}
-            photo={this.props.photo}
-            firstname={this.props.firstname}
-            lastname={this.props.lastname}
-            description={this.props.description}
-            cv={this.props.cv}
+            city={city}
+            photo={photo}
+            firstname={firstname}
+            lastname={lastname}
+            description={description}
+            cv={cv}
           />
           {/* END -- profile header content */}
 
           {/* section */}
           <View style={[styles.section, styles.backgroundEven]}>
             <Text style={styles.titleSection} >My best experience</Text>
-            <Text style={styles.textSubtitle} >Ubisoft Paris</Text>
-            <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui quod optio,
-              molestiae, quibusdam quae vel sit architecto maiores officia nostrum laborum?</Text>
+            <Text style={styles.textSubtitle} >{cv.experience}</Text>
           </View>
 
           {/* section */}
@@ -121,14 +137,10 @@ class ViewProfileScene extends React.Component {
             <Text style={styles.titleSection} >My degrees</Text>
 
             <View style={styles.subSection}>
-              <Text style={styles.textSubtitle} >Motion Designer - 2016</Text>
+              <Text style={styles.textSubtitle} >{cv.degree} - 2016</Text>
               <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Text>
             </View>
 
-            <View style={styles.subSection}>
-              <Text style={styles.textSubtitle} >Motion Designer - 2016</Text>
-              <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Text>
-            </View>
           </View>
 
           {/* section */}
@@ -136,18 +148,13 @@ class ViewProfileScene extends React.Component {
             <Text style={styles.titleSection} >My 3 greatest qualities</Text>
 
             <View style={styles.subSection}>
-              <Text style={styles.textSubtitle} >Quality 1</Text>
-              <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Text>
+              <Text style={styles.textSubtitle} >{cv.qualities[0]}</Text>
             </View>
-
             <View style={styles.subSection}>
-              <Text style={styles.textSubtitle} >Quality 2</Text>
-              <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Text>
+              <Text style={styles.textSubtitle} >{cv.qualities[1]}</Text>
             </View>
-
             <View style={styles.subSection}>
-              <Text style={styles.textSubtitle} >Quality 3</Text>
-              <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Text>
+              <Text style={styles.textSubtitle} >{cv.qualities[2]}</Text>
             </View>
           </View>
 

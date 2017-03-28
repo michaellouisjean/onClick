@@ -14,27 +14,19 @@ import {
 
 // import component
 import Global from '../core/Global';
+import Api from '../core/Api';
 
 // styles
 const styles = StyleSheet.create({
   section: {
-    // width: '100%',
-    // paddingVertical: 40,
-    // paddingHorizontal: 30,
     paddingHorizontal: 30,
-    paddingVertical: 20,
-  },
-  sectionPadding: {
-
+    paddingVertical: 15,
   },
   backgroundEven: {
     backgroundColor: Global.colors.backgroundEven,
   },
   backgroundOdd: {
     backgroundColor: Global.colors.backgroundOdd,
-  },
-  textTitle: {
-
   },
   textSubtitle: {
     fontSize: 16,
@@ -56,22 +48,25 @@ const styles = StyleSheet.create({
     marginBottom: 0,
   },
   image: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+    width: 150,
+    height: 150,
+    borderRadius: 75,
     borderWidth: 4,
     borderColor: '#ffffff',
   },
 });
 
+const user = Api.getUser();
+console.log('ProfileScene : User => ', user);
+
 // create component & render
 class ProfileScene extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
       isLoaded: false,
       visibleOnMap: true,
+      user: Api.getUser(),
     };
   }
 
@@ -86,22 +81,28 @@ class ProfileScene extends React.Component {
   render() {
     const {
       visibleOnMap,
+      user,
     } = this.state;
 
-    console.log('#ProfileScene => ', this.props);
+    console.log('#ProfileScene : user => ', user);
     return (
-      <View style={{ flex: 1 }}>
+      <View
+        style={{
+          flex: 1,
+          paddingTop: 20,
+        }}
+      >
         <ScrollView>
 
           {/* profile header content */}
           <View>
             {/* profile header */}
             <Image
-              source={{ uri: 'https://images.pexels.com/photos/251829/pexels-photo-251829.jpeg?h=350&auto=compress&cs=tinysrgb' }}
+              source={{ uri: user.photo }}
               style={{
                 height: 200,
               }}
-              blurRadius={20}
+              blurRadius={30}
             />
             {/*</View>*/}
 
@@ -113,38 +114,34 @@ class ProfileScene extends React.Component {
                     flex: 1,
                     alignItems: 'center',
                     position: 'relative',
-                    marginTop: -50,
+                    marginTop: -125,
                   }}
                 >
                   <Image
-                    source={{ uri: 'https://images.pexels.com/photos/251829/pexels-photo-251829.jpeg?h=350&auto=compress&cs=tinysrgb' }}
+                    source={{ uri: user.photo }}
                     style={styles.image}
                   />
 
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                    }}
-                  >
+                  <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} >
                     <Text style={[{ textAlign: 'center' }, styles.textName]}>
-                      Clarck Kent
+                      {user.firstname} {user.lastname}
                     </Text>
                   </View>
+
                   <Text
                     style={{
                       textAlign: 'center',
                       fontWeight: '200',
                       color: '#4D6DC3',
                     }}
-                  >Metropolis</Text>
+                  >{user.city}</Text>
                 </View>
               </View>
             </View>
 
             <View style={[styles.section, styles.backgroundEven]}>
               <Text style={styles.titleSection} >Email</Text>
-              <Text>superman@j-league.com</Text>
+              <Text>{user.email}</Text>
             </View>
 
             <View style={[styles.section, styles.backgroundEven]}>
