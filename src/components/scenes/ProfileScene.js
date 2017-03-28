@@ -10,6 +10,7 @@ import {
   Image,
   Alert,
   Switch,
+  Slider,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
@@ -45,6 +46,12 @@ const styles = StyleSheet.create({
     color: '#4D6DC3',
     marginBottom: 8,
   },
+  titleSectionDisabled: {
+    fontSize: 17,
+    fontWeight: 'bold',
+    color: '#dbdbdb',
+    fontStyle: 'italic',
+  },
   subSection: {
     marginBottom: 0,
   },
@@ -57,8 +64,8 @@ const styles = StyleSheet.create({
   },
 });
 
-const user = Api.getUser();
-console.log('ProfileScene : User => ', user);
+//const user = Api.getUser();
+//console.log('ProfileScene : User => ', user);
 
 // create component & render
 class ProfileScene extends React.Component {
@@ -67,8 +74,10 @@ class ProfileScene extends React.Component {
     this.state = {
       isLoaded: false,
       visibleOnMap: true,
+      value: 200,
       user: Api.getUser(),
     };
+    this.isActiveText = this.isActiveText.bind(this);
   }
 
   componentDidMount() {
@@ -79,10 +88,15 @@ class ProfileScene extends React.Component {
     });
   }
 
+  isActiveText() {
+    return this.state.isLoaded ? styles.titleSection : styles.titleSectionDisabled;
+  }
+
   render() {
     const {
       visibleOnMap,
       user,
+      value,
     } = this.state;
 
     console.log('#ProfileScene : user => ', user);
@@ -91,6 +105,7 @@ class ProfileScene extends React.Component {
         style={{
           flex: 1,
           paddingTop: 20,
+          paddingBottom: 50,
         }}
       >
         <ScrollView>
@@ -147,25 +162,39 @@ class ProfileScene extends React.Component {
 
             <TouchableOpacity onPress={() => Actions.cv({ user })}>
               <View style={[styles.section, styles.backgroundEven]}>
-                <Text style={styles.titleSection} >This is my CV</Text>
-                <Text>This is my description</Text>
+                <Text style={styles.titleSection} >Click to edit my CV</Text>
               </View>
             </TouchableOpacity>
 
             <View style={[styles.section, styles.backgroundEven]}>
-              <Text style={styles.titleSection} >Active map</Text>
-              <Switch
-                onValueChange={() => this.setState({
-                  visibleOnMap: !visibleOnMap
-                })}
-                value={visibleOnMap}
+              <Text style={styles.titleSection} >Edit my description</Text>
+              <Text numberOfLines={3}>{user.description}</Text>
+            </View>
+
+            <View style={[styles.section, styles.backgroundEven]}>
+              <Text style={styles.titleSection} >Distance: {value} m</Text>
+              <Slider
+                disabled={!visibleOnMap}
+                minimumValue={200}
+                maximumValue={1000}
+                step={50}
+                onValueChange={(distance) => this.setState({ value: distance })}
               />
             </View>
 
+            <View style={[styles.section, styles.backgroundEven]}>
+              <Text style={styles.titleSection} >Active map</Text>
+              <Switch
+                value={visibleOnMap}
+                onValueChange={() => this.setState({
+                  visibleOnMap: !visibleOnMap
+                })}
+              />
+            </View>
+
+
             <View style={[styles.section, { alignItems: 'center' }]}>
-              <TouchableOpacity
-                onPress={() => Alert.alert('Account settings')}
-              >
+              <TouchableOpacity onPress={() => Alert.alert('Account settings')} >
                 <Text
                   style={{
                     fontWeight: 'bold',
@@ -175,6 +204,7 @@ class ProfileScene extends React.Component {
                 >Account setting</Text>
               </TouchableOpacity>
             </View>
+
 
           </View>
 
