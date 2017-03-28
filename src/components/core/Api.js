@@ -105,6 +105,22 @@ class Api {
       });
   }
 
+  addToFavorite(iduser, idfavorite) {
+    const url = `${Config.host}user/favorites?_iduser=${iduser}&_idfavorite=${idfavorite}`;
+      fetch(url, {
+        method: 'POST'
+      });
+    console.log(url);
+  }
+
+  getNearestUsersByLocation() {
+    const user = this.getUser();
+    const userType = user.status === 'candidate' ? 'recruiters' : 'candidates';
+    const url = `user/${userType}?lng=${user.loc[0]}&lat=${user.loc[1]}`;
+    // console.log('Api#getNearestUsersByLocation url', url);
+    return this.fetchFn(url);
+  }
+
 //FETCH--------------------------------------------
 fetchFn(req, optionObj = {}) {
   console.log('FETCH ', `${Config.host}${req}`);
