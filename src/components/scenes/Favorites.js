@@ -9,19 +9,18 @@ import Global from '../core/Global';
 // import Card from '../commons/Card';
 // import OfferCard from '../commons/OfferCard';
 import Api from '../core/Api';
+import Config from '../core/Config';
 
+const FAVORITES = [];
 // create component & render
 class OffersListScene extends React.Component {
   constructor(props) {
     super(props);
     this.user = Api.getUser();
-    this.state = {
-      isLoaded: false,
-    };
+    this.favoritesUser = [];
   }
-
+  
   componentDidMount() {
-    //const user = Api.getUser();
     let request = '';
     if (this.user.status === 'candidate') {
       request = 'recruiters';
@@ -31,22 +30,21 @@ class OffersListScene extends React.Component {
     console.log('USER =====> ', this.user);
 
     this.setState({ isLoaded: true });
+    this.renderFavorites(this.user.favorites);
   }
 
   renderFavorites(favorites) {
-    return (
-      favorites.map(function(favorite, index) {
-        return (
-          <Text key={index}>Favorite id : {favorite}</Text>
-        );
-      })
+    favorites.map((favorite) => fetch(`${Config.host}user/${favorite}`)
+        .then(res => res.json())
+        .then(result => {
+          FAVORITES.push(result);
+          console.log('#Favorites.js : @fetch results =>', result);
+        })
     );
   }
-
+  
   render() {
-    // if (!this.state.isLoaded) {
-    //   console.log('loaded ', this.state.isLoaded);
-    // }
+    console.log(FAVORITES);
     return (
       <View
         style={{
@@ -55,7 +53,8 @@ class OffersListScene extends React.Component {
           alignItems: 'center'
         }}
       >
-        {this.renderFavorites(this.user.favorites)}
+        <Text>Try to catch users</Text>
+        {/*{this.renderFavorites(this.user.favorites)}*/}
       </View>
     );
   }

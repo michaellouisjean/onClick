@@ -129,7 +129,7 @@ class Api {
 
 //FETCH--------------------------------------------
 fetchFn(req, optionObj = {}) {
-  //console.log('FETCH ', `${Config.host}${req}`);
+  console.log('FETCH ', `${Config.host}${req}`);
   return (
     fetch(`${Config.host}${req}`, optionObj)
     .then((res) => res.json())
