@@ -165,7 +165,7 @@ class OffersScenes extends React.Component {
                 onChangeText={this.onChangeSkills}
               />
             </View>
-            
+
             <View
               style={styles.inputContainer}
             >
