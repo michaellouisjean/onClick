@@ -35,9 +35,9 @@ class OfferCard extends React.Component {
       loc,
       _id,
     } = this.props;
-    
+
     console.log('#OfferCard => ', this.props);
-    
+
     return (
       <TouchableOpacity
         style={Global.cardContainer}
@@ -83,7 +83,7 @@ class OfferCard extends React.Component {
           </View>
 
           <Text style={styles.contractText}>
-            {announces[0].salary} € / mo - Fulltime job
+            {announces[0].salary} € / month - Fulltime job
           </Text>
 
           {/* tags section */}
@@ -96,7 +96,7 @@ class OfferCard extends React.Component {
           >
             <Tag skills={announces[0]} />
           </View>
-          
+
         </View>
       </TouchableOpacity>
     );
