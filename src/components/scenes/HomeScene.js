@@ -28,24 +28,12 @@ class HomeScene extends React.Component {
   }
 
   componentDidMount() {
-    const user = Api.getUser();
-    console.log('#HomeScene - componentDidMount => ', user);
-    let request = '';
-
-    if (user.status === 'candidate') {
-      request = 'recruiters';
-    } else {
-      request = 'candidates';
-    }
-
-
-    //console.log(this.state.user.loc[0]);
-    Api.fetchFn(`user/${request}?lng=${user.loc[0]}&lat=${user.loc[1]}`)
-      .then(results => {
-        console.log('#HomeScene : callbackResult =>', results);
-        this.setState({
-          dataSource: this.state.dataSource.cloneWithRows(results),
-        });
+    Api.getNearestUsersByLocation()
+      .then((users) => {
+        console.log('#HomeScene : callbackResult =>', users);
+          this.setState({
+            dataSource: this.state.dataSource.cloneWithRows(users),
+          });
       });
   }
 
