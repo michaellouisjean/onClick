@@ -11,6 +11,7 @@ import {
   Alert,
   Switch,
 } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 // import component
 import Global from '../core/Global';
@@ -144,10 +145,12 @@ class ProfileScene extends React.Component {
               <Text>{user.email}</Text>
             </View>
 
-            <View style={[styles.section, styles.backgroundEven]}>
-              <Text style={styles.titleSection} >This is my CV</Text>
-              <Text>This is my description</Text>
-            </View>
+            <TouchableOpacity onPress={() => Actions.cv({ user })}>
+              <View style={[styles.section, styles.backgroundEven]}>
+                <Text style={styles.titleSection} >This is my CV</Text>
+                <Text>This is my description</Text>
+              </View>
+            </TouchableOpacity>
 
             <View style={[styles.section, styles.backgroundEven]}>
               <Text style={styles.titleSection} >Active map</Text>

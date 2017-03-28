@@ -20,6 +20,7 @@ import TchatScene from './components/scenes/TchatScene';
 import ProfileScene from './components/scenes/ProfileScene';
 import ViewProfileScene from './components/scenes/ViewProfileScene';
 import ViewOfferScene from './components/scenes/ViewOfferScene';
+import Cv from './components/scenes/Cv';
 
 // create component & render
 class App extends React.Component {
@@ -182,6 +183,13 @@ class App extends React.Component {
           key={'offer'}
           title={'onClick'}
           component={OffersScenes}
+        />
+
+        <Scene
+          key={'cv'}
+          title={'My CV'}
+          component={Cv}
+          navigationBarStyle={{ backgroundColor: '#fff' }}
         />
 
         <Scene
