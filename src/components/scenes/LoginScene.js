@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    //paddingTop: 70,
   },
   container: {
     backgroundColor: '#FFF',
@@ -46,13 +45,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
   },
-  h2: {
-    color: '#4D6DC3',
-    marginTop: 40,
-    fontSize: 17,
+  h3: {
+      fontSize: 20,
+      color: '#4D6DC3',
+      marginTop: 60,
+      marginBottom: 20,
+      fontWeight: 'bold',
   },
   inputsContainer: {
-    marginTop: 40,
+    marginTop: 50,
   },
   inputContainer: {
     borderBottomWidth: 1,
@@ -124,7 +125,7 @@ class LoginScene extends React.Component {
         <View style={styles.container} >
           <Text style={styles.h1} >
             {/*Donner un autre sens au travail !*/}
-            Your futur starts today !
+            Meet your career today !
           </Text>
           <View style={styles.inputsContainer} >
             <View style={styles.inputContainer} >
@@ -151,22 +152,11 @@ class LoginScene extends React.Component {
             </View>
           </View>
           <TouchableOpacity onPress={() => this.onLoginSubmit()}>
-            <View>
-              <Text
-                style={{
-                  fontSize: 20,
-                  color: '#4D6DC3',
-                  marginTop: 70,
-                  fontWeight: 'bold'
-                }}
-              >
+            <Text
+              style={styles.h3}
+            >
                 LogIn</Text>
-            </View>
           </TouchableOpacity>
-
-          <Text style={styles.h2} >
-            Or
-           </Text>
 
           <View style={{ flex: 1 }} >
             <SendButton

@@ -1,6 +1,9 @@
 // import library & package
 import React from 'react';
 import {
+  Text,
+} from 'react-native';
+import {
 } from 'react-native';
 import {
   Router,
@@ -20,6 +23,7 @@ import TchatScene from './components/scenes/TchatScene';
 import ProfileScene from './components/scenes/ProfileScene';
 import ViewProfileScene from './components/scenes/ViewProfileScene';
 import ViewOfferScene from './components/scenes/ViewOfferScene';
+import Cv from './components/scenes/Cv';
 
 // create component & render
 class App extends React.Component {
@@ -110,7 +114,7 @@ class App extends React.Component {
         key={'offerFlow'}
         icon={(props) =>
           <Icon
-            name={'ios-albums'}
+            name={'ios-star'}
             color={props.selected ? Global.colors.accent : '#AAA'}
             style={{ fontSize: 25 }}
           />
@@ -185,9 +189,17 @@ class App extends React.Component {
         />
 
         <Scene
+          key={'cv'}
+          title={'My CV'}
+          component={Cv}
+          navigationBarStyle={{ backgroundColor: '#fff' }}
+        />
+
+        <Scene
           key={'tab'}
           tabs
           type={'replace'}
+          backButtonImage={require('./assets/images/bg-01.png')}
           style={{ backgroundColor: 'white', borderWidth: 1, borderColor: '#C4C4C4' }}
         >
           {this.renderHomeFlow()}
