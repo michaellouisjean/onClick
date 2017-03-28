@@ -13,6 +13,7 @@ import {
   Slider,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 // import component
 import Global from '../core/Global';
@@ -164,10 +165,10 @@ class ProfileScene extends React.Component {
                     <Text
                       style={{
                         fontWeight: 'bold',
-                        color: '#777',
+                        color: '#E12773',
                         fontSize: 15,
                       }}
-                    >Log out</Text>
+                    >Log-out</Text>
                   </TouchableOpacity>
                 </View>
 

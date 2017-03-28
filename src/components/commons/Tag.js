@@ -34,7 +34,7 @@ class Tag extends React.Component {
       skills,
     } = this.props;
 
-    console.log('#Tages', skills.competences[0]);
+    //console.log('#Tags', skills.competences[0]);
     return (
       <View
         style={[

@@ -28,7 +28,12 @@ const Global = {
     marginBottom: 10,
     width: '100%',
     backgroundColor: '#ffffff',
-    borderColor: 'red',
+    shadowOffset :{
+      width: 0,
+      height: 2,
+    },
+    shadowColor: '#4D6DC3',
+    shadowOpacity: 0.2,
   },
   cardTitle: {
     fontSize: 18,
@@ -40,8 +45,8 @@ const Global = {
     borderRadius: 30,
     marginBottom: 30,
   },
-  cardPercent: {
-    fontSize: 30,
+  cardDistance: {
+    fontSize: 18,
   },
   cardTags: {
     color: '#ffffff',
