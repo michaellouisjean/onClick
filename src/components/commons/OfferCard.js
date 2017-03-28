@@ -35,8 +35,7 @@ class OfferCard extends React.Component {
       loc,
       _id,
     } = this.props;
-
-    console.log('#OfferCard => ', this.props);
+    //console.log('#OfferCard => ', this.props);
 
     return (
       <TouchableOpacity

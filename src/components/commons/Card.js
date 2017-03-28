@@ -89,8 +89,8 @@ class Card extends React.Component {
             style={Global.cardImage}
           />
 
-          <Text style={[{ color: Global.colors.secondary }, Global.cardPercent]} >
-            85 %
+          <Text style={[{ color: Global.colors.secondary }, Global.cardDistance]} >
+            250 m
           </Text>
         </View>
 

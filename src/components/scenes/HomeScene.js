@@ -30,7 +30,7 @@ class HomeScene extends React.Component {
   componentDidMount() {
     Api.getNearestUsersByLocation()
       .then((users) => {
-        console.log('#HomeScene : callbackResult =>', users);
+        console.log('#HomeScene | @Api.getNearestUsersByLocation() =>', users);
           this.setState({
             dataSource: this.state.dataSource.cloneWithRows(users),
           });

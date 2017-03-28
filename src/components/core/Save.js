@@ -39,7 +39,7 @@ class Api {
 
   setUser(user) { // Défini l'utilisateur lors de sa connection
     this.user = user || {};
-    //console.log('Api#SetUser ', user);
+    console.log('Api#SetUser ', user);
   }
 
   getUser() {
@@ -54,14 +54,14 @@ class Api {
   }
 
   authenticate(user) { // authentifie l'utilisateur
-    //console.log('authenticate ', user);
+    console.log('authenticate ', user);
     Store.save('user', user) // sauvegarde les données de connexion dans un cookie "user"
     .then(this.setUser(user)); // Définition de l'utilisateur
     // Actions.rooms({duration: 0}); => EN CALLBACK
   }
 
   logIn(user = {}, callback) {
-    //console.log('Api#logIn');
+    console.log('Api#logIn');
     this.fetchFn('user/log_in', {
       method: 'POST',
       headers: {
@@ -70,7 +70,7 @@ class Api {
       body: JSON.stringify(user)
     }) // this.fetchFn
     .then(json => {
-      //console.log('Api#logIn json', json);
+      console.log('Api#logIn json', json);
       if (!json.error) {
         this.authenticate(json); // authentification l'utilisateur
         callback();
@@ -116,7 +116,7 @@ class Api {
         this.getProfile()
         .then((userSent) => this.authenticate(userSent))
       );
-    //console.log(url);
+    console.log(url);
   }
 
   getNearestUsersByLocation() {
@@ -129,7 +129,7 @@ class Api {
 
 //FETCH--------------------------------------------
 fetchFn(req, optionObj = {}) {
-  //console.log('FETCH ', `${Config.host}${req}`);
+  console.log('FETCH ', `${Config.host}${req}`);
   return (
     fetch(`${Config.host}${req}`, optionObj)
     .then((res) => res.json())

@@ -84,7 +84,6 @@ class ViewProfileScene extends React.Component {
   }
 
   render() {
-    console.log('#ViewOfferScene => ', this.props);
     const {
       announces,
     } = this.props;

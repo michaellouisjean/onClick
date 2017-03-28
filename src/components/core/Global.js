@@ -45,8 +45,8 @@ const Global = {
     borderRadius: 30,
     marginBottom: 30,
   },
-  cardPercent: {
-    fontSize: 30,
+  cardDistance: {
+    fontSize: 18,
   },
   cardTags: {
     color: '#ffffff',

@@ -102,10 +102,10 @@ class LoginScene extends React.Component {
 
 
   onLoginSubmit() {
-    console.log('#LoginScene : onLoginSubmit() => ', {
-      email: this.state.email,
-      password: this.state.password
-    });
+    // console.log('#LoginScene : onLoginSubmit() => ', {
+    //   email: this.state.email,
+    //   password: this.state.password
+    // });
     Api.logIn({
       email: this.state.email,
       password: this.state.password,
@@ -113,7 +113,7 @@ class LoginScene extends React.Component {
   }
 
   sendInfo() {
-    console.log({ email: this.state.email, password: this.state.password });
+    //console.log({ email: this.state.email, password: this.state.password });
   }
 
   render() {
@@ -155,7 +155,7 @@ class LoginScene extends React.Component {
             <Text
               style={styles.h3}
             >
-                LogIn</Text>
+                Log in</Text>
           </TouchableOpacity>
 
           <View style={{ flex: 1 }} >
