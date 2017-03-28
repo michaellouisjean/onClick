@@ -5,7 +5,11 @@ import {
   Text,
   ScrollView,
   StyleSheet,
+<<<<<<< Updated upstream
   InteractionManager,
+=======
+  TextInput,
+>>>>>>> Stashed changes
   TouchableOpacity,
   Image,
   Alert,
@@ -16,6 +20,7 @@ import {
 import Global from '../core/Global';
 import Api from '../core/Api';
 
+<<<<<<< Updated upstream
 // styles
 const styles = StyleSheet.create({
   section: {
@@ -54,6 +59,45 @@ const styles = StyleSheet.create({
     borderWidth: 4,
     borderColor: '#ffffff',
   },
+=======
+
+const PADDING = 20;
+const containerWidth = Dimensions.get('window').width - (PADDING * 2);
+const inputWidth = Dimensions.get('window').width - (PADDING * 2) - (PADDING *2);
+
+const styles = StyleSheet.create ({
+  background: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  container: {
+    backgroundColor: 'red',
+    marginVertical: 200,
+    width: containerWidth,
+    flex: 1,
+    alignItems: 'center',
+    borderRadius: 10,
+    marginBottom: 110,
+  },
+  h1: {
+    marginTop: 50,
+    marginBottom: 20,
+    color: '#4D6DC3',
+    fontWeight: 'bold',
+    fontSize: 20,
+  },
+  h2: {
+    color: '#4D6DC3',
+    marginTop: 40,
+    fontSize: 17,
+  },
+  inputsContainer: {
+  },
+  inputContainer: {
+  }
+>>>>>>> Stashed changes
 });
 
 const user = Api.getUser();
@@ -86,6 +130,7 @@ class ProfileScene extends React.Component {
 
     console.log('#ProfileScene : user => ', user);
     return (
+<<<<<<< Updated upstream
       <View
         style={{
           flex: 1,
@@ -177,6 +222,53 @@ class ProfileScene extends React.Component {
 
         </ScrollView>
       </View>
+=======
+      <Image
+        source={require('../../assets/images/bg-03.png')}
+        style={styles.background}
+        >
+        {/*LOGOUT BUTTON*/}
+        <TouchableOpacity onPress={() => this.onLogout()}>
+          <View>
+            <Text
+              style={{
+                fontSize: 20,
+                color: '#4D6DC3',
+                fontWeight: 'bold'
+              }}
+            >
+              LogOut</Text>
+            <Icon
+              style={Global.icons}
+              name={'ios-log-out'}
+              color={Global.colors.primary}
+            />
+          </View>
+        </TouchableOpacity>
+
+        <View style={styles.container} >
+          <View style={styles.inputsContainer} >
+            <View>
+              <Text  style={styles.h1} >
+                Email ID :
+              </Text>
+            </View>
+            <View>
+              <Text style={styles.h1}>
+                City :
+              </Text>
+            </View>
+            <View>
+              <Text style={styles.h1}>
+                Title :
+                {/*Company :*/}
+              </Text>
+            </View>
+          </View>
+        </View>
+
+      </Image>
+>>>>>>> Stashed changes
     );
   }
 }
