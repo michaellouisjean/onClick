@@ -88,6 +88,12 @@ class ProfileScene extends React.Component {
     });
   }
 
+  onLogout() {
+    console.log('logout');
+    Api.logOut(() => console.log('utilisateur déconnecté'));
+    Actions.login();
+  }
+
   isActiveText() {
     return this.state.isLoaded ? styles.titleSection : styles.titleSectionDisabled;
   }
@@ -152,6 +158,19 @@ class ProfileScene extends React.Component {
                     }}
                   >{user.city}</Text>
                 </View>
+
+                <View style={[styles.section, { alignItems: 'center', paddingTop: 15 }]}>
+                  <TouchableOpacity onPress={() => this.onLogout()} >
+                    <Text
+                      style={{
+                        fontWeight: 'bold',
+                        color: '#777',
+                        fontSize: 15,
+                      }}
+                    >Log out</Text>
+                  </TouchableOpacity>
+                </View>
+
               </View>
             </View>
 
@@ -204,7 +223,6 @@ class ProfileScene extends React.Component {
                 >Account setting</Text>
               </TouchableOpacity>
             </View>
-
 
           </View>
 
