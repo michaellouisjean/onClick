@@ -109,7 +109,7 @@ class Card extends React.Component {
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
-              marginBottom: 10,
+              marginBottom: 20,
             }}
           >
             <Tag skills={cv} />
@@ -119,29 +119,9 @@ class Card extends React.Component {
           <View
             style={{
               flexDirection: 'row',
-              justifyContent: 'space-around'
+              justifyContent: 'space-around',
             }}
           >
-
-            <TouchableOpacity
-              onPress={() => this.onClickFavorite()}
-            >
-              <Icon
-                style={[styles.largeIcon, { marginRight: 60, marginBottom: 5 }]}
-                name={this.state.favorite}
-                color={Global.colors.primary}
-              />
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              onPress={() => Actions.tchat({speakerId: _id})}
-            >
-              <Icon
-                style={[styles.largeIcon, { marginLeft: 60 }]}
-                name={'ios-chatbubbles'}
-                color={Global.colors.primary}
-              />
-            </TouchableOpacity>
           </View>
         </View>
       </TouchableOpacity>

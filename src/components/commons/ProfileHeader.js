@@ -111,7 +111,7 @@ class ProfileHeader extends React.Component {
                 flex: 1,
                 alignItems: 'center',
                 position: 'relative',
-                marginTop: -125,
+                marginTop: -100,
               }}
             >
               <Image

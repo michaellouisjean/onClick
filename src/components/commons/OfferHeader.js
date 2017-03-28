@@ -13,6 +13,7 @@ import { Actions } from 'react-native-router-flux';
 
 // import components
 import Global from '../core/Global';
+import Api from '../core/Api';
 
 // styles
 const styles = StyleSheet.create({
@@ -73,6 +74,7 @@ class OfferHeader extends React.Component {
   }
 
   onClickFavorite() {
+    Api.addToFavorite(Api.getUser()._id, this.props._id);
     this.state.isFavorite = !this.state.isFavorite;
     console.log(this.state.isFavorite);
     this.setState({

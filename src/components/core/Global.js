@@ -28,6 +28,7 @@ const Global = {
     marginBottom: 10,
     width: '100%',
     backgroundColor: '#ffffff',
+    borderColor: 'red',
   },
   cardTitle: {
     fontSize: 18,
@@ -54,7 +55,7 @@ const Global = {
     marginRight: 3,
   },
   // -------------------------------------------- Profile
-  
+
 
   // -------------------------------------------- icons
   icons: {

@@ -21,9 +21,8 @@ export default class TchatScene extends React.Component {
     this.loadMessages = this.loadMessages.bind(this);
     this.onSendMessage = this.onSendMessage.bind(this);
     this.onMessageReceived = this.onMessageReceived.bind(this);
-    //this.client = SocketIOClient('http://192.168.1.8:3000/',{jsonp: false});
-    // this.client = SocketIOClient('http://localhost:3000',{jsonp: false});
-    this.client = SocketIOClient('http://192.168.1.136:3000',{jsonp: false});
+    //this.client = SocketIOClient('http://192.168.1.134:3000/',{jsonp: false});
+    this.client = SocketIOClient('http://localhost:3000',{jsonp: false});
     this._isMounted = false;
     this.client.on('serverSendsMessage', this.onMessageReceived);
     this.client.on('serverloadsMessages', this.loadMessages);
@@ -82,7 +81,8 @@ export default class TchatScene extends React.Component {
       text: message[0].text,
       user: {
         _id: Api.getUser()._id,
-        name: Api.getUser().firstname
+        name: Api.getUser().firstname,
+        avatar: Api.getUser().photo
       },
       createdAt: new Date(message[0].createdAt),
     };

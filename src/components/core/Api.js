@@ -18,7 +18,7 @@ class Api {
     city: '',
     phone: '',
     loc: { lng: 0, lat: 0 },
-    lastConnection: null,
+    lastConnection: Date.now(),
     society: '',
     cv: {
       title: '',
@@ -34,7 +34,9 @@ class Api {
       competences: [],
       languages: [],
       salary: '',
-    }]
+    }],
+    messages: [],
+    favorites: []
   };
 
   setUser(user) { // Défini l'utilisateur lors de sa connection
@@ -103,6 +105,22 @@ class Api {
       callback({
         error: 'You must be authenticated'
       });
+  }
+
+  addToFavorite(iduser, idfavorite) {
+    const url = `${Config.host}user/favorites?_iduser=${iduser}&_idfavorite=${idfavorite}`;
+      fetch(url, {
+        method: 'POST'
+      });
+    console.log(url);
+  }
+
+  getNearestUsersByLocation() {
+    const user = this.getUser();
+    const userType = user.status === 'candidate' ? 'recruiters' : 'candidates';
+    const url = `user/${userType}?lng=${user.loc[0]}&lat=${user.loc[1]}`;
+    // console.log('Api#getNearestUsersByLocation url', url);
+    return this.fetchFn(url);
   }
 
 //FETCH--------------------------------------------
