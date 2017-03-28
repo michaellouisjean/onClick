@@ -125,7 +125,7 @@ class LoginScene extends React.Component {
         <View style={styles.container} >
           <Text style={styles.h1} >
             {/*Donner un autre sens au travail !*/}
-            Your futur starts today !
+            Meet your career today !
           </Text>
           <View style={styles.inputsContainer} >
             <View style={styles.inputContainer} >
