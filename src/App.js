@@ -34,13 +34,15 @@ class App extends React.Component {
     //this.renderFavoritesFlow = this.renderFavoritesFlow.bind(this);
     //this.renderTchatScene = this.renderTchatScene.bind(this);
     //this.renderProfileScene = this.renderProfileScene.bind(this);
+    //this.renderCv = this.renderCv.bind(this);
   }
 
-  // créations de fonctions pour suivre le Flow
+  // créations de fonctions pour suivre les Flows
   renderHomeFlow() {
     return (
       <Scene
         key={'homeFlow'}
+        backButtonImage={require('./assets/images/backchevron.png')}
         icon={(props) =>
           <Icon
             name={'ios-home'}
@@ -52,6 +54,7 @@ class App extends React.Component {
         <Scene
           titleStyle={{ color: '#4D6DC3', fontWeight: 'bold' }}
           key={'HomeScene'}
+          backButtonImage={require('./assets/images/backchevron.png')}
           title={'Home'}
           navigationBarStyle={{
             backgroundColor: 'white',
@@ -141,12 +144,28 @@ class App extends React.Component {
     return (
       <Scene
         key={'tchat'}
+        backButtonImage={require('./assets/images/backchevron.png')}
         titleStyle={{ color: '#4D6DC3', fontWeight: 'bold' }}
         title={'Messages'}
         hideNavBar={false}
         direction={'vertical'}
         navigationBarStyle={{ backgroundColor: '#ffffff' }}
         component={TchatScene}
+      />
+    );
+  }
+
+  renderCv() {
+    return (
+      <Scene
+        key={'cv'}
+        backButtonImage={require('./assets/images/backchevron.png')}
+        titleStyle={{ color: '#4D6DC3', fontWeight: 'bold' }}
+        title={'Resume'}
+        hideNavBar={false}
+        direction={'vertical'}
+        navigationBarStyle={{ backgroundColor: '#ffffff' }}
+        component={Cv}
       />
     );
   }
@@ -199,7 +218,6 @@ class App extends React.Component {
           key={'tab'}
           tabs
           type={'replace'}
-          backButtonImage={require('./assets/images/bg-01.png')}
           style={{ backgroundColor: 'white', borderWidth: 1, borderColor: '#C4C4C4' }}
         >
           {this.renderHomeFlow()}
@@ -208,6 +226,7 @@ class App extends React.Component {
           {this.renderProfileScene()}
         </Scene>
         {this.renderTchatScene()}
+        {this.renderCv()}
         {/*Tchat en dehors de la Tab afin de ne pas voir apparaitre la Tab*/}
       </Router>
     );
