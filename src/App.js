@@ -1,6 +1,9 @@
 // import library & package
 import React from 'react';
 import {
+  Text,
+} from 'react-native';
+import {
 } from 'react-native';
 import {
   Router,
@@ -110,7 +113,7 @@ class App extends React.Component {
         key={'offerFlow'}
         icon={(props) =>
           <Icon
-            name={'ios-albums'}
+            name={'ios-star'}
             color={props.selected ? Global.colors.accent : '#AAA'}
             style={{ fontSize: 25 }}
           />
@@ -188,6 +191,7 @@ class App extends React.Component {
           key={'tab'}
           tabs
           type={'replace'}
+          backButtonImage={require('./assets/images/bg-01.png')}
           style={{ backgroundColor: 'white', borderWidth: 1, borderColor: '#C4C4C4' }}
         >
           {this.renderHomeFlow()}
