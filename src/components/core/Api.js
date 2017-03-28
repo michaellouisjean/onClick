@@ -18,7 +18,7 @@ class Api {
     city: '',
     phone: '',
     loc: { lng: 0, lat: 0 },
-    lastConnection: 0,
+    lastConnection: null,
     society: '',
     cv: {
       title: '',

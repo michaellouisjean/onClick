@@ -48,9 +48,9 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   image: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+    width: 150,
+    height: 150,
+    borderRadius: 75,
     borderWidth: 4,
     borderColor: '#ffffff',
   },
@@ -95,7 +95,7 @@ class OfferHeader extends React.Component {
           style={{
             height: 200,
           }}
-          blurRadius={20}
+          blurRadius={30}
         />
 
         <View style={styles.backgroundEven}>
@@ -105,7 +105,7 @@ class OfferHeader extends React.Component {
                 flex: 1,
                 alignItems: 'center',
                 position: 'relative',
-                marginTop: -50,
+                marginTop: -125,
               }}
             >
               <Image
@@ -130,7 +130,7 @@ class OfferHeader extends React.Component {
 
                 <Text style={[{ textAlign: 'center' }, styles.textName]}>{this.props.society}</Text>
 
-                <TouchableOpacity onPress={() => Actions.tchat({speakerId: this.props._id})} >
+                <TouchableOpacity onPress={() => Actions.tchat({ speakerId: this.props._id })} >
                   <Icon
                     style={[styles.largeIcon, { marginLeft: 60 }]}
                     name={'ios-chatbubbles'}
