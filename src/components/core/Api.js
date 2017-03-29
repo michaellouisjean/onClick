@@ -18,7 +18,7 @@ class Api {
     city: '',
     phone: '',
     loc: { lng: 0, lat: 0 },
-    lastConnection: 0,
+    lastConnection: Date.now(),
     society: '',
     cv: {
       title: '',
@@ -34,7 +34,9 @@ class Api {
       competences: [],
       languages: [],
       salary: '',
-    }]
+    }],
+    messages: [],
+    favorites: []
   };
 
   setUser(user) { // Défini l'utilisateur lors de sa connection

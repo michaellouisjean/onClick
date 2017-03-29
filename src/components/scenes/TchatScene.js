@@ -81,7 +81,8 @@ export default class TchatScene extends React.Component {
       text: message[0].text,
       user: {
         _id: Api.getUser()._id,
-        name: Api.getUser().firstname
+        name: Api.getUser().firstname,
+        avatar: Api.getUser().photo
       },
       createdAt: new Date(message[0].createdAt),
     };
