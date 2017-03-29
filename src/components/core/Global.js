@@ -11,6 +11,7 @@ const Global = {
     primary: '#4D6DC3',
     secondary: '#27CCC0',
     accent: '#E12773',
+    tchatColor: 'ghostwhite',
     backgroundEven: '#ffffff',
     backgroundOdd: '#f5f8fa',
   },

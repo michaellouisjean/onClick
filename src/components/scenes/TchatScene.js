@@ -1,8 +1,9 @@
 import React from 'react';
 import { AsyncStorage } from 'react-native';
 import SocketIOClient from 'socket.io-client';
-import { GiftedChat } from 'react-native-gifted-chat';
+import { GiftedChat, Bubble, MessageText, Time, Send } from 'react-native-gifted-chat';
 import Api from '../core/Api';
+import Global from '../core/Global';
 
 
 const USER_ID = Api.getUser()._id;
@@ -93,6 +94,53 @@ export default class TchatScene extends React.Component {
       });
   } // onSendMessage
 
+  renderSend(props) {
+    return (
+      <Send
+        {...props}
+        textStyle= {{
+          color: `${Global.colors.primary}`,
+        }}
+      />
+    );
+  }
+
+  renderTime(props) {
+    return (
+      <Time
+        {...props}
+        textStyle= {{
+          left: {color: `${Global.colors.tchatColor}`},
+          right: {color: `${Global.colors.tchatColor}`},
+        }}
+      />
+    );
+  }
+
+  renderMessageText(props) {
+    return (
+      <MessageText
+        {...props}
+        textStyle= {{
+          left: {color: `${Global.colors.tchatColor}`},
+          right: {color: `${Global.colors.tchatColor}`},
+        }}
+      />
+    );
+  }
+
+  renderBubble(props) {
+    return (
+      <Bubble
+        {...props}
+        wrapperStyle= {{
+          left: {backgroundColor: `${Global.colors.secondary}`},
+          right: {backgroundColor: `${Global.colors.primary}`},
+        }}
+      />
+    );
+  }
+
   render() {
     var user = { _id: this.state.userId || -1 };
 
@@ -101,6 +149,10 @@ export default class TchatScene extends React.Component {
         messages={this.state.messages}
         onSend={this.onSendMessage}
         user={user}
+        renderBubble= {this.renderBubble}
+        renderMessageText= {this.renderMessageText}
+        renderTime= {this.renderTime}
+        renderSend= {this.renderSend}
       />
     );
   }
