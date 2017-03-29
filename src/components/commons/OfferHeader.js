@@ -68,9 +68,11 @@ class OfferHeader extends React.Component {
     this.state = {
       isFavorite: false,
       favorite: 'ios-star-outline',
+      numberOfLines: 3,
     };
     this.onClickFavorite = this.onClickFavorite.bind(this);
     this.checkFavorite = this.checkFavorite.bind(this);
+    this.setNumberOfLines = this.setNumberOfLines.bind(this);
   }
 
   onClickFavorite() {
@@ -86,8 +88,18 @@ class OfferHeader extends React.Component {
     return this.state.isFavorite ? 'ios-star' : 'ios-star-outline';
   }
 
+  setNumberOfLines() {
+    this.setState({
+      numberOfLines: this.state.numberOfLines === 3 ? 0 : 3
+    });
+  }
+
   render() {
     console.log('#OfferHeader.js : description =>', this.props.description);
+    const {
+      numberOfLines
+    } = this.state;
+    
     return (
       <View>
 
@@ -157,7 +169,9 @@ class OfferHeader extends React.Component {
             {this.props.title} - {this.props.salary} € /mo
           </Text>
 
-          <Text>{this.props.description}</Text>
+          <TouchableOpacity onPress= {() => this.setNumberOfLines()}>
+            <Text numberOfLines={numberOfLines}>{this.props.description}</Text>
+          </TouchableOpacity>
         </View>
 
       </View>
