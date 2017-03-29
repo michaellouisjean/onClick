@@ -31,6 +31,7 @@ class OffersListScene extends React.Component {
 
     this.setState({ isLoaded: true });
     this.renderFavorites(this.user.favorites);
+    console.log('We are waiting for this !!');
   }
 
   renderFavorites(favorites) {
@@ -38,13 +39,13 @@ class OffersListScene extends React.Component {
         .then(res => res.json())
         .then(result => {
           FAVORITES.push(result);
+          console.log(FAVORITES);
           console.log('#Favorites.js : @fetch results =>', result);
         })
     );
   }
   
   render() {
-    console.log(FAVORITES);
     return (
       <View
         style={{
