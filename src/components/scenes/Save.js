@@ -1,75 +1,39 @@
-// import library
-import React from 'react';
-import {
-  View,
-  Text,
-  ListView,
-} from 'react-native';
-//import { Actions } from 'react-native-router-flux';
-import Global from '../core/Global';
-import Card from '../commons/Card';
-import OfferCard from '../commons/OfferCard';
-import Api from '../core/Api';
-
-//console.log('#Favorites : user =>', this.user);
-// create component & render
-class OffersListScene extends React.Component {
-  constructor(props) {
-    super(props);
-    // this.user = Api.getUser();
-
-    this.state = {
-      isLoaded: false,
-      dataSource: new ListView.DataSource({
-        rowHasChanged: (r1, r2) => r1 !== r2,
-      }),
-    };
-  }
-
-  componentDidMount() {
-    const user = Api.getUser();
-    let request = '';
-    if (user.status === 'candidate') {
-      request = 'recruiters';
+showFavorites() {
+    if (this.FAVORITES.length === 0) {
+      console.log('user don\'t have any favorite');
+      return (
+        <View>
+          <Text>Vous n'avez pas encore de favori !</Text>
+          <TouchableOpacity onPress={Actions.home()}>
+            <Text
+              style={{
+                color: Global.colors.secondary,
+                fontWeight: 'bold',
+              }}
+            >
+              Retour au résultats
+            </Text>
+          </TouchableOpacity>
+        </View>
+      );
     } else {
-      request = 'candidates';
-    }
-    console.log('USER =====> ', user.favorites);
-
-        this.setState({
-          isLoaded: true,
-          dataSource: this.state.dataSource.cloneWithRows(user),
-        });
-  }
-
-  renderCard(rowData) {
-    const user = Api.getUser();
-    console.log('renderCard ', user);
-    if (user.status === 'candidate') {
-      console.log('user is a candidate');
-      return (<OfferCard {...rowData} />);
-    }
-    console.log('user is a recruiter');
-    return (<Card {...rowData} />);
-  }
-
-  render() {
-    //const USER = Api.getUser();
-    //console.log('#Favorites: user => ', USER);
-    if (!this.state.isLoaded) { 
-      console.log('loaded ', this.state.isLoaded);
-      return (null);
-    }
-    return (
-      <View style={[Global.container, { paddingTop: 62, paddingBottom: 50 }]} >
+      console.log('user have some favorites');
+      if (this.FAVORITES.length < this.user.favorites.length) {
+        console.log('Loading ...', this.FAVORITES);
+        return (
+            <ActivityIndicator
+              animating={this.state.animating}
+              style={{ height: 80 }}
+              size="large"
+            />
+        );
+      }
+      return (
+        // console.log('Favorites are loaded: We have to mount this =>', FAVORITES)
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this.renderCard}
         />
-      </View>
-    );
+      );
+    }
   }
-}
-
-// make component avalaible to other parts
-export default OffersListScene;
