@@ -31,7 +31,6 @@ class OffersListScene extends React.Component {
 
     this.setState({ isLoaded: true });
     this.renderFavorites(this.user.favorites);
-    console.log('We are waiting for this !!');
   }
 
   renderFavorites(favorites) {
