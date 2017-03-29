@@ -41,7 +41,7 @@ class Api {
 
   setUser(user) { // Défini l'utilisateur lors de sa connection
     this.user = user || {};
-    //console.log('Api#SetUser ', user);
+    console.log('Api#SetUser ', user);
   }
 
   getUser() {
@@ -96,6 +96,7 @@ class Api {
     getProfile() {
       if (this.isAuthenticated()) {
       // let url = `user/${profile.id}`;
+      console.log('getProfile isAuthenticated');
       let url = `user/${this.getUser()._id}`;
       const optionObj = {
         headers: {
@@ -116,7 +117,9 @@ class Api {
       })
       .then (
         this.getProfile()
-        .then((userSent) => this.authenticate(userSent))
+        .then((userSent) => {
+          console.log('API#addToFavorite userSent: ',userSent);
+          this.authenticate(userSent)})
       );
     //console.log(url);
   }
