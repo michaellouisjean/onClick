@@ -98,6 +98,7 @@ class Api {
       // let url = `user/${profile.id}`;
       console.log('getProfile isAuthenticated');
       let url = `user/${this.getUser()._id}`;
+      console.log('getProfile url ',url);
       const optionObj = {
         headers: {
           Authorization: `Bearer ${this.user.token}`
