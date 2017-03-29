@@ -138,7 +138,6 @@ class ViewProfileScene extends React.Component {
 
             <View style={styles.subSection}>
               <Text style={styles.textSubtitle} >{cv.degree} - 2016</Text>
-              <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Text>
             </View>
 
           </View>

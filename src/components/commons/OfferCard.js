@@ -82,7 +82,7 @@ class OfferCard extends React.Component {
           </View>
 
           <Text style={styles.contractText}>
-            {announces[0].salary} € / month - Fulltime job
+            {announces[0].salary} € / mo - Fulltime job
           </Text>
 
           {/* tags section */}

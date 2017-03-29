@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   titleSection: {
     fontSize: 17,
     fontWeight: 'bold',
-    color: '#4D6DC3',
+    color: '#E12773',
     marginBottom: 30,
   },
   subSection: {
@@ -89,46 +89,51 @@ class ViewProfileScene extends React.Component {
     } = this.props;
 
     return (
-      <View style={Global.container}>
-        <ScrollView>
+      <View style={{
+        flex: 1,
+        paddingTop: 20,
+        paddingBottom: 50,
+      }}
+      >
+        <View style={Global.container}>
+          <ScrollView>
 
-          <OfferHeader
-            _id={this.props._id}
-            imageSize={100}
-            city={this.props.city}
-            photo={this.props.photo}
-            title={this.props.announces[0].title}
-            society={this.props.society}
-            description={this.props.announces[0].description}
-            salary={this.props.announces[0].salary}
-          />
+            <OfferHeader
+              _id={this.props._id}
+              imageSize={100}
+              city={this.props.city}
+              photo={this.props.photo}
+              title={this.props.announces[0].title}
+              society={this.props.society}
+              description={this.props.announces[0].description}
+              salary={this.props.announces[0].salary}
+            />
 
-          <View style={[styles.section, styles.backgroundEven]}>
-            <Text style={styles.titleSection} >Required skills :</Text>
+            <View style={[styles.section, styles.backgroundEven]}>
+              <Text style={styles.titleSection} >Required skills :</Text>
 
-            <View style={styles.subSection}>
-              <Text style={styles.textSubtitle} >
-                {announces[0].competences[0].name} - Level: {announces[0].competences[0].level}
-              </Text>
-              <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Text>
+              <View style={styles.subSection}>
+                <Text style={styles.textSubtitle} >
+                  {announces[0].competences[0].name} - Level: {announces[0].competences[0].level}
+                </Text>
+              </View>
+
+              <View style={styles.subSection}>
+                <Text style={styles.textSubtitle} >
+                  {announces[0].languages[0].name} - Level: {announces[0].languages[0].level}
+                </Text>
+              </View>
+
             </View>
 
-            <View style={styles.subSection}>
-              <Text style={styles.textSubtitle} >
-                {announces[0].languages[0].name} - Level: {announces[0].languages[0].level}
-              </Text>
-              <Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Text>
+            {/* MAP */}
+            <View style={[styles.section, styles.backgroundEven]}>
+              <Text style={styles.titleSection} >We've meet here :</Text>
+              {this.renderMap()}
             </View>
 
-          </View>
-
-          {/* MAP */}
-          <View style={[styles.section, styles.backgroundEven]}>
-            <Text style={styles.titleSection} >We've meet here :</Text>
-            {this.renderMap()}
-          </View>
-
-        </ScrollView>
+          </ScrollView>
+        </View>
       </View>
     );
   }
