@@ -14,7 +14,7 @@ export default class profilePicture extends React.Component {
         source={{ uri: this.props.photo }}
         style={{
           borderWidth: this.props.border,
-          borderColor: '#ffffff',
+          borderColor: this.props.color ? this.props.color : '#ffffff',
           height: this.props.size,
           width: this.props.size,
           borderRadius: this.props.size / 2,

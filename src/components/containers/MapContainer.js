@@ -2,8 +2,11 @@
 import React from 'react';
 import Map from 'react-native-maps';
 import {
-  View
+  View,
+  StyleSheet,
 } from 'react-native';
+import Picture from '../commons/ProfilePicture';
+import Global from '../core/Global';
 
 // create component
 class MapContainer extends React.Component {
@@ -40,7 +43,14 @@ class MapContainer extends React.Component {
               latitude: this.props.loc[1],
               longitude: this.props.loc[0],
             }}
+          >
+          <Picture
+            size={40}
+            photo={this.props.photo}
+            border={1.6}
+            color={Global.colors.secondary}
           />
+        </Map.Marker>
         </Map>
       </View>
     );
