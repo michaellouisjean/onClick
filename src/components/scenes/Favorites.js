@@ -14,7 +14,7 @@ import OfferCard from '../commons/OfferCard';
 import Api from '../core/Api';
 import Config from '../core/Config';
 
-const FAVORITES = [];
+//const FAVORITES = [];
 // create component & render
 class OffersListScene extends React.Component {
   constructor(props) {
@@ -29,16 +29,22 @@ class OffersListScene extends React.Component {
   }
 
   componentDidMount() {
-    this.renderFavorites(this.user.favorites);
+    Api.getFavorites()
+      .then(result => {
+        console.log('#ComponentDidMount', result);
+        this.setState({
+          dataSource: this.state.dataSource.cloneWithRows(result)
+        });
+      });
   }
 
   showFavorites() {
-    if (!this.user.favorites) {
+    if (this.state.dataSource.getRowCount() === 0) {
       console.log('user don\'t have any favorite');
       return (
         <View>
           <Text>Vous n'avez pas encore de favori !</Text>
-          <TouchableOpacity onPress={Actions.home()}>
+          <TouchableOpacity onPress={() => Actions.homeFlow()}>
             <Text
               style={{
                 color: Global.colors.secondary,
@@ -50,80 +56,49 @@ class OffersListScene extends React.Component {
           </TouchableOpacity>
         </View>
       );
-    } else {
-      console.log('user have some favorites');
-      if (FAVORITES.length < this.user.favorites.length) {
-        console.log('Loading ...', FAVORITES);
-        return (
-            <ActivityIndicator
-              animating={this.state.animating}
-              style={{ height: 80 }}
-              size="large"
-            />
-        );
-      }
-      return (
-        // console.log('Favorites are loaded: We have to mount this =>', FAVORITES)
-        <ListView
-          dataSource={this.state.dataSource}
-          renderRow={this.renderCard}
-        />
-      );
     }
-  }
-
-  renderCard(rowData) {
-    console.log('NOW RENDER CARDS !!!!!!!!!');
-    console.log('#Favorites : @renderCard() =>', this);
-    if (this.user.status === 'candidate') {
-      console.log('user is a candidate');
-      return (<OfferCard {...rowData} />);
-    }
-    console.log('user is a recruiter');
-    return (<Card {...rowData} />);
-  }
-
-
-  renderFavorites(favorites) {
-    //const FAVORITES = [];
-    favorites.map((favorite) => fetch(`${Config.host}user/${favorite}`)
-      .then(res => res.json())
-      .then(result => {
-        FAVORITES.push(result);
-        this.setState({
-          //savedCard: FAVORITES
-          dataSource: this.state.dataSource.cloneWithRows(FAVORITES),
-        });
-        console.log('#Favorites.js : setState =>', this.state.dataSource);
-      })
+    return (
+      <ListView
+        dataSource={this.state.dataSource}
+        renderRow={this.renderCard}
+      />
     );
   }
 
-  render() {
-    console.log('#Favorites : @render()');
-    console.log('#Favorites : @render() =>', this.user.status);
-    return (
+
+renderCard(rowData) {
+  console.log('NOW RENDER CARDS !!!!!!!!!');
+  if (this.user.status === 'candidate') {
+    console.log('user is a candidate');
+    return (<OfferCard {...rowData} />);
+  }
+  console.log('user is a recruiter');
+  return (<Card {...rowData} />);
+}
+
+render() {
+  return (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: 64,
+        paddingBottom: 50,
+      }}
+    >
       <View
         style={{
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
-          paddingTop: 64,
-          paddingBottom: 50,
         }}
       >
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
         {this.showFavorites()}
-        </View>
       </View>
-    );
-  }
+    </View>
+  );
+}
 }
 
 // make component avalaible to other parts

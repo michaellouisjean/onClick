@@ -115,14 +115,12 @@ class Api {
     const url = `${Config.host}user/favorites?_iduser=${iduser}&_idfavorite=${idfavorite}`;
       fetch(url, {
         method: 'POST'
-      })
-      // .then (
-      //   this.getProfile()
-      //   .then((userSent) => {
-      //     console.log('API#addToFavorite userSent: ',userSent);
-      //     this.authenticate(userSent)})
-      // );
+      });
     //console.log(url);
+  }
+
+  getFavorites() {
+    return this.fetchFn(`user/${this.user._id}/favorites`);
   }
 
   getNearestUsersByLocation() {
