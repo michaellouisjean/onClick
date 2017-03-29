@@ -76,9 +76,11 @@ class ProfileScene extends React.Component {
       isLoaded: false,
       visibleOnMap: true,
       value: 200,
+      numberOfLines: 3,
       user: Api.getUser(),
     };
     this.isActiveText = this.isActiveText.bind(this);
+    this.setNumberOfLines = this.setNumberOfLines.bind(this);
   }
 
   componentDidMount() {
@@ -91,12 +93,21 @@ class ProfileScene extends React.Component {
 
   onLogout() {
     console.log('logout');
-    Api.logOut(() => console.log('utilisateur déconnecté'));
-    Actions.login();
+    Api.logOut(() => {
+      console.log('utilisateur déconnecté');
+      Actions.login();
+    });
+    // Actions.login();
   }
 
   isActiveText() {
     return this.state.isLoaded ? styles.titleSection : styles.titleSectionDisabled;
+  }
+
+  setNumberOfLines() {
+    this.setState({
+      numberOfLines: this.state.numberOfLines === 3 ? 0 : 3
+    });
   }
 
   render() {
@@ -104,6 +115,7 @@ class ProfileScene extends React.Component {
       visibleOnMap,
       user,
       value,
+      numberOfLines
     } = this.state;
 
     console.log('#ProfileScene : user => ', user);
@@ -188,7 +200,9 @@ class ProfileScene extends React.Component {
 
             <View style={[styles.section, styles.backgroundEven]}>
               <Text style={styles.titleSection} >Edit my description</Text>
-              <Text numberOfLines={3}>{user.description}</Text>
+              <TouchableOpacity onPress={() => this.setNumberOfLines()}>
+                <Text numberOfLines={numberOfLines}>{user.description}</Text>
+              </TouchableOpacity>
             </View>
 
             <View style={[styles.section, styles.backgroundEven]}>
