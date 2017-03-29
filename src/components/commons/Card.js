@@ -31,16 +31,7 @@ class Card extends React.Component {
       isFavorite: false,
       favorite: 'ios-star-outline',
     };
-    this.onClickFavorite = this.onClickFavorite.bind(this);
     this.checkFavorite = this.checkFavorite.bind(this);
-  }
-
-  onClickFavorite() {
-    this.state.isFavorite = !this.state.isFavorite;
-    console.log(this.state.isFavorite);
-    this.setState({
-      favorite: this.checkFavorite(),
-    });
   }
 
   checkFavorite() {
