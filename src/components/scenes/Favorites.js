@@ -72,7 +72,7 @@ class OffersListScene extends React.Component {
         isRefreshing: false,
         rowData,
       });
-    }, 500);
+    }, 200);
   };
 
   showFavorites() {
@@ -104,7 +104,7 @@ class OffersListScene extends React.Component {
             onRefresh={this._onRefresh}
             tintColor={Global.colors.primary}
             title="Loading..."
-            titleColor="#00ff00"
+            titleColor={Global.colors.secondary}
             colors={['#ff0000', '#00ff00', '#0000ff']}
             progressBackgroundColor="#ffff00"
           />

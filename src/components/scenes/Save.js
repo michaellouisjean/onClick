@@ -44,7 +44,7 @@ class Row extends React.Component {
   }
 }
 
-export default class OfferListScene extends React.Component {
+export default class Test extends React.Component {
   static title = '<RefreshControl>';
   static description = 'Adds pull-to-refresh support to a scrollview.';
 
