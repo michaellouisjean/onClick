@@ -98,6 +98,7 @@ class Api {
       // let url = `user/${profile.id}`;
       console.log('getProfile isAuthenticated');
       let url = `user/${this.getUser()._id}`;
+      console.log('getProfile url ',url);
       const optionObj = {
         headers: {
           Authorization: `Bearer ${this.user.token}`
@@ -115,12 +116,12 @@ class Api {
       fetch(url, {
         method: 'POST'
       })
-      .then (
-        this.getProfile()
-        .then((userSent) => {
-          console.log('API#addToFavorite userSent: ',userSent);
-          this.authenticate(userSent)})
-      );
+      // .then (
+      //   this.getProfile()
+      //   .then((userSent) => {
+      //     console.log('API#addToFavorite userSent: ',userSent);
+      //     this.authenticate(userSent)})
+      // );
     //console.log(url);
   }
 
