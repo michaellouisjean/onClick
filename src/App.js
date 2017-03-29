@@ -207,12 +207,12 @@ class App extends React.Component {
           component={OffersScenes}
         />
 
-        <Scene
+        {/*<Scene
           key={'cv'}
           title={'My CV'}
           component={Cv}
           navigationBarStyle={{ backgroundColor: '#fff' }}
-        />
+        />*/}
 
         <Scene
           key={'tab'}

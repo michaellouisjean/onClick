@@ -41,7 +41,7 @@ class Api {
 
   setUser(user) { // Défini l'utilisateur lors de sa connection
     this.user = user || {};
-    //console.log('Api#SetUser ', user);
+    console.log('Api#SetUser ', user);
   }
 
   getUser() {
