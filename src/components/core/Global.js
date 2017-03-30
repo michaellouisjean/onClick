@@ -13,7 +13,7 @@ const Global = {
     accent: '#E12773',
     tchatColor: 'ghostwhite',
     backgroundEven: '#ffffff',
-    backgroundOdd: '#f5f8fa',
+    backgroundOdd: 'white',
   },
   container,
   containerNav: {
