@@ -77,8 +77,8 @@ class LoginScene extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: 'annaelle@geniuz.io',
-      password: 'password01',
+      email: '',
+      password: '',
     };
 
     this.onChangeEmail = this.onChangeEmail.bind(this);

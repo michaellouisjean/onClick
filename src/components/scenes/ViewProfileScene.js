@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     // paddingVertical: 40,
     // paddingHorizontal: 30,
     paddingHorizontal: 30,
-    paddingVertical: 40,
+    paddingVertical: 20,
     borderBottomWidth: 0.5,
     borderBottomColor: '#999999',
   },
