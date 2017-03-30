@@ -104,6 +104,10 @@ class ProfileScene extends React.Component {
     return this.state.isLoaded ? styles.titleSection : styles.titleSectionDisabled;
   }
 
+  activeMapText() {
+    return this.state.visibleOnMap ? 'Géolocalisation activée' : 'Géolocalisation désactivée';
+  }
+
   setNumberOfLines() {
     this.setState({
       numberOfLines: this.state.numberOfLines === 3 ? 0 : 3
@@ -180,7 +184,7 @@ class ProfileScene extends React.Component {
                         color: '#E12773',
                         fontSize: 15,
                       }}
-                    >Log-out</Text>
+                    >Déconnexion</Text>
                   </TouchableOpacity>
                 </View>
 
@@ -194,12 +198,12 @@ class ProfileScene extends React.Component {
 
             <TouchableOpacity onPress={() => Actions.cv({ user })}>
               <View style={[styles.section, styles.backgroundEven]}>
-                <Text style={styles.titleSection} >Click to edit my CV</Text>
+                <Text style={styles.titleSection} >Editer mon CV</Text>
               </View>
             </TouchableOpacity>
 
             <View style={[styles.section, styles.backgroundEven]}>
-              <Text style={styles.titleSection} >Edit my description</Text>
+              <Text style={styles.titleSection} >Ma description:</Text>
               <TouchableOpacity onPress={() => this.setNumberOfLines()}>
                 <Text numberOfLines={numberOfLines}>{user.description}</Text>
               </TouchableOpacity>
@@ -217,7 +221,9 @@ class ProfileScene extends React.Component {
             </View>
 
             <View style={[styles.section, styles.backgroundEven]}>
-              <Text style={styles.titleSection} >Active map</Text>
+              <Text style={styles.titleSection} >
+                {this.activeMapText()}
+              </Text>
               <Switch
                 value={visibleOnMap}
                 onValueChange={() => this.setState({
@@ -228,14 +234,14 @@ class ProfileScene extends React.Component {
 
 
             <View style={[styles.section, { alignItems: 'center' }]}>
-              <TouchableOpacity onPress={() => Alert.alert('Account settings')} >
+              <TouchableOpacity onPress={() => Alert.alert('Page de réglages')} >
                 <Text
                   style={{
                     fontWeight: 'bold',
                     color: '#777',
                     fontSize: 15,
                   }}
-                >Account setting</Text>
+                >Réglages</Text>
               </TouchableOpacity>
             </View>
 

@@ -97,6 +97,7 @@ class OffersListScene extends React.Component {
     }
     return (
       <ListView
+        style={{ paddingHorizontal: 8 }}
         dataSource={this.state.dataSource}
         renderRow={this.renderCard}
         refreshControl={

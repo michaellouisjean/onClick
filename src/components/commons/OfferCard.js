@@ -70,9 +70,11 @@ class OfferCard extends React.Component {
 
           <View style={{ marginBottom: 30 }} >
             <Text style={[{ color: Global.colors.primary }, Global.cardTitle]}>
-              Looking for {this.props.announces[0].title}
+              {this.props.announces[0].title}
             </Text>
-            <Text style={{ color: Global.colors.primary, marginBottom: 30 }}>{society} </Text>
+            <Text style={{ color: Global.colors.primary, marginBottom: 30 }}>
+              {firstname} - {society}
+            </Text>
             <Text
               style={{ color: Global.colors.primary }}
               numberOfLines={2}
@@ -82,7 +84,7 @@ class OfferCard extends React.Component {
           </View>
 
           <Text style={styles.contractText}>
-            {announces[0].salary} € / mo - Fulltime job
+            {announces[0].salary} € / mois - CDI
           </Text>
 
           {/* tags section */}

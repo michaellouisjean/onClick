@@ -8,6 +8,7 @@ import {
   Image,
   Dimensions,
   TouchableOpacity,
+  StatusBar,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Api from '../core/Api';
@@ -28,35 +29,35 @@ const styles = StyleSheet.create({
   },
   container: {
     backgroundColor: '#FFF',
-    marginVertical: 75,
+    marginVertical: 100,
     width: containerWidth,
     flex: 1,
     alignItems: 'center',
-    borderRadius: 10,
+    borderRadius: 12,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.3,
-    shadowRadius: 8,
+    shadowRadius: 12,
   },
   h1: {
-    marginTop: 50,
-    marginBottom: 20,
+    //marginTop: 10,
+    //marginBottom: 20,
     color: '#4D6DC3',
-    fontWeight: 'bold',
+    fontWeight: '300',
     fontSize: 20,
   },
   h3: {
       fontSize: 20,
       color: '#4D6DC3',
-      marginTop: 60,
-      marginBottom: 20,
-      fontWeight: 'bold',
+      marginTop: 15,
+      marginBottom: 10,
+      fontWeight: '500',
   },
   inputsContainer: {
     marginTop: 50,
   },
   inputContainer: {
-    borderBottomWidth: 1,
+    borderBottomWidth: 0.5,
     borderBottomColor: '#4D6DC3',
     marginTop: 5,
   },
@@ -64,6 +65,8 @@ const styles = StyleSheet.create({
     height: 40,
     width: inputWidth,
     backgroundColor: 'white',
+    textAlign: 'center',
+    color: '#999',
   }
 });
 
@@ -119,13 +122,20 @@ class LoginScene extends React.Component {
   render() {
     return (
       <Image
-        source={require('../../assets/images/bg-01.png')}
+        source={require('../../assets/images/bg05.png')}
         style={styles.background}
       >
+        <StatusBar
+          barStyle='light-content'
+        />
         <View style={styles.container} >
+          <Image
+            source={require('../../assets/images/logo-blue.png')}
+            style={{ width: 150 }}
+            resizeMode='contain'
+          />
           <Text style={styles.h1} >
-            {/*Donner un autre sens au travail !*/}
-            Meet your career today !
+            Provoquez votre carrière !
           </Text>
           <View style={styles.inputsContainer} >
             <View style={styles.inputContainer} >
@@ -152,15 +162,12 @@ class LoginScene extends React.Component {
             </View>
           </View>
           <TouchableOpacity onPress={() => this.onLoginSubmit()}>
-            <Text
-              style={styles.h3}
-            >
-                Log in</Text>
+            <Text style={styles.h3}>Connexion</Text>
           </TouchableOpacity>
 
           <View style={{ flex: 1 }} >
             <SendButton
-              name={'Create account'}
+              name={'Inscription'}
               action={this.sendInfo}
             />
           </View>
