@@ -139,23 +139,23 @@ class ViewProfileScene extends React.Component {
 
           {/* section */}
           <View style={[styles.section, styles.backgroundEven]}>
-            <Text style={styles.titleSection} >My best experience</Text>
+            <Text style={styles.titleSection} >Ma meilleure experience :</Text>
             <Text style={styles.textSubtitle} >{cv.experience}</Text>
           </View>
 
           {/* section */}
           <View style={[styles.section, styles.backgroundOdd]}>
-            <Text style={styles.titleSection} >My degrees</Text>
+            <Text style={styles.titleSection} >Mon diplôme :</Text>
 
             <View style={styles.subSection}>
-              <Text style={styles.textSubtitle} >{cv.degree} - 2016</Text>
+              <Text style={styles.textSubtitle} >{cv.degree}</Text>
             </View>
 
           </View>
 
           {/* section */}
           <View style={[styles.section, styles.backgroundEven]}>
-            <Text style={styles.titleSection} >My 3 greatest qualities</Text>
+            <Text style={styles.titleSection} >Mes 3 meilleures qualités :</Text>
 
             <View style={styles.subSection}>
               <Text style={styles.textSubtitle} >{cv.qualities[0]}</Text>
@@ -170,7 +170,7 @@ class ViewProfileScene extends React.Component {
 
           {/* MAP */}
           <View style={[styles.section, styles.backgroundEven]}>
-            <Text style={styles.titleSection} >We've meet here :</Text>
+            <Text style={styles.titleSection} >Nous nous sommes rencontrés ici :</Text>
             {this.renderMap()}
           </View>
 
