@@ -125,7 +125,7 @@ class ProfileScene extends React.Component {
 
     console.log('#ProfileScene : user => ', user);
     return (
-      <View 
+      <View
         style={{
           flex: 1,
           paddingTop: 20,
@@ -238,7 +238,7 @@ class ProfileScene extends React.Component {
 
 
             <View style={[styles.section, { alignItems: 'center' }]}>
-              <TouchableOpacity onPress={() => Alert.alert('Page de réglages')} >
+              {/*<TouchableOpacity onPress={() => Alert.alert('Page de réglages')} >
                 <Text
                   style={{
                     fontWeight: 'bold',
@@ -246,7 +246,7 @@ class ProfileScene extends React.Component {
                     fontSize: 15,
                   }}
                 >Réglages</Text>
-              </TouchableOpacity>
+              </TouchableOpacity>*/}
             </View>
 
           </View>
