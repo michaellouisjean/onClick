@@ -181,7 +181,16 @@ class ProfileScene extends React.Component {
                 </View>
 
                 <View style={[styles.section, { alignItems: 'center', paddingTop: 15 }]}>
-                  <TouchableOpacity onPress={() => this.onLogout()} >
+                  <TouchableOpacity
+                    style={{
+                      borderWidth: StyleSheet.hairlineWidth,
+                      borderColor: Global.colors.accent,
+                      borderRadius: 10,
+                      paddingHorizontal: 10,
+                      paddingVertical: 4,
+                    }}
+                    onPress={() => this.onLogout()}
+                  >
                     <Text
                       style={{
                         fontWeight: 'bold',
