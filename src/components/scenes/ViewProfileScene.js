@@ -110,7 +110,18 @@ class ViewProfileScene extends React.Component {
     } = this.props;
 
     return (
-      <View style={Global.container}>
+      <View
+      style={Global.container}
+      style={{
+        flex: 1,
+        paddingTop: 20,
+        paddingBottom: 50,
+        backgroundColor: Global.colors.primary
+
+      }}>
+        <View style={{
+          backgroundColor: 'white'
+        }}>
         <ScrollView>
 
           {/* profile header content */}
@@ -164,6 +175,7 @@ class ViewProfileScene extends React.Component {
           </View>
 
         </ScrollView>
+        </View>
       </View>
     );
   }
