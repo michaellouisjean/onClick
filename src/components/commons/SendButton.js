@@ -18,7 +18,7 @@ export default class SendButton extends React.Component {
               height: 3,
             },
             borderRadius: 20,
-            marginTop: 35,
+            marginTop: 15,
             justifyContent: 'center',
             paddingVertical: 10,
             paddingHorizontal: 60,

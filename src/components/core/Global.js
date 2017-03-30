@@ -29,6 +29,7 @@ const Global = {
     marginBottom: 10,
     width: '100%',
     backgroundColor: '#ffffff',
+    borderRadius: 2,
     shadowOffset: {
       width: 0,
       height: 2,

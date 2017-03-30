@@ -57,6 +57,7 @@ class HomeScene extends React.Component {
           barStyle="light-content"
         />
         <ListView
+          style={{ marginHorizontal: 8 }}
           dataSource={this.state.dataSource}
           renderRow={this.renderCard}
         />
