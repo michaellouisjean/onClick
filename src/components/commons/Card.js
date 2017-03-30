@@ -111,7 +111,7 @@ class Card extends React.Component {
         <View style={{ flex: 2 }} >
 
           {/* user infos */}
-          <View style={{ marginBottom: 30 }} >
+          <View style={{ marginBottom: 15 }} >
             <Text style={[{ color: Global.colors.primary }, Global.cardTitle]}>{firstname}</Text>
             <Text style={{ color: Global.colors.primary, marginBottom: 30 }}>{cv.title}</Text>
             {/*<Text style={{ color: Global.colors.primary }}>Offer title</Text>*/}
