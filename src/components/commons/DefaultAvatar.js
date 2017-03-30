@@ -7,7 +7,8 @@ export default class DefaultAvatar extends React.Component {
     return (
       <View>
       <Image
-        source={require('../../assets/images/profile.jpeg')}
+        //source={require('../../assets/images/profile.jpeg')}
+        source={{ uri: this.props.photo }}
         style={{
           borderWidth: this.props.border,
           borderColor: '#ffffff',
