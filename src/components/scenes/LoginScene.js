@@ -155,6 +155,7 @@ class LoginScene extends React.Component {
                 type="password"
                 autoCapitalize='none'
                 placeholder="Password"
+                secureTextEntry
                 value={this.state.password}
                 onChangeText={this.onChangePassword}
                 value={this.state.password}
