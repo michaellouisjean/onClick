@@ -132,6 +132,9 @@ class ProfileScene extends React.Component {
           paddingBottom: 50,
           backgroundColor: Global.colors.primary
         }}>
+        <View style={{
+          backgroundColor: 'white'
+        }}>
         <ScrollView>
 
           {/* profile header content */}
@@ -249,6 +252,7 @@ class ProfileScene extends React.Component {
           </View>
 
         </ScrollView>
+        </View>
       </View>
     );
   }
