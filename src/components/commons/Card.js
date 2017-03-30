@@ -114,7 +114,7 @@ class Card extends React.Component {
           <View style={{ marginBottom: 30 }} >
             <Text style={[{ color: Global.colors.primary }, Global.cardTitle]}>{firstname}</Text>
             <Text style={{ color: Global.colors.primary, marginBottom: 30 }}>{cv.title}</Text>
-            <Text style={{ color: Global.colors.primary }}>Offer title</Text>
+            {/*<Text style={{ color: Global.colors.primary }}>Offer title</Text>*/}
           </View>
 
           {/* tags section */}
