@@ -77,7 +77,7 @@ class LoginScene extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: 'annaelle@onclick.io',
+      email: 'annaelle@geniuz.io',
       password: 'password01',
     };
 

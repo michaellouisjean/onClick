@@ -123,6 +123,19 @@ class Api {
     return this.fetchFn(`user/${this.user._id}/favorites`);
   }
 
+  isFavorite(requestId, cb) {
+    this.getFavorites()
+    .then((favorites) => {
+      let isInFavorites = false;
+      favorites.forEach((favorite) => {
+        if (favorite._id === requestId) {
+          isInFavorites = true;
+        }
+      });
+      cb(isInFavorites);
+    });
+  }
+
   getNearestUsersByLocation() {
     const user = this.getUser();
     const userType = user.status === 'candidate' ? 'recruiters' : 'candidates';

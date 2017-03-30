@@ -76,14 +76,27 @@ class ProfileHeader extends React.Component {
     };
     this.onClickFavorite = this.onClickFavorite.bind(this);
     this.checkFavorite = this.checkFavorite.bind(this);
+    this.setIsFavorite = this.setIsFavorite.bind(this);
+  }
+
+  componentDidMount() {
+    this.setIsFavorite();
+  }
+
+  setIsFavorite() {
+    Api.isFavorite(this.props._id, (isFavorite) => {
+      console.log('isFavorite ',isFavorite);
+      this.setState({
+        isFavorite,
+        favorite: isFavorite ? 'ios-star' : 'ios-star-outline',
+      });
+    });
   }
 
   onClickFavorite() {
     Api.addToFavorite(Api.getUser()._id, this.props._id);
-    this.state.isFavorite = !this.state.isFavorite;
-    console.log(this.state.isFavorite);
     this.setState({
-      favorite: this.checkFavorite(),
+      favorite: this.state.favorite==='ios-star-outline' ? 'ios-star' : 'ios-star-outline',
     });
   }
 

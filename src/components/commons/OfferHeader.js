@@ -73,18 +73,32 @@ class OfferHeader extends React.Component {
     this.onClickFavorite = this.onClickFavorite.bind(this);
     this.checkFavorite = this.checkFavorite.bind(this);
     this.setNumberOfLines = this.setNumberOfLines.bind(this);
+    this.setIsFavorite = this.setIsFavorite.bind(this);
+  }
+
+  componentDidMount() {
+    this.setIsFavorite();
+  }
+
+  setIsFavorite() {
+    Api.isFavorite(this.props._id, (isFavorite) => {
+      console.log('isFavorite ',isFavorite);
+      this.setState({
+        isFavorite,
+        favorite: isFavorite ? 'ios-star' : 'ios-star-outline',
+      });
+    });
   }
 
   onClickFavorite() {
     Api.addToFavorite(Api.getUser()._id, this.props._id);
-    this.state.isFavorite = !this.state.isFavorite;
-    console.log(this.state.isFavorite);
     this.setState({
-      favorite: this.checkFavorite(),
+      favorite: this.state.favorite==='ios-star-outline' ? 'ios-star' : 'ios-star-outline',
     });
   }
 
   checkFavorite() {
+    console.log('checkFavorite ', this.state.isFavorite);
     return this.state.isFavorite ? 'ios-star' : 'ios-star-outline';
   }
 
@@ -95,11 +109,10 @@ class OfferHeader extends React.Component {
   }
 
   render() {
-    console.log('#OfferHeader.js : description =>', this.props.description);
+    // console.log('#OfferHeader.js : description =>', this.props.description);
     const {
       numberOfLines
     } = this.state;
-    
     return (
       <View>
 
