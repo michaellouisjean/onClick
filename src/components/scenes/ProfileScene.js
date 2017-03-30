@@ -129,7 +129,8 @@ class ProfileScene extends React.Component {
         style={{
           flex: 1,
           paddingTop: 20,
-          paddingBottom: 50
+          paddingBottom: 50,
+          backgroundColor: Global.colors.primary
         }}>
         <ScrollView>
 

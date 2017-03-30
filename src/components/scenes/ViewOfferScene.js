@@ -101,6 +101,7 @@ class ViewProfileScene extends React.Component {
         flex: 1,
         paddingTop: 20,
         paddingBottom: 50,
+        backgroundColor: Global.colors.primary
       }}
       >
         <View style={Global.container}>

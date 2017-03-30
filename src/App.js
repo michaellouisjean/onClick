@@ -173,12 +173,11 @@ class App extends React.Component {
   renderProfileScene() {
     return (
       <Scene
-        titleStyle={{ color: Global.colors.backgroundEven, fontWeight: '600' }}
+        titleStyle={{ color: '#4D6DC3', fontWeight: 'bold' }}
         key={'ProfileScene'}
         component={ProfileScene}
-        title={'Profil'}
         navigationBarStyle={{
-          backgroundColor: Global.colors.primary,
+          backgroundColor: 'transparent',
           borderBottomWidth: 0
         }}
         icon={(props) =>
