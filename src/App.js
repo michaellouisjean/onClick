@@ -135,7 +135,7 @@ class App extends React.Component {
             shadowRadius: 2,
           }}
           component={Favorites}
-        />
+         />
       </Scene>
     );
   }

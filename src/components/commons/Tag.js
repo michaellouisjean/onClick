@@ -18,11 +18,11 @@ class Tag extends React.Component {
   // function to change tag background color depending of required level
   renderBackgroundLevel(level) {
     let color = null;
-    if (level === 'junior') {
+    if (level === 'Débutant') {
       color = Global.colors.secondary;
-    } else if (level === 'middle') {
+    } else if (level === 'Confirmé') {
       color = Global.colors.primary;
-    } else if (level === 'senior') {
+    } else if (level === 'Expert') {
       color = Global.colors.accent;
     }
 
