@@ -11,6 +11,7 @@ import {
   Alert,
   Switch,
   Slider,
+  StatusBar,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -124,13 +125,16 @@ class ProfileScene extends React.Component {
 
     console.log('#ProfileScene : user => ', user);
     return (
-      <View
+      <View 
         style={{
           flex: 1,
           paddingTop: 20,
           paddingBottom: 50,
-        }}
-      >
+          backgroundColor: Global.colors.primary
+        }}>
+        <View style={{
+          backgroundColor: 'white'
+        }}>
         <ScrollView>
 
           {/* profile header content */}
@@ -248,6 +252,7 @@ class ProfileScene extends React.Component {
           </View>
 
         </ScrollView>
+        </View>
       </View>
     );
   }
