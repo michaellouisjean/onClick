@@ -4,6 +4,7 @@ import SocketIOClient from 'socket.io-client';
 import { GiftedChat, Bubble, MessageText, Time, Send } from 'react-native-gifted-chat';
 import Api from '../core/Api';
 import Global from '../core/Global';
+import Config from '../core/Config';
 
 
 const USER_ID = Api.getUser()._id;
@@ -22,8 +23,8 @@ export default class TchatScene extends React.Component {
     this.loadMessages = this.loadMessages.bind(this);
     this.onSendMessage = this.onSendMessage.bind(this);
     this.onMessageReceived = this.onMessageReceived.bind(this);
-    // this.client = SocketIOClient('http://192.168.1.116:3000/',{jsonp: false});
-    this.client = SocketIOClient('http://localhost:3000',{jsonp: false});
+    this.client = SocketIOClient(Config.tchat,{jsonp: false});
+    //this.client = SocketIOClient('http://localhost:3000',{jsonp: false});
     this._isMounted = false;
     this.client.on('serverSendsMessage', this.onMessageReceived);
     this.client.on('serverloadsMessages', this.loadMessages);
