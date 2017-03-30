@@ -29,7 +29,7 @@ const Global = {
     marginBottom: 10,
     width: '100%',
     backgroundColor: '#ffffff',
-    shadowOffset :{
+    shadowOffset: {
       width: 0,
       height: 2,
     },

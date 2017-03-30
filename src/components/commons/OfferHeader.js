@@ -142,7 +142,7 @@ class OfferHeader extends React.Component {
                   />
                 </TouchableOpacity>
 
-                <Text style={[{ textAlign: 'center' }, styles.textName]}>{this.props.society}</Text>
+                <Text style={[{ textAlign: 'center' }, styles.textName]}>{this.props.firstname}</Text>
 
                 <TouchableOpacity onPress={() => Actions.tchat({ speakerId: this.props._id })} >
                   <Icon
@@ -165,8 +165,9 @@ class OfferHeader extends React.Component {
         </View>
 
         <View style={[styles.section, styles.backgroundEven]}>
+          <Text style={styles.titleSection}>Sté: {this.props.society}</Text>
           <Text style={styles.titleSection} >
-            {this.props.title} - {this.props.salary} € /mo
+            Je recherche : {this.props.title} - {this.props.salary} € / mois - CDI
           </Text>
 
           <TouchableOpacity onPress= {() => this.setNumberOfLines()}>

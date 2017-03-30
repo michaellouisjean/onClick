@@ -23,7 +23,6 @@ class MapContainer extends React.Component {
           justifyContent: 'center',
           alignItems: 'center',
           borderRadius: 4,
-          paddingBottom: 40,
         }}
       >
         <Map

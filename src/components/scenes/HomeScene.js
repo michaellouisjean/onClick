@@ -3,6 +3,7 @@ import React from 'react';
 import {
   View,
   ListView,
+  StatusBar,
 } from 'react-native';
 import Api from '../core/Api';
 
@@ -31,9 +32,9 @@ class HomeScene extends React.Component {
     Api.getNearestUsersByLocation()
       .then((users) => {
         console.log('#HomeScene | @Api.getNearestUsersByLocation() =>', users);
-          this.setState({
-            dataSource: this.state.dataSource.cloneWithRows(users),
-          });
+        this.setState({
+          dataSource: this.state.dataSource.cloneWithRows(users),
+        });
       });
   }
 
@@ -51,6 +52,10 @@ class HomeScene extends React.Component {
   render() {
     return (
       <View style={[Global.container, { paddingTop: 62, paddingBottom: 50 }]} >
+        <StatusBar
+          //backgroundColor="blue"
+          barStyle="light-content"
+        />
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this.renderCard}

@@ -85,6 +85,14 @@ class ViewProfileScene extends React.Component {
 
   render() {
     const {
+      _id,
+      city,
+      firstname,
+      photo,
+      title,
+      society,
+      description,
+      salary,
       announces,
     } = this.props;
 
@@ -99,28 +107,32 @@ class ViewProfileScene extends React.Component {
           <ScrollView>
 
             <OfferHeader
-              _id={this.props._id}
+              _id={_id}
               imageSize={100}
-              city={this.props.city}
-              photo={this.props.photo}
-              title={this.props.announces[0].title}
-              society={this.props.society}
-              description={this.props.announces[0].description}
-              salary={this.props.announces[0].salary}
+              city={city}
+              firstname={firstname}
+              photo={photo}
+              title={announces[0].title}
+              society={society}
+              description={announces[0].description}
+              salary={announces[0].salary}
             />
 
             <View style={[styles.section, styles.backgroundEven]}>
-              <Text style={styles.titleSection} >Required skills :</Text>
+              <Text style={styles.titleSection} >Niveau requis  :</Text>
 
               <View style={styles.subSection}>
                 <Text style={styles.textSubtitle} >
-                  {announces[0].competences[0].name} - Level: {announces[0].competences[0].level}
+                  {announces[0].competences[0].name}
+                </Text>
+                <Text style={styles.textSubtitle} >
+                  Niveau min: {announces[0].competences[0].level}
                 </Text>
               </View>
 
               <View style={styles.subSection}>
                 <Text style={styles.textSubtitle} >
-                  {announces[0].languages[0].name} - Level: {announces[0].languages[0].level}
+                  Langues : {announces[0].languages[0].name} ({announces[0].languages[0].level})
                 </Text>
               </View>
 
@@ -128,7 +140,7 @@ class ViewProfileScene extends React.Component {
 
             {/* MAP */}
             <View style={[styles.section, styles.backgroundEven]}>
-              <Text style={styles.titleSection} >We've meet here :</Text>
+              <Text style={styles.titleSection} >Nous nous sommes rencontrés ici :</Text>
               {this.renderMap()}
             </View>
 

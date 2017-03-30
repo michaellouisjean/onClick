@@ -52,12 +52,12 @@ class App extends React.Component {
         }
       >
         <Scene
-          titleStyle={{ color: '#4D6DC3', fontWeight: 'bold' }}
+          titleStyle={{ color: Global.colors.backgroundEven, fontWeight: '600' }}
           key={'HomeScene'}
           backButtonImage={require('./assets/images/backchevron.png')}
-          title={'Home'}
+          title={'Geniuz'}
           navigationBarStyle={{
-            backgroundColor: 'white',
+            backgroundColor: Global.colors.primary,
             shadowColor: '#444444',
             shadowOffset: { width: 0, height: 2 },
             shadowOpacity: 0.1,
@@ -66,7 +66,7 @@ class App extends React.Component {
           component={HomeScene}
         />
         <Scene
-          titleStyle={{ color: '#4D6DC3', fontWeight: 'bold' }}
+          titleStyle={{ color: Global.colors.backgroundEven, fontWeight: '600' }}
           key={'profile'}
           hideNavBar={false}
           navigationBarStyle={{ backgroundColor: 'transparent', borderBottomWidth: 0 }}
@@ -95,11 +95,11 @@ class App extends React.Component {
         }
       >
         <Scene
-          titleStyle={{ color: '#4D6DC3', fontWeight: 'bold' }}
+          titleStyle={{ color: Global.colors.backgroundEven, fontWeight: '600' }}
           key={'tchatListScene'}
           title={'Conversations'}
           navigationBarStyle={{
-            backgroundColor: 'white',
+            backgroundColor: Global.colors.primary,
             shadowColor: '#444444',
             shadowOffset: { width: 0, height: 2 },
             shadowOpacity: 0.1,
@@ -124,11 +124,11 @@ class App extends React.Component {
         }
       >
         <Scene
-          titleStyle={{ color: '#4D6DC3', fontWeight: 'bold' }}
+          titleStyle={{ color: Global.colors.backgroundEven, fontWeight: '600' }}
           key={'favorites'}
-          title={'Favorites'}
+          title={'Favoris'}
           navigationBarStyle={{
-            backgroundColor: 'white',
+            backgroundColor: Global.colors.primary,
             shadowColor: '#444444',
             shadowOffset: { width: 0, height: 2 },
             shadowOpacity: 0.1,
