@@ -21,7 +21,24 @@ const styles = StyleSheet.create({
     fontSize: 25,
   }
 });
-
+const DISTANCE = [
+  200,
+  250,
+  300,
+  350,
+  400,
+  450,
+  500,
+  550,
+  600,
+  650,
+  700,
+  750,
+  800,
+  850,
+  900,
+  950
+  ];
 // create component & render
 class Card extends React.Component {
   constructor(props) {
@@ -34,10 +51,15 @@ class Card extends React.Component {
     this.checkFavorite = this.checkFavorite.bind(this);
   }
 
+
   checkFavorite() {
     return this.state.isFavorite ? 'ios-star' : 'ios-star-outline';
   }
 
+  renderDistance() {
+   return DISTANCE[Math.floor(Math.random() * ((DISTANCE.length - 1) - 0) + 0)];
+  }
+  
   render() {
     console.log('#Card : props received => ', this.props);
     const {
@@ -81,7 +103,7 @@ class Card extends React.Component {
           />
 
           <Text style={[{ color: Global.colors.secondary }, Global.cardDistance]} >
-            250 m
+            {this.renderDistance()} m
           </Text>
         </View>
 
