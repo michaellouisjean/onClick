@@ -1,6 +1,7 @@
 // import library
 import React from 'react';
 import {
+  KeyboardAvoidingView,
   StyleSheet,
   View,
   Text,
@@ -10,6 +11,8 @@ import {
   TouchableOpacity,
   StatusBar,
 } from 'react-native';
+import KeyboardSpacer from 'react-native-keyboard-spacer';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { Actions } from 'react-native-router-flux';
 import Api from '../core/Api';
 
