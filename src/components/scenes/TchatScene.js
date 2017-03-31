@@ -4,6 +4,7 @@ import SocketIOClient from 'socket.io-client';
 import { GiftedChat, Bubble, MessageText, Time, Send } from 'react-native-gifted-chat';
 import Api from '../core/Api';
 import Global from '../core/Global';
+import Config from '../core/Config';
 
 
 const USER_ID = Api.getUser()._id;
