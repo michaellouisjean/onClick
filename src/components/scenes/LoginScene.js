@@ -1,5 +1,5 @@
 // import library
-import React from 'react';
+import React from "react";
 import {
   KeyboardAvoidingView,
   StyleSheet,
@@ -9,79 +9,77 @@ import {
   Image,
   Dimensions,
   TouchableOpacity,
-  StatusBar,
-} from 'react-native';
-import KeyboardSpacer from 'react-native-keyboard-spacer';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { Actions } from 'react-native-router-flux';
-import Api from '../core/Api';
+  StatusBar
+} from "react-native";
+// import KeyboardSpacer from 'react-native-keyboard-spacer';
+// import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { Actions } from "react-native-router-flux";
+import Api from "../core/Api";
 
 // import component
-import SendButton from '../commons/SendButton';
+import SendButton from "../commons/SendButton";
 
 const PADDING = 20;
-const containerWidth = Dimensions.get('window').width - (PADDING * 2);
-const inputWidth = Dimensions.get('window').width - (PADDING * 2) - (PADDING * 2);
+const containerWidth = Dimensions.get("window").width - PADDING * 2;
+const inputWidth = Dimensions.get("window").width - PADDING * 2 - PADDING * 2;
 
 const styles = StyleSheet.create({
   background: {
-    width: '100%',
-    height: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: "100%",
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center"
   },
   container: {
-    backgroundColor: '#FFF',
+    backgroundColor: "#FFF",
     marginVertical: 100,
     width: containerWidth,
     flex: 1,
-    alignItems: 'center',
+    alignItems: "center",
     borderRadius: 12,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.3,
-    shadowRadius: 12,
+    shadowRadius: 12
   },
   h1: {
     //marginTop: 10,
     //marginBottom: 20,
-    color: '#4D6DC3',
-    fontWeight: '300',
-    fontSize: 20,
+    color: "#4D6DC3",
+    fontWeight: "300",
+    fontSize: 20
   },
   h3: {
-      fontSize: 20,
-      color: '#4D6DC3',
-      marginTop: 15,
-      marginBottom: 10,
-      fontWeight: '500',
+    fontSize: 20,
+    color: "#4D6DC3",
+    marginTop: 15,
+    marginBottom: 10,
+    fontWeight: "500"
   },
   inputsContainer: {
-    marginTop: 50,
+    marginTop: 50
   },
   inputContainer: {
     borderBottomWidth: 0.5,
-    borderBottomColor: '#4D6DC3',
-    marginTop: 5,
+    borderBottomColor: "#4D6DC3",
+    marginTop: 5
   },
   input: {
     height: 40,
     width: inputWidth,
-    backgroundColor: 'white',
-    textAlign: 'center',
-    color: '#999',
+    backgroundColor: "white",
+    textAlign: "center",
+    color: "#999"
   }
 });
 
-
 // create component & render
 class LoginScene extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: '',
+      email: "",
+      password: ""
     };
 
     this.onChangeEmail = this.onChangeEmail.bind(this);
@@ -93,7 +91,7 @@ class LoginScene extends React.Component {
   onChangeEmail(text) {
     const email = text;
     this.setState({
-      email,
+      email
     });
     //console.log(this.state.email);
   }
@@ -101,21 +99,23 @@ class LoginScene extends React.Component {
   onChangePassword(text) {
     const password = text;
     this.setState({
-      password,
+      password
     });
     //console.log(this.state.password);
   }
-
 
   onLoginSubmit() {
     // console.log('#LoginScene : onLoginSubmit() => ', {
     //   email: this.state.email,
     //   password: this.state.password
     // });
-    Api.logIn({
-      email: this.state.email,
-      password: this.state.password,
-    }, () => Actions.tab());
+    Api.logIn(
+      {
+        email: this.state.email,
+        password: this.state.password
+      },
+      () => Actions.tab()
+    );
   }
 
   sendInfo() {
@@ -125,38 +125,36 @@ class LoginScene extends React.Component {
   render() {
     return (
       <Image
-        source={require('../../assets/images/bg05.png')}
+        source={require("../../assets/images/bg05.png")}
         style={styles.background}
       >
-        <StatusBar
-          barStyle='light-content'
-        />
-        <View style={styles.container} >
+        <StatusBar barStyle="light-content" />
+        <View style={styles.container}>
           <Image
-            source={require('../../assets/images/logo-blue.png')}
+            source={require("../../assets/images/logo-blue.png")}
             style={{ width: 150 }}
-            resizeMode='contain'
+            resizeMode="contain"
           />
-          <Text style={styles.h1} >
+          <Text style={styles.h1}>
             Provoquez votre carrière !
           </Text>
-          <View style={styles.inputsContainer} >
-            <View style={styles.inputContainer} >
+          <View style={styles.inputsContainer}>
+            <View style={styles.inputContainer}>
               <TextInput
                 style={styles.input}
                 type="email"
-                autoCapitalize='none'
+                autoCapitalize="none"
                 placeholder="Email"
                 value={this.state.email}
                 onChangeText={this.onChangeEmail}
                 value={this.state.email}
               />
             </View>
-            <View style={styles.inputContainer} >
+            <View style={styles.inputContainer}>
               <TextInput
                 style={styles.input}
                 type="password"
-                autoCapitalize='none'
+                autoCapitalize="none"
                 placeholder="Password"
                 secureTextEntry
                 value={this.state.password}
@@ -169,11 +167,8 @@ class LoginScene extends React.Component {
             <Text style={styles.h3}>Connexion</Text>
           </TouchableOpacity>
 
-          <View style={{ flex: 1 }} >
-            <SendButton
-              name={'Inscription'}
-              action={this.sendInfo}
-            />
+          <View style={{ flex: 1 }}>
+            <SendButton name={"Inscription"} action={this.sendInfo} />
           </View>
         </View>
       </Image>
