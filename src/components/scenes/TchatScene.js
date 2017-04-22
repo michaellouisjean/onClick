@@ -32,15 +32,21 @@ export default class TchatScene extends React.Component {
     // this.client = SocketIOClient('http://localhost:3000',{jsonp: false});
     this.client = SocketIOClient(Config.tchat, { jsonp: false });
     this._isMounted = false;
-    this.client.on("serverSendsMessage", this.onMessageReceived);
+
+    // Le serveur envoie la conversation demandée
     this.client.on("serverloadsMessages", this.loadMessages);
+    // Le serveur envoie la liste des messages mise à jour
+    this.client.on("serverSendsMessage", this.onMessageReceived);
 
     this.USER_ID = Api.getUser()._id;
     this.USER_STATUS = Api.getUser().status;
   }
 
   componentDidMount() {
+    // On récupère la conversation en cours
     this.getMessages();
+
+    // On récuprère l'id de l'utilisateur loggé
     this.setState({
       userId: Api.getUser()._id
     });
@@ -51,9 +57,12 @@ export default class TchatScene extends React.Component {
     this._isMounted = false;
   }
 
+  // Récupère la conversation en cours entre un recruteur et un candidat
   getMessages() {
     console.log("getMessages USER_ID ", this.USER_ID);
     console.log("getMessages USER_STATUS ", this.USER_STATUS);
+
+    // Le client demande au serveur de lui envoyer la conversation
     this.client.emit("clientGetMessages", {
       userId: this.USER_ID,
       userStatus: this.USER_STATUS,
@@ -61,31 +70,37 @@ export default class TchatScene extends React.Component {
     });
   } // getMessages
 
+  // Le serveur envoie la conversation demandée
   loadMessages(talk) {
     console.log("client loads messages");
     console.log("loadMessages talk ", talk);
     if (this._isMounted) {
       if (talk) {
+        // Chargement des messages, du plus vieux au plus récent
+        // Si la conversation vient d'être créée, il n'y a pas encore de messages => []
         this.setState({
           messages: talk.messages ? talk.messages.reverse() : [],
-          talk_id: talk._id
+          talk_id: talk._id // récupère l'id de la conversation
         });
       }
     }
   } // loadMessages
 
+  // Le serveur envoie la liste des messages mise à jour
   onMessageReceived(messages) {
     console.log("client recieves message");
     messages.reverse();
     if (this._isMounted) {
       this.setState({
-        messages
+        messages // met à jour les messages à afficher
       });
     }
   } // onMessageReceived
 
+  // L'utilisateur envoie un message
   onSendMessage(message) {
     console.log("client sends message");
+    // On créé l'objet "message", avec le message + données utilisateur + date du message
     var messageData = {
       text: message[0].text,
       user: {
@@ -95,13 +110,15 @@ export default class TchatScene extends React.Component {
       },
       createdAt: new Date(message[0].createdAt)
     };
-    console.log("TchatScene#onSend talk_id ", this.state.talk_id);
+
+    // Le client envoie l'objet message au serveur et l'id de la conversation
     this.client.emit("clientSendsMessage", {
       message: messageData,
       talk_id: this.state.talk_id
     });
   } // onSendMessage
 
+  // Styling du bouton "Send"
   renderSend(props) {
     return (
       <Send
@@ -110,9 +127,10 @@ export default class TchatScene extends React.Component {
           color: `${Global.colors.primary}`
         }}
       />
-    );
-  }
+    ); // return
+  } // renderSend
 
+  // Styling des dates des messages
   renderTime(props) {
     return (
       <Time
@@ -122,9 +140,10 @@ export default class TchatScene extends React.Component {
           right: { color: `${Global.colors.tchatColor}` }
         }}
       />
-    );
-  }
+    ); // return
+  } // renderTime
 
+  // Styling des textes des messages
   renderMessageText(props) {
     return (
       <MessageText
@@ -134,9 +153,10 @@ export default class TchatScene extends React.Component {
           right: { color: `${Global.colors.tchatColor}` }
         }}
       />
-    );
-  }
+    ); // return
+  } //renderMessageText
 
+  // Styling des bulles
   renderBubble(props) {
     return (
       <Bubble
@@ -146,8 +166,8 @@ export default class TchatScene extends React.Component {
           right: { backgroundColor: `${Global.colors.primary}` }
         }}
       />
-    );
-  }
+    ); // return
+  } //renderBubble
 
   render() {
     var user = { _id: this.state.userId || -1 };
