@@ -4,6 +4,7 @@ import {
   KeyboardAvoidingView,
   StyleSheet,
   View,
+  ScrollView,
   Text,
   TextInput,
   Image,
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
   },
   container: {
     backgroundColor: "#FFF",
-    marginVertical: 100,
+    marginVertical: 50,
     width: containerWidth,
     flex: 1,
     alignItems: "center",
@@ -124,6 +125,7 @@ class LoginScene extends React.Component {
 
   render() {
     return (
+      <View>
       <Image
         source={require("../../assets/images/bg05.png")}
         style={styles.background}
@@ -172,6 +174,7 @@ class LoginScene extends React.Component {
           </View>
         </View>
       </Image>
+    </View>
     );
   }
 }
