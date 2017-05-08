@@ -1,10 +1,8 @@
 // import library
 import React from "react";
 import {
-  KeyboardAvoidingView,
   StyleSheet,
   View,
-  ScrollView,
   Text,
   TextInput,
   Image,
@@ -12,8 +10,8 @@ import {
   TouchableOpacity,
   StatusBar
 } from "react-native";
-// import KeyboardSpacer from 'react-native-keyboard-spacer';
-// import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { Actions } from "react-native-router-flux";
 import Api from "../core/Api";
 
@@ -34,6 +32,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFF",
     marginVertical: 50,
+    paddingBottom: 25,
     width: containerWidth,
     flex: 1,
     alignItems: "center",
@@ -44,8 +43,6 @@ const styles = StyleSheet.create({
     shadowRadius: 12
   },
   h1: {
-    //marginTop: 10,
-    //marginBottom: 20,
     color: "#4D6DC3",
     fontWeight: "300",
     fontSize: 20
@@ -125,56 +122,56 @@ class LoginScene extends React.Component {
 
   render() {
     return (
-      <View>
       <Image
         source={require("../../assets/images/bg05.png")}
         style={styles.background}
       >
         <StatusBar barStyle="light-content" />
-        <View style={styles.container}>
-          <Image
-            source={require("../../assets/images/logo-blue.png")}
-            style={{ width: 150 }}
-            resizeMode="contain"
-          />
-          <Text style={styles.h1}>
-            Provoquez votre carrière !
-          </Text>
-          <View style={styles.inputsContainer}>
-            <View style={styles.inputContainer}>
-              <TextInput
-                style={styles.input}
-                type="email"
-                autoCapitalize="none"
-                placeholder="Email"
-                value={this.state.email}
-                onChangeText={this.onChangeEmail}
-                value={this.state.email}
-              />
+        <KeyboardAwareScrollView extraHeight={100}>
+          <View style={styles.container}>
+            <Image
+              source={require("../../assets/images/logo-blue.png")}
+              style={{ width: 150 }}
+              resizeMode="contain"
+            />
+            <Text style={styles.h1}>
+              Provoquez votre carrière !
+            </Text>
+            <View style={styles.inputsContainer}>
+              <View style={styles.inputContainer}>
+                <TextInput
+                  style={styles.input}
+                  type="email"
+                  autoCapitalize="none"
+                  placeholder="Email"
+                  value={this.state.email}
+                  onChangeText={this.onChangeEmail}
+                  value={this.state.email}
+                />
+              </View>
+              <View style={styles.inputContainer}>
+                <TextInput
+                  style={styles.input}
+                  type="password"
+                  autoCapitalize="none"
+                  placeholder="Password"
+                  secureTextEntry
+                  value={this.state.password}
+                  onChangeText={this.onChangePassword}
+                  value={this.state.password}
+                />
+              </View>
             </View>
-            <View style={styles.inputContainer}>
-              <TextInput
-                style={styles.input}
-                type="password"
-                autoCapitalize="none"
-                placeholder="Password"
-                secureTextEntry
-                value={this.state.password}
-                onChangeText={this.onChangePassword}
-                value={this.state.password}
-              />
-            </View>
-          </View>
-          <TouchableOpacity onPress={() => this.onLoginSubmit()}>
-            <Text style={styles.h3}>Connexion</Text>
-          </TouchableOpacity>
+            <TouchableOpacity onPress={() => this.onLoginSubmit()}>
+              <Text style={styles.h3}>Connexion</Text>
+            </TouchableOpacity>
 
-          <View style={{ flex: 1 }}>
-            <SendButton name={"Inscription"} action={this.sendInfo} />
+            <View style={{ flex: 1 }}>
+              <SendButton name={"Inscription"} action={this.sendInfo} />
+            </View>
           </View>
-        </View>
+        </KeyboardAwareScrollView>
       </Image>
-    </View>
     );
   }
 }
